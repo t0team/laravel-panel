@@ -1,15 +1,35 @@
 {
     "name": "ahr1384/laravel-panel",
+    "description": "A AdminPanel For Laravel",
+    "keywords": [
+        "ahr1384",
+        "laravel",
+        "admin",
+        "admin-panel",
+        "panel"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AmirHosein Rahimi",
+            "email": "amirhoseinrahimi.work@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "spatie/laravel-package-tools": "^1.12"
+    },
     "autoload": {
         "psr-4": {
             "Ahr1384\\LaravelPanel\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "AmirHosein Rahimi",
-            "email": "amirhoseinrahimi.work@gmail.com"
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ahr1384\\LaravelPanel\\LaravelPanelServiceProvider"
+            ],
+            "aliases": {}
         }
-    ],
-    "require": {}
+    }
 }
