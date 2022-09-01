@@ -1,4 +1,4 @@
-# laravel-panel
+# Laravel Panel
 Admin Panel For Laravel
 
 ---
