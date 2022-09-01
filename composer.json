@@ -19,9 +19,17 @@
     "require": {
         "spatie/laravel-package-tools": "^1.12"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
     "autoload": {
         "psr-4": {
             "Ahr1384\\LaravelPanel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ahr1384\\LaravelPanel\\Tests\\": "tests/"
         }
     },
     "extra": {
