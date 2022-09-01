@@ -1,0 +1,15 @@
+{
+    "name": "ahr1384/laravel-panel",
+    "autoload": {
+        "psr-4": {
+            "Ahr1384\\LaravelPanel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AmirHosein Rahimi",
+            "email": "amirhoseinrahimi.work@gmail.com"
+        }
+    ],
+    "require": {}
+}
