@@ -4,8 +4,15 @@ namespace LazySoft\LaravelPanel\Controllers;
 
 class Panel
 {
-    public function makeView(string $view, array $attributes = []): MakeView
+    private object $config;
+
+    public function __construct()
     {
-        return new MakeView($view, $attributes);
+        $this->config = (object) config('panel');
+    }
+
+    public function makeView(string $view): MakeView
+    {
+        return new MakeView($view, $this->config);
     }
 }
