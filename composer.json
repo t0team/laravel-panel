@@ -1,8 +1,9 @@
 {
-    "name": "ahr1384/laravel-panel",
+    "name": "lazysoft/laravel-panel",
     "description": "A AdminPanel For Laravel",
     "keywords": [
         "ahr1384",
+        "LazySoft",
         "laravel",
         "admin",
         "admin-panel",
@@ -24,18 +25,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Ahr1384\\LaravelPanel\\": "src/"
+            "LazySoft\\LaravelPanel\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Ahr1384\\LaravelPanel\\Tests\\": "tests/"
+            "LazySoft\\LaravelPanel\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Ahr1384\\LaravelPanel\\LaravelPanelServiceProvider"
+                "LazySoft\\LaravelPanel\\LaravelPanelServiceProvider"
             ],
             "aliases": {}
         }
