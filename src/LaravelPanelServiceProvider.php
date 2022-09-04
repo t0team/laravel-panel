@@ -2,6 +2,7 @@
 
 namespace LazySoft\LaravelPanel;
 
+use LazySoft\LaravelPanel\Controllers\Panel;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -15,5 +16,7 @@ class LaravelPanelServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->hasAssets()
             ->hasRoute('web');
+
+        $this->app->bind('panel', fn () => new Panel());
     }
 }
