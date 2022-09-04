@@ -38,7 +38,9 @@
             "providers": [
                 "LazySoft\\LaravelPanel\\LaravelPanelServiceProvider"
             ],
-            "aliases": {}
+            "aliases": {
+                "Panel": "LazySoft\\LaravelPanel\\Facades\\Panel"
+            }
         }
     }
 }
