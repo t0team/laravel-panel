@@ -1,0 +1,38 @@
+body {
+    background: #f0f2f5;
+}
+
+@media (min-width:1200px) {
+    body::-webkit-scrollbar-thumb {
+        background: #a5a5a5;
+    }
+}
+
+#loading {
+    background-color: #fff;
+}
+
+/*----------TABLE COLOR----------*/
+
+.table-div {
+    box-shadow: 0 2px 13px 0 rgb(50 50 93 / 6%);
+}
+
+tr {
+    border-bottom: 1px solid #d6d6d6;
+    background-color: #fff;
+    transition: 0.2s;
+}
+
+tfoot tr,
+thead tr {
+    background-color: #f7f7f7;
+}
+
+tfoot tr {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f3f3f3;
+}

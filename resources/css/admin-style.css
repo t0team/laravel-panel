@@ -1,0 +1,186 @@
+/*----------TABLE CSS----------*/
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    /* text-align: center; */
+    padding: 16px 12px;
+}
+
+td {
+    height: 46px;
+}
+
+tr th:first-child {
+    width: 3%;
+}
+
+tr td:first-child {
+    font-weight: 600;
+}
+
+tr th:first-child,
+tr td:first-child {
+    text-align: center;
+}
+
+
+/*----------POSTS CSS----------*/
+
+.btn-post-action {
+    padding: 4px 12px;
+}
+
+@media (max-width:950px) {
+    .btn-post-action {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 6px;
+    }
+
+    .table-div {
+        overflow-x: auto;
+    }
+}
+
+
+
+/*----------NEW/EDIT POST CSS----------*/
+
+.editor-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.right-editor-box {
+    width: 80%;
+}
+
+.left-editor-box {
+    width: 20%;
+    margin-right: 30px;
+}
+
+.postbox {
+    position: relative;
+    border: 1px solid;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-color: #ced4da;
+    background: #fff;
+}
+
+.postbox-header {
+    border-bottom: 1px solid;
+    border-color: #c3c4c7;
+    background-color: #f6f7f7;
+}
+
+.postbox-header h2 {
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+.minor-publishing {
+    padding: 10px;
+}
+
+.minor-publishing-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.minor-publishing-actions input {
+    font-size: 14px;
+}
+
+.files-modal-items-btn {
+    display: flex;
+    flex-direction: row;
+    margin: 0 !important;
+}
+
+.delete-image-btn {
+    margin-bottom: 12px;
+    margin-right: 8px;
+}
+
+.files-modal-items-btn i {
+    margin-left: 0 !important;
+}
+
+.misc-publishing-actions {
+    padding-top: 6px;
+}
+
+.misc-pub-section {
+    padding: 6px 0px 8px;
+}
+
+.misc-pub-section>div {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.misc-pub-section i {
+    margin-left: 6px;
+}
+
+.publishing-actions {
+    padding: 10px;
+    border-top: 1px solid;
+    border-radius: 0px 0px 4px 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    border-color: #dcdcde;
+    background: #f6f7f7;
+}
+
+.featured-image input {
+    text-align: left;
+    direction: ltr;
+}
+
+.btn-delete-action {
+    color: red;
+    text-decoration: underline;
+    font-size: 13px;
+    background-color: transparent;
+}
+
+.publishing-actions.edit-post {
+    justify-content: space-between;
+}
+
+@media (max-width:1500px) {
+    .right-editor-box {
+        width: 75%;
+    }
+
+    .left-editor-box {
+        width: 25%;
+    }
+}
+
+@media (max-width:1024px) {
+    .right-editor-box {
+        width: 100%;
+    }
+
+    .left-editor-box {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .editor-row {
+        flex-direction: column;
+    }
+}
