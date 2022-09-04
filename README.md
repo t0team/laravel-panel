@@ -12,5 +12,8 @@ composer require lazysoft/laravel-panel
 Publish and launch required files:
 
 ```bash
-php artisan vendor:publish --tag="laravel-panel"
+php artisan vendor:publish --tag="panel-config"
+```
+```bash
+php artisan vendor:publish --tag="panel-assets"
 ```
