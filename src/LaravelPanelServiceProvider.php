@@ -1,6 +1,6 @@
 <?php
 
-namespace Ahr1384\LaravelPanel;
+namespace LazySoft\LaravelPanel;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -13,6 +13,7 @@ class LaravelPanelServiceProvider extends PackageServiceProvider
             ->name('laravel-panel')
             ->hasConfigFile()
             ->hasViews()
+            ->hasAssets()
             ->hasRoute('web');
     }
 }
