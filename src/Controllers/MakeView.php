@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\View;
 
 class MakeView
 {
-    private $view;
+    private $panel;
+    private string $view;
     private object $config;
     private array $lPanel = [];
+    private array $with = [];
 
     public function __construct(string $view, object $config)
     {
@@ -17,8 +19,9 @@ class MakeView
         }
 
         $this->config = $config;
-        $this->view = View::make("panel::index");
-        $this->lPanel['view'] = view($view);
+        $this->lPanel['config'] = $this->config;
+        $this->view = $view;
+        $this->panel = View::make("panel::index");
 
         $this->fixUserInfo();
 
@@ -48,11 +51,7 @@ class MakeView
 
     public function with(string $key, $value): MakeView
     {
-        if ($key == 'lPanel') {
-            throw new \Exception("Key [lPanel] are reserved");
-        }
-
-        $this->view->with($key, $value);
+        $this->with[$key] = $value;
         return $this;
     }
 
@@ -99,9 +98,10 @@ class MakeView
 
     public function render()
     {
-        $this->lPanel['config'] = $this->config;
-        $this->view->with('lPanel', (object) $this->lPanel);
+        $this->lPanel['view'] = view($this->view, $this->with);
 
-        return $this->view->render();
+        $this->panel->with('lPanel', (object) $this->lPanel);
+
+        return $this->panel->render();
     }
 }
