@@ -14,8 +14,7 @@ class LaravelPanelServiceProvider extends PackageServiceProvider
             ->name('laravel-panel')
             ->hasConfigFile()
             ->hasViews()
-            ->hasAssets()
-            ->hasRoute('web');
+            ->hasAssets();
 
         $this->app->bind('panel', fn () => new Panel());
     }
