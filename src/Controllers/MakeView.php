@@ -78,12 +78,18 @@ class MakeView
 
     public function setPageButton(
         string $title,
-        string $url,
+        string $routeNameOrUrl,
         string $icon = null,
         string $color = 'primary',
         bool $outLine = false,
         bool $openInNewTab = false
     ): MakeView {
+        if (strpos($routeNameOrUrl, 'http') !== false) {
+            $url = $routeNameOrUrl;
+        } else {
+            $url = route($routeNameOrUrl);
+        }
+
         $this->lPanel['button'] = (object) [
             'title' => $title,
             'url' => $url,
