@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="/vendor/panel/css/app.css">
 
     <title>
-        @if (isset($lPanel->title))
-            {{ $lPanel->title }} -
+        @if (isset($title))
+            {{ $title }} -
         @endif
-        {{ $lPanel->config->title }}
+        {{ $config->title }}
     </title>
 </head>
 
@@ -23,20 +23,20 @@
         <div class="top-menu justify-content-between">
             <div class="d-flex align-items-center gap-3">
                 <button onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
-                @if (isset($lPanel->title))
-                    <h2 class="fs-4 gap-2 mb-0">{{ $lPanel->title }}</h2>
+                @if (isset($title))
+                    <h2 class="fs-4 gap-2 mb-0">{{ $title }}</h2>
                 @endif
             </div>
 
-            @if (isset($lPanel->button))
+            @if (isset($button))
                 <div>
-                    <a href="{{ $lPanel->button->url }}" {{ $lPanel->button->blanck ? 'target="_blank"' : '' }}
-                        class="btn btn-{{ $lPanel->button->outLine ? 'outline-' : '' }}{{ $lPanel->button->color }}">
+                    <a href="{{ $button->url }}" {{ $button->blanck ? 'target="_blank"' : '' }}
+                        class="btn btn-{{ $button->outLine ? 'outline-' : '' }}{{ $button->color }}">
 
-                        @if ($lPanel->button->icon)
-                            <i class="{{ $lPanel->button->icon }}"></i>
+                        @if ($button->icon)
+                            <i class="{{ $button->icon }}"></i>
                         @endif
-                        {{ $lPanel->button->title }}
+                        {{ $button->title }}
                     </a>
                 </div>
             @endif
@@ -50,18 +50,18 @@
                 <div class="user-info">
                     <a class="text-black">
                         <div>
-                            <img src="{{ $lPanel->user->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($lPanel->user->email ?? ''))) . '?s=280&d=mm&r=g' }}"
+                            <img src="{{ $user->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user->email ?? ''))) . '?s=280&d=mm&r=g' }}"
                                 alt="Profile Image">
                         </div>
                         <div>
-                            <p>{{ $lPanel->user->name ?? 'Anonymous User' }}</p>
-                            <span>{{ $lPanel->user->side ?? '' }}</span>
+                            <p>{{ $user->name ?? 'Anonymous User' }}</p>
+                            <span>{{ $user->side ?? '' }}</span>
                         </div>
                     </a>
                 </div>
                 <hr>
                 <div class="menu">
-                    @foreach ($lPanel->config->items as $route => $item)
+                    @foreach ($config->items as $route => $item)
                         @if ($item['show'])
                             <a class="nav-link {{ request()->is($route) ? 'active' : '' }} {{ $item['disabled'] ? 'disabled' : '' }}"
                                 href="{{ rtrim($route, '*') }}">
@@ -83,7 +83,7 @@
             @if (auth()->check())
                 <div class="bottom-sidebar">
                     <hr>
-                    <a class="nav-link" href="{{ route($lPanel->config->logoutRoute) }}">
+                    <a class="nav-link" href="{{ route($config->logoutRoute) }}">
                         <i class="fa-light fa-sign-out-alt"></i><span>خروج</span>
                     </a>
                 </div>
@@ -91,31 +91,30 @@
         </div>
 
         <div class="content">
-            @if (isset($lPanel->title) || isset($lPanel->button))
+            @if (isset($title) || isset($button))
                 <div class="header-row mb-4 gap-3">
-                    @if (isset($lPanel->title))
+                    @if (isset($title))
                         <h2 class="d-flex gap-2 flex-row align-items-center">
-                            <span style="padding:0;">{{ $lPanel->config->title }}</span>
+                            <span style="padding:0;">{{ $config->title }}</span>
                             <i style="font-size: 18px;" class="fas fa-chevron-left"></i>
-                            <b>{{ $lPanel->title }}</b>
+                            <b>{{ $title }}</b>
                         </h2>
                     @endif
-                    @if (isset($lPanel->button))
+                    @if (isset($button))
                         <div class="mr-2">
-                            <a href="{{ $lPanel->button->url }}"
-                                {{ $lPanel->button->blanck ? 'target="_blank"' : '' }}
-                                class="btn btn-{{ $lPanel->button->outLine ? 'outline-' : '' }}{{ $lPanel->button->color }}">
+                            <a href="{{ $button->url }}" {{ $button->blanck ? 'target="_blank"' : '' }}
+                                class="btn btn-{{ $button->outLine ? 'outline-' : '' }}{{ $button->color }}">
 
-                                @if ($lPanel->button->icon)
-                                    <i class="{{ $lPanel->button->icon }}"></i>
+                                @if ($button->icon)
+                                    <i class="{{ $button->icon }}"></i>
                                 @endif
-                                {{ $lPanel->button->title }}
+                                {{ $button->title }}
                             </a>
                         </div>
                     @endif
                 </div>
             @endif
-            {!! $lPanel->view !!}
+            {!! $view !!}
         </div>
     </div>
 

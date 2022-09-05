@@ -9,7 +9,7 @@ class MakeView
     private $panel;
     private string $view;
     private object $config;
-    private array $lPanel = [];
+    private array $attrs = [];
     private array $with = [];
 
     public function __construct(string $view, object $config)
@@ -19,7 +19,7 @@ class MakeView
         }
 
         $this->config = $config;
-        $this->lPanel['config'] = $this->config;
+        $this->attrs['config'] = $this->config;
         $this->view = $view;
         $this->panel = View::make("panel::index");
 
@@ -57,7 +57,7 @@ class MakeView
 
     public function setUserInfo(string $name, string $userSide = null, string $email = null, string $image = null): MakeView
     {
-        $this->lPanel['user'] = (object) [
+        $this->attrs['user'] = (object) [
             'name' => $name,
             'side' => $userSide,
             'email' => $email,
@@ -70,7 +70,7 @@ class MakeView
     public function setPageTitle(string $title): MakeView
     {
         if ($title != null && $title != '') {
-            $this->lPanel['title'] = $title;
+            $this->attrs['title'] = $title;
         }
 
         return $this;
@@ -90,7 +90,7 @@ class MakeView
             $url = route($routeNameOrUrl);
         }
 
-        $this->lPanel['button'] = (object) [
+        $this->attrs['button'] = (object) [
             'title' => $title,
             'url' => $url,
             'icon' => $icon,
@@ -104,9 +104,9 @@ class MakeView
 
     public function render()
     {
-        $this->lPanel['view'] = view($this->view, $this->with);
+        $this->attrs['view'] = view($this->view, $this->with);
 
-        $this->panel->with('lPanel', (object) $this->lPanel);
+        $this->panel->with($this->attrs);
 
         return $this->panel->render();
     }
