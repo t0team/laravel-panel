@@ -1,15 +1,16 @@
 {
     "name": "lazysoft/laravel-panel",
     "description": "A AdminPanel For Laravel",
+    "license": "MIT",
     "keywords": [
-        "ahr1384",
+        "admin-panel",
         "LazySoft",
+        "lazysoft",
+        "ahr1384",
         "laravel",
         "admin",
-        "admin-panel",
         "panel"
     ],
-    "license": "MIT",
     "authors": [
         {
             "name": "AmirHosein Rahimi",
@@ -18,6 +19,8 @@
         }
     ],
     "require": {
+        "php": "^8",
+        "laravel/framework": "^9",
         "spatie/laravel-package-tools": "^1.12"
     },
     "require-dev": {
