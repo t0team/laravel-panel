@@ -41,23 +41,23 @@ return [
     ],
 
     /*
-    |--------------------------------------------------------------------------
+    |------------------------------- -------------------------------------------
     | Panel Items
     |--------------------------------------------------------------------------
     |
-    | This option defines the items for panel.
-    | You can use [route name] or [url] for key.
-    | In params you can set name, icon, show, disabled.
-    | Icon is from fontawesome icon.
+    | This option defines the items for panel sidebar.
+    | Key is the button address, and you can use [route name] as key.
+    | In params you can set name, icon, and activeIn,
+    | Icon is from fontawesome6 icon.
+    | activeIn is an array of route names + key that the button will be active in.
     |
     */
 
     'items' => [
-        '/' => [
+        'welcome' => [
             'name' => 'داشبورد',
             'icon' => 'fa-light fa-home-lg-alt',
-            'show' => true,
-            'disabled' => false,
+            'activeIn' => ['welcome'],
         ],
     ],
 ];

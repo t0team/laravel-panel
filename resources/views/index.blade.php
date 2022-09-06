@@ -61,23 +61,11 @@
                 </div>
                 <hr>
                 <div class="menu">
-                    @foreach ($config->items as $route => $item)
-                        @if ($item['show'])
-                            <a class="nav-link {{ request()->is($route) ? 'active' : '' }} {{ $item['disabled'] ? 'disabled' : '' }}"
-                                href="{{ rtrim($route, '*') }}">
-                                <i class="{{ $item['icon'] }}"></i><span>{{ $item['name'] }}</span>
-                            </a>
-                        @endif
+                    @foreach ($items as $route => $item)
+                        <a class="nav-link {{ $item->active ? 'active' : '' }}" href="{{ $route }}">
+                            <i class="{{ $item->icon }}"></i><span>{{ $item->name }}</span>
+                        </a>
                     @endforeach
-                    {{-- <a class="nav-link {{ request()->is('pending-file*') ? 'active' : '' }}" href="/pending-file">
-                            <i class="fa-light fa-file-circle-question"></i>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span>فایل های نامشخص</span>
-                                @if ($pendingFile_count > 0)
-                                    <span class="badge bg-danger">{{ $pendingFile_count }}</span>
-                                @endif
-                            </div>
-                        </a> --}}
                 </div>
             </div>
             @if (auth()->check())

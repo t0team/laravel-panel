@@ -23,9 +23,26 @@ class MakeView
         $this->view = $view;
         $this->panel = View::make("panel::index");
 
+        $this->fixSidebarItems();
         $this->fixUserInfo();
 
         return $this;
+    }
+
+    private function fixSidebarItems()
+    {
+        $items = $this->config->items;
+
+        foreach ($items as $key => $item) {
+            $url = route($key, [], false);
+            $newItems[$url] = (object) [
+                'name' => $item['name'],
+                'icon' => $item['icon'],
+                'active' => in_array(request()->route()->getName(), [$key, ...$item['activeIn']]),
+            ];
+        }
+
+        $this->attrs['items'] = $newItems;
     }
 
     private function fixUserInfo()
