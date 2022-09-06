@@ -71,9 +71,20 @@
             @if (auth()->check())
                 <div class="bottom-sidebar">
                     <hr>
-                    <a class="nav-link" href="{{ route($config->logoutRoute) }}">
-                        <i class="fa-light fa-sign-out-alt"></i><span>خروج</span>
-                    </a>
+                    @if (strtolower($config->logout['method']) == 'post')
+                        <a class="nav-link" onclick="document.getElementById('logout-form').submit();">
+                            <i class="fa-light fa-sign-out-alt"></i><span>خروج</span>
+                        </a>
+
+                        <form id="logout-form" action="{{ route($config->logout['route']) }}" method="POST"
+                            class="d-none">
+                            @csrf
+                        </form>
+                    @else
+                        <a class="nav-link" href="{{ route($config->logout['route']) }}">
+                            <i class="fa-light fa-sign-out-alt"></i><span>خروج</span>
+                        </a>
+                    @endif
                 </div>
             @endif
         </div>

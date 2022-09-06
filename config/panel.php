@@ -12,14 +12,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Panel Logout Route
+    | Panel Logout
     |--------------------------------------------------------------------------
     |
     | This option defines the route name for logout button.
+    | You can use post or get method.
     |
     */
 
-    'logoutRoute' => 'logout',
+    'logout' => [
+        'route' => 'logout',
+        'method' => 'post',
+    ],
 
     /*
     |--------------------------------------------------------------------------
