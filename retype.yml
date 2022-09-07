@@ -1,0 +1,33 @@
+input: ./
+output: .retype
+url: panel.lazysoft.ir
+branding:
+  title: Laravel Panel
+  label: Docs
+links:
+  - text: Home
+    link: /
+    icon: home
+
+  - text: GitHub
+    icon: mark-github
+    link: https://github.com/lazysoft-ir/laravel-panel
+    target: blank
+
+  - text: Issues
+    link: https://github.com/lazysoft-ir/laravel-panel/issues
+    icon: issue-opened
+    target: blank
+
+  - text: Discussions
+    link: https://github.com/lazysoft-ir/laravel-panel/discussions
+    icon: comment-discussion
+    target: blank
+
+  - text: Packagist
+    icon: package
+    link: https://packagist.org/packages/lazysoft/laravel-panel
+    target: blank
+
+footer:
+  copyright: "&copy; Copyright {{ year }}. All rights reserved."
