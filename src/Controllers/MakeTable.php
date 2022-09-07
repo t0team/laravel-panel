@@ -4,6 +4,7 @@ namespace LazySoft\LaravelPanel\Controllers;
 
 use Illuminate\Support\Facades\View;
 use LazySoft\LaravelPanel\Traits\MakerTrait;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class MakeTable
 {
@@ -13,7 +14,7 @@ class MakeTable
     private array $headers;
     private array $rows = [];
     private array $data = [];
-    private $pagination = false;
+    private $paginate = false;
 
     public function __construct(array $headers, array $config)
     {
@@ -23,6 +24,16 @@ class MakeTable
 
         $this->fixSidebarItems();
         $this->fixUserInfo();
+
+        return $this;
+    }
+
+    public function withPaginate(LengthAwarePaginator $paginate): MakeTable
+    {
+        $this->paginate = $paginate;
+
+        $this->rows = [];
+        $this->addRows($paginate->items());
 
         return $this;
     }
@@ -56,7 +67,7 @@ class MakeTable
         $this->data['view'] = view('panel::table', [
             'headers' => $this->headers,
             'rows' => $this->rows,
-            'pagination' => $this->pagination ?? false,
+            'paginate' => $this->paginate ?? false,
         ]);
     }
 }

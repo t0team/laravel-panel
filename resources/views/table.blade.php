@@ -42,6 +42,6 @@
         </tfoot>
     </table>
 </div>
-@if ($pagination != false)
-    <div class="mt-4">{!! $pagination->links() !!}</div>
+@if ($paginate != false)
+    <div class="mt-4">{!! $paginate->links() !!}</div>
 @endif
