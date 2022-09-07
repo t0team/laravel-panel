@@ -1,0 +1,32 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    padding: 16px 12px;
+}
+
+td {
+    height: 46px;
+}
+
+tr th:first-child {
+    width: 3%;
+}
+
+tr td:first-child {
+    font-weight: 600;
+}
+
+tr th:first-child,
+tr td:first-child {
+    text-align: center;
+}
+
+@media (max-width:950px) {
+    .table-div {
+        overflow-x: auto;
+    }
+}

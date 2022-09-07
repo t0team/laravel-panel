@@ -15,5 +15,9 @@ class Panel
     {
         return new MakeView($view, $this->config);
     }
+
+    public function table(array $headers): MakeTable
+    {
+        return new MakeTable($headers, $this->config);
     }
 }
