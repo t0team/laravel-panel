@@ -66,9 +66,14 @@ class MakeView
         );
     }
 
-    public function with(string $key, $value): MakeView
+    public function with(array|string $key, $value = null): MakeView
     {
-        $this->with[$key] = $value;
+        $key = is_array($key) ? $key : [$key => $value];
+
+        foreach ($key as $k => $v) {
+            $this->with[$k] = $v;
+        }
+
         return $this;
     }
 
