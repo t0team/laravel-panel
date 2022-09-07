@@ -10,13 +10,15 @@ For show view in panel, You must:
 ```php
 use LazySoft\LaravelPanel\Facades\Panel;
 
-$panel = Panel::makeView('users.index')
+$panel = Panel::makeView('users.index', compact('users'));
 ```
 
 ## Add Data
 You can add data to view by `with` method:
 
 ```php
+$panel->with(compact('users'));
+// or
 $panel->with('users', $users);
 ```
 

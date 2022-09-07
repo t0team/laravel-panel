@@ -25,7 +25,18 @@ Need a new feature in Laravel Panel? Start a [discussion](https://github.com/laz
 
 +++
 
-## v0.0.1 [!badge text="LATEST" variant="success"]
+## v0.1.0 [!badge text="LATEST" variant="success"]
+
+Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag/v0.1.0)
+
++++ New :icon-shield-check:
+
+- [x] Support array in [with](/features/make-view#add-data) method
+- [x] Support data array in [makeView](/features/make-view/#start-show-view) method
+
++++
+
+## v0.0.1
 
 Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag/v0.0.1)
 
