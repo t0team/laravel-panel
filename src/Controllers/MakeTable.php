@@ -27,7 +27,7 @@ class MakeTable
         return $this;
     }
 
-    public function addRows(array $rows): MakeTable
+    public function addRows($rows): MakeTable
     {
         foreach ($rows as $row) {
             $this->addRow($row);
