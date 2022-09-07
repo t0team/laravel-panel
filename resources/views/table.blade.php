@@ -23,7 +23,7 @@
             @foreach ($rows as $row)
                 <tr>
                     @foreach ($headers as $header => $label)
-                        <td>{{ $row[$header] ?? $row[$label] }}</td>
+                        <td>{{ $row[$header] ?? ($row[$label] ?? 'یافت نشد') }}</td>
                     @endforeach
                     {{-- <td>
                         <a href="/users/{{ $row['id'] }}/edit" class="btn btn-primary" title="Edit">
