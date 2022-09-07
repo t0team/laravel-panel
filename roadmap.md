@@ -18,6 +18,9 @@ Need a new feature in Laravel Panel? Start a [discussion](https://github.com/laz
 
 - [ ] Stable release
 - [ ] Add Documentation
+
++++ Fixed :icon-bug:
+
 - [ ] Fix all bugs
 
 +++
