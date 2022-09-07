@@ -12,7 +12,7 @@ class MakeView
     private array $attrs = [];
     private array $with = [];
 
-    public function __construct(string $view, object $config)
+    public function __construct(string $view, object $config, array $with = [])
     {
         if (!View::exists($view)) {
             throw new \Exception("View [{$view}] does not exist");
@@ -22,6 +22,7 @@ class MakeView
         $this->attrs['config'] = $this->config;
         $this->view = $view;
         $this->panel = View::make("panel::index");
+        $this->with($with);
 
         $this->fixSidebarItems();
         $this->fixUserInfo();

@@ -11,8 +11,8 @@ class Panel
         $this->config = (object) config('panel');
     }
 
-    public function makeView(string $view): MakeView
+    public function makeView(string $view, array $with = []): MakeView
     {
-        return new MakeView($view, $this->config);
+        return new MakeView($view, $this->config, $with);
     }
 }
