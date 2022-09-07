@@ -1,19 +1,5 @@
 # Laravel Panel
-Admin Panel For Laravel
+simple and easy way to create a admin panel for your application.
 
----
-
-## Installation
-You can install the package via composer:
-```bash
-composer require lazysoft/laravel-panel
-```
-
-Publish and launch required files:
-
-```bash
-php artisan vendor:publish --tag="panel-config"
-```
-```bash
-php artisan vendor:publish --tag="panel-assets"
-```
+# Documentation
+### You can find the full documentation [here](https://panel.lazysoft.ir).
