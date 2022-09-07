@@ -3,7 +3,6 @@ label: Welcome
 icon: home
 order: 100
 ---
-
 # Welcome to Laravel Panel
 Laravel Panel is a package for Laravel, which provides a simple and easy way to create a admin panel for your application.
 ![](/static/banner.png)

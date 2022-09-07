@@ -1,6 +1,6 @@
 ---
 label: Configuration
-icon: tools
+icon: gear
 order: 98
 ---
 
