@@ -25,7 +25,20 @@ Need a new feature in Laravel Panel? Start a [discussion](https://github.com/laz
 
 +++
 
-## v0.1.0 [!badge text="LATEST" variant="success"]
+## v0.2.0 [!badge text="LATEST" variant="success"]
+
+Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag/v0.2.0)
+
++++ New :icon-shield-check:
+
+- [x] change makeView method to [view](/features/make-view#start-show-view) method
+- [x] change setUserInfo method to [changeUserInfo](/features/make-view#change-user-info) method
+- [x] change setPageTitle method to [title](/features/make-view#set-page-title) method
+- [x] change setPageButton method to [button](/features/make-view#set-page-button) method
+
++++
+
+## v0.1.0
 
 Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag/v0.1.0)
 

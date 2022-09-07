@@ -43,7 +43,7 @@ class UsersController extends Controller
     {
         $users = User::all();
 
-        return Panel::makeView('users.index')
+        return Panel::view('users.index')
             ->with('users', $users)
             ->render();
     }

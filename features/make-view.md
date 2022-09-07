@@ -10,7 +10,7 @@ For show view in panel, You must:
 ```php
 use LazySoft\LaravelPanel\Facades\Panel;
 
-$panel = Panel::makeView('users.index', compact('users'));
+$panel = Panel::view('users.index');
 ```
 
 ## Add Data
@@ -23,17 +23,17 @@ $panel->with('users', $users);
 ```
 
 ## Set Page Title
-You can set title for page by `setPageTitle` method.
+You can set title for page by `title` method.
 
 ```php
-$panel->setPageTitle('titleName');
+$panel->title('titleName');
 ```
 
 ## Set Page Button
-You can add button to page by `setPageButton` method:
+You can add button to page by `button` method:
 
 ```php
-$panel->setPageButton(
+$panel->button(
     'buttonText',
     'route name or url',
     'icon', # from fontawesome v6
@@ -44,10 +44,10 @@ $panel->setPageButton(
 ```
 
 ## Change User Info
-You can change user info by `setUserInfo` method:
+You can change user info by `changeUserInfo` method:
 
 ```php
-$panel->setUserInfo(
+$panel->changeUserInfo(
     'name' => 'user name',
     'side' => 'admin', // user side or username
     'email' => 'email address',
