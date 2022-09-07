@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Facade;
 use LazySoft\LaravelPanel\Controllers\MakeView;
 
 /**
- * @method static MakeView makeView(string $view)
+ * @method static MakeView view(string $view)
  * 
  * @see \LazySoft\LaravelPanel\Controllers\Panel
  */

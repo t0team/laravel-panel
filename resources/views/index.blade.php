@@ -13,7 +13,7 @@
         @if (isset($title))
             {{ $title }} -
         @endif
-        {{ $config->title }}
+        {{ $config['title'] }}
     </title>
 </head>
 
@@ -71,17 +71,17 @@
             @if (auth()->check())
                 <div class="bottom-sidebar">
                     <hr>
-                    @if (strtolower($config->logout['method']) == 'post')
+                    @if (strtolower($config['logout']['method']) == 'post')
                         <a class="nav-link" onclick="document.getElementById('logout-form').submit();">
                             <i class="fa-light fa-sign-out-alt"></i><span>خروج</span>
                         </a>
 
-                        <form id="logout-form" action="{{ route($config->logout['route']) }}" method="POST"
+                        <form id="logout-form" action="{{ route($config['logout']['route']) }}" method="POST"
                             class="d-none">
                             @csrf
                         </form>
                     @else
-                        <a class="nav-link" href="{{ route($config->logout['route']) }}">
+                        <a class="nav-link" href="{{ route($config['logout']['route']) }}">
                             <i class="fa-light fa-sign-out-alt"></i><span>خروج</span>
                         </a>
                     @endif
@@ -94,7 +94,7 @@
                 <div class="header-row mb-4 gap-3">
                     @if (isset($title))
                         <h2 class="d-flex gap-2 flex-row align-items-center">
-                            <span style="padding:0;">{{ $config->title }}</span>
+                            <span style="padding:0;">{{ $config['title'] }}</span>
                             <i style="font-size: 18px;" class="fas fa-chevron-left"></i>
                             <b>{{ $title }}</b>
                         </h2>
