@@ -14,6 +14,7 @@ class MakeTable
     private array $headers;
     private array $rows = [];
     private array $data = [];
+    private array|bool $actions = false;
     private $paginate = false;
 
     public function __construct(array $headers, array $config)
@@ -34,6 +35,26 @@ class MakeTable
 
         $this->rows = [];
         $this->addRows($paginate->items());
+
+        return $this;
+    }
+
+    public function addAction(
+        string $routeName,
+        array $routeNeeded = ['id'],
+        string $title = null,
+        string $icon = 'fa-regular fa-pen-to-square',
+        string $color = 'primary',
+        bool $openInNewTab = false
+    ): MakeTable {
+        $this->actions[] = (object)[
+            'route' => $routeName,
+            'needed' => $routeNeeded,
+            'title' => $title,
+            'icon' => $icon,
+            'color' => $color,
+            'blanck' => $openInNewTab,
+        ];
 
         return $this;
     }
@@ -67,6 +88,7 @@ class MakeTable
         $this->data['view'] = view('panel::table', [
             'headers' => $this->headers,
             'rows' => $this->rows,
+            'actions' => $this->actions,
             'paginate' => $this->paginate ?? false,
         ]);
     }

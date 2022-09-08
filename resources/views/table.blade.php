@@ -17,6 +17,9 @@
                 @foreach ($headers as $h => $label)
                     <th>{{ $label }}</th>
                 @endforeach
+                @if ($actions)
+                    <th>عملیات</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -25,11 +28,26 @@
                     @foreach ($headers as $header => $label)
                         <td>{{ $row[$header] ?? ($row[$label] ?? 'یافت نشد') }}</td>
                     @endforeach
-                    {{-- <td>
-                        <a href="/users/{{ $row['id'] }}/edit" class="btn btn-primary" title="Edit">
-                            <i class="fa-regular text-white fa-pen-to-square"></i>
-                        </a>
-                    </td> --}}
+                    <td>
+                        @if ($actions)
+                            @foreach ($actions as $action)
+                                @php
+                                    $neededs = [];
+                                    foreach ($action->needed as $need) {
+                                        $neededs[] = $row[$need];
+                                    }
+                                @endphp
+                                <a href="{{ route($action->route, $neededs, false) }}"
+                                    class="btn btn-{{ $action->color }}" {{ $action->blanck ? 'target="_blank"' : '' }}>
+
+                                    @if ($action->icon)
+                                        <i class="text-white {{ $action->icon }}"></i>
+                                    @endif
+                                    {{ $action->title }}
+                                </a>
+                            @endforeach
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </tbody>
@@ -38,6 +56,9 @@
                 @foreach ($headers as $h => $label)
                     <th>{{ $label }}</th>
                 @endforeach
+                @if ($actions)
+                    <th>عملیات</th>
+                @endif
             </tr>
         </tfoot>
     </table>
