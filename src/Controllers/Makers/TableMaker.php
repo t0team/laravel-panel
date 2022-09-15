@@ -1,35 +1,25 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Controllers;
+namespace LazySoft\LaravelPanel\Controllers\Makers;
 
-use Illuminate\Support\Facades\View;
-use LazySoft\LaravelPanel\Traits\MakerTrait;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class MakeTable
+class TableMaker extends Maker
 {
-    use MakerTrait;
-
-    private $panel;
     private array $headers;
     private array $rows = [];
-    private array $data = [];
-    private array|bool $actions = false;
+    private bool|array $actions = false;
     private $paginate = false;
 
     public function __construct(array $headers, array $config)
     {
-        $this->data['config'] = $config;
+        $this->handle($config);
         $this->headers = $headers;
-        $this->panel = View::make("panel::index");
-
-        $this->fixSidebarItems();
-        $this->fixUserInfo();
 
         return $this;
     }
 
-    public function withPaginate(LengthAwarePaginator $paginate): MakeTable
+    public function withPaginate(LengthAwarePaginator $paginate): self
     {
         $this->paginate = $paginate;
 
@@ -46,7 +36,7 @@ class MakeTable
         string $icon = 'fa-regular fa-pen-to-square',
         string $color = 'primary',
         bool $openInNewTab = false
-    ): MakeTable {
+    ): self {
         $this->actions[] = (object)[
             'route' => $routeName,
             'needed' => $routeNeeded,
@@ -59,7 +49,7 @@ class MakeTable
         return $this;
     }
 
-    public function addRows($rows): MakeTable
+    public function addRows($rows): self
     {
         foreach ($rows as $row) {
             $this->addRow($row);
@@ -68,7 +58,7 @@ class MakeTable
         return $this;
     }
 
-    public function addRow($row): MakeTable
+    public function addRow($row): self
     {
         if (!is_array($row)) {
             $row = $row->toArray();
@@ -83,7 +73,7 @@ class MakeTable
         return $this;
     }
 
-    private function beforeRender()
+    protected function beforeRender()
     {
         $this->data['view'] = view('panel::table', [
             'headers' => $this->headers,

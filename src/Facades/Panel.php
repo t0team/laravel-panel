@@ -3,12 +3,12 @@
 namespace LazySoft\LaravelPanel\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use LazySoft\LaravelPanel\Controllers\MakeView;
-use LazySoft\LaravelPanel\Controllers\MakeTable;
+use LazySoft\LaravelPanel\Controllers\Makers\ViewMaker;
+use LazySoft\LaravelPanel\Controllers\Makers\TableMaker;
 
 /**
- * @method static MakeView view(string $view)
- * @method static MakeTable table(array $headers)
+ * @method static ViewMaker view(string $view)
+ * @method static TableMaker table(array $headers)
  * 
  * @see \LazySoft\LaravelPanel\Controllers\Panel
  */

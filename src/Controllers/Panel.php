@@ -2,6 +2,9 @@
 
 namespace LazySoft\LaravelPanel\Controllers;
 
+use LazySoft\LaravelPanel\Controllers\Makers\ViewMaker;
+use LazySoft\LaravelPanel\Controllers\Makers\TableMaker;
+
 class Panel
 {
     private array $config;
@@ -11,13 +14,13 @@ class Panel
         $this->config = config('panel');
     }
 
-    public function view(string $view): MakeView
+    public function view(string $view): ViewMaker
     {
-        return new MakeView($view, $this->config);
+        return new ViewMaker($view, $this->config);
     }
 
-    public function table(array $headers): MakeTable
+    public function table(array $headers): TableMaker
     {
-        return new MakeTable($headers, $this->config);
+        return new TableMaker($headers, $this->config);
     }
 }
