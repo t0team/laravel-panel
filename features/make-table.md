@@ -44,7 +44,7 @@ $panel->addRow($user);
 ```
 
 
-## use with paginate
+## Use with paginate
 You can use with paginate by `withPaginate` method:
 
 ```php
@@ -55,7 +55,7 @@ $panel->withPaginate($users);
 ```
 
 
-## add Action Button
+## Add Action Button
 You can add action button to table by `actionButton` method:
 
 ```php
