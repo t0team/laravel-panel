@@ -2,8 +2,9 @@
 
 namespace LazySoft\LaravelPanel\Controllers;
 
-use LazySoft\LaravelPanel\Controllers\Makers\ViewMaker;
 use LazySoft\LaravelPanel\Controllers\Makers\TableMaker;
+use LazySoft\LaravelPanel\Controllers\Makers\ViewMaker;
+use LazySoft\LaravelPanel\Controllers\Makers\FormMaker;
 
 class Panel
 {
@@ -22,5 +23,10 @@ class Panel
     public function table(array $headers): TableMaker
     {
         return new TableMaker($headers, $this->config);
+    }
+
+    public function form(string $routeNameOrUrl, string $formMethod = 'POST', string $laravelMethod = 'POST'): FormMaker
+    {
+        return new FormMaker($routeNameOrUrl, $formMethod, $laravelMethod, $this->config);
     }
 }
