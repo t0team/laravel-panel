@@ -1,6 +1,6 @@
 ---
 icon: dot
-order: 100
+order: 99
 label: Make Table
 ---
 
