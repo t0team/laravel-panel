@@ -22,6 +22,7 @@ $panel->with(compact('users'));
 $panel->with('users', $users);
 ```
 
+----
 ## Set Page Title
 You can set title for page by `title` method.
 
