@@ -44,6 +44,13 @@ trait InputTrait
         return $this;
     }
 
+    public function withOldValue(): self
+    {
+        $this->value = old($this->name, $this->value);
+
+        return $this;
+    }
+
     public function placeholder(string $placeholder): self
     {
         $this->placeholder = $placeholder;

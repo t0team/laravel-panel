@@ -7,7 +7,7 @@
 <input type="range"
     id="{{ $input->id }}"
     name="{{ $input->name }}"
-    class="form-range"
+    class="form-range @error($input->name) is-invalid @enderror"
     value="{{ $input->value ?? '' }}"
     min="{{ $input->min ?? '' }}"
     max="{{ $input->max ?? '' }}"
@@ -17,3 +17,9 @@
     {{ $input->readonly ? 'readonly' : '' }}
     {{ $input->autofocus ? 'autofocus' : '' }}
 >
+
+@error($input->name)
+    <span class="invalid-feedback">
+        <strong>{{ $message }}</strong>
+    </span>
+@enderror

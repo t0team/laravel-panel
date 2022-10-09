@@ -3,7 +3,7 @@
         <input type="radio"
             id="{{ $input->id . '_' . $loop->index }}"
             name="{{ $input->name }}"
-            class="form-check-input"
+            class="form-check-input @error($input->name) is-invalid @enderror"
             value="{{ $option->value }}"
             {{ $option->required ? 'required' : '' }}
             {{ $option->disabled ? 'disabled' : '' }} 
@@ -15,5 +15,13 @@
         <label class="form-check-label" for="{{ $input->id . '_' . $loop->index }}">
             {{ $option->label }}
         </label>
+        
+        @if ($loop->last)
+            @error($input->name)
+                <span class="invalid-feedback">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        @endif
     </div>
 @endforeach

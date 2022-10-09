@@ -2,7 +2,7 @@
     <input type="checkbox" role="swich"
         id="{{ $input->id }}"
         name="{{ $input->name }}"
-        class="form-check-input"
+        class="form-check-input @error($input->name) is-invalid @enderror"
         value="{{ $input->value ?? 'on' }}"
         {{ $input->required ? 'required' : '' }}
         {{ $input->disabled ? 'disabled' : '' }}
@@ -15,4 +15,10 @@
             {{ $input->label }}
         </label>
     @endif
+
+    @error($input->name)
+        <span class="invalid-feedback">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
 </div>

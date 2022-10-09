@@ -7,7 +7,7 @@
 <input type="{{ $input->type }}"
     id="{{ $input->id }}"
     name="{{ $input->name }}" 
-    class="form-control {{ implode(' ', $input->classes) }}" 
+    class="form-control @error($input->name) is-invalid @enderror {{ implode(' ', $input->classes) }}" 
     value="{{ $input->value ?? '' }}"
     placeholder="{{ $input->placeholder ?? '' }}"
     size="{{ $input->size ?? '' }}"
@@ -23,3 +23,9 @@
     {{ $input->autocomplete ? 'autocomplete' : '' }}
     {{ $input->multiple ? 'multiple' : '' }}
 >
+
+@error($input->name)
+    <span class="invalid-feedback">
+        <strong>{{ $message }}</strong>
+    </span>
+@enderror
