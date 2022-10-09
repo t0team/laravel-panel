@@ -18,6 +18,6 @@
     </button>
 
     @if (isset($form->reset))
-        <button type="reset" class="btn btn-{{ $form->reset_color }}">{{ $form->reset ?? 'ثبت فرم' }}</button>
+        <button type="reset" class="btn btn-{{ $form->reset_color }}">{{ $form->reset }}</button>
     @endif
 </form>
