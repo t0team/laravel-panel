@@ -1,17 +1,29 @@
 <form
     action="{{ $form->url }}"
     method="{{ $form->form_method ?? 'POST' }}"
-    {{ in_array('file', array_column($inputs, 'type')) ? 'enctype=multipart/form-data' : '' }}
+    enctype="multipart/form-data"
     >
 
     @csrf
     @method($form->laravel_method)
 
-    @foreach ($inputs as $input)
-        <div class="mb-3">
-            @include("panel::form.components.{$input->file}", ['input' => $input])
-        </div>
-    @endforeach
+    <div class="w-100 row me-0 flex-column flex-md-row">
+        @foreach ($groups as $group)
+            <div class="{{ $group->classes }}">
+                @if ($group->title)
+                    <h4 class="mb-3">
+                        <b>{{ $group->title }}</b>
+                    </h4>
+                @endif
+
+                @foreach ($group->inputs as $input)
+                    <div class="mb-3">
+                        @include("panel::form.components.{$input->file}", ['input' => $input])
+                    </div>
+                @endforeach
+            </div>
+        @endforeach
+    </div>
 
     <button type="submit" class="btn btn-{{ $form->submit_color ?? 'primary' }}">
         {{ $form->submit ?? 'ثبت فرم' }}

@@ -2,12 +2,12 @@
 
 namespace LazySoft\LaravelPanel\Controllers\Makers;
 
-use LazySoft\LaravelPanel\Controllers\Form\Input;
+use LazySoft\LaravelPanel\Controllers\Form\Group;
 
 class FormMaker extends Maker
 {
     private array $form = [];
-    private array $inputs = [];
+    private array $groups = [];
 
     public function __construct(string $routeNameOrUrl, string $formMethod, string $laravelMethod, array $config)
     {
@@ -25,18 +25,9 @@ class FormMaker extends Maker
         return $this;
     }
 
-    public function addInput(Input $input): FormMaker
+    public function addGroup(Group $group): FormMaker
     {
-        $this->inputs[] = $input->get();
-
-        return $this;
-    }
-
-    public function addInputs(array $inputs): FormMaker
-    {
-        foreach ($inputs as $input) {
-            $this->addInput($input);
-        }
+        $this->groups[] = $group->get();
 
         return $this;
     }
@@ -61,7 +52,7 @@ class FormMaker extends Maker
     {
         $this->data['view'] = view('panel::form.index', [
             'form' => (object)$this->form,
-            'inputs' => $this->inputs,
+            'groups' => $this->groups,
         ]);
     }
 }
