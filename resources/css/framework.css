@@ -40,6 +40,10 @@ label {
     cursor: pointer;
 }
 
+a{
+    cursor: pointer;
+}
+
 body {
     overflow-x: hidden;
     overflow-y: auto;
