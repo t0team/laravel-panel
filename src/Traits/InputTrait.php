@@ -194,7 +194,10 @@ trait InputTrait
         if ($option instanceof Option) {
             $this->options[] = $option->get();
         } elseif (is_array($option)) {
-            $this->options[] = Option::make($option['label'])->value($option['value'])->get();
+            $this->options[] = Option::make($option['label'])
+                ->value($option['value'])
+                ->selected($option['selected'] ?? false)
+                ->get();
         }
 
         return $this;
