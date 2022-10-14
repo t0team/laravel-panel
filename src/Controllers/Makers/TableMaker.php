@@ -19,12 +19,12 @@ class TableMaker extends Maker
         return $this;
     }
 
-    public function withPaginate(LengthAwarePaginator $paginate): self
+    public function withPaginate(LengthAwarePaginator $paginate, callable $mapForRows = null): self
     {
         $this->paginate = $paginate;
 
         $this->rows = [];
-        $this->addRows($paginate->items());
+        $this->addRows($paginate->map($mapForRows));
 
         return $this;
     }
