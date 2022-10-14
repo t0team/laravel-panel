@@ -24,7 +24,11 @@ class TableMaker extends Maker
         $this->paginate = $paginate;
 
         $this->rows = [];
-        $this->addRows($paginate->map($mapForRows));
+        if($mapForRows) {
+            $this->addRows($paginate->map($mapForRows));
+        } else {
+            $this->addRows($paginate);
+        }
 
         return $this;
     }
