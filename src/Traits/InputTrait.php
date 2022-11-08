@@ -30,14 +30,14 @@ trait InputTrait
     private array $classes = [];
 
 
-    public function label(string $label): self
+    public function label(?string $label): self
     {
         $this->label = $label;
 
         return $this;
     }
 
-    public function value(string $value): self
+    public function value(?string $value): self
     {
         $this->value = $value;
 
@@ -51,7 +51,7 @@ trait InputTrait
         return $this;
     }
 
-    public function placeholder(string $placeholder): self
+    public function placeholder(?string $placeholder): self
     {
         $this->placeholder = $placeholder;
 
@@ -99,49 +99,49 @@ trait InputTrait
         return $this;
     }
 
-    public function size(int $size): self
+    public function size(?int $size): self
     {
         $this->size = $size;
 
         return $this;
     }
 
-    public function minLength(int $minLength): self
+    public function minLength(?int $minLength): self
     {
         $this->minLength = $minLength;
 
         return $this;
     }
 
-    public function maxLength(int $maxLength): self
+    public function maxLength(?int $maxLength): self
     {
         $this->maxLength = $maxLength;
 
         return $this;
     }
 
-    public function min(string $min): self
+    public function min(?string $min): self
     {
         $this->min = $min;
 
         return $this;
     }
 
-    public function max(string $max): self
+    public function max(?string $max): self
     {
         $this->max = $max;
 
         return $this;
     }
 
-    public function rows(int $rows): self
+    public function rows(?int $rows): self
     {
         $this->rows = $rows;
 
         return $this;
     }
 
-    public function cols(int $cols): self
+    public function cols(?int $cols): self
     {
         $this->cols = $cols;
 

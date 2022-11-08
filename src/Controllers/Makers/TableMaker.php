@@ -14,17 +14,38 @@ class TableMaker extends Maker
     public function __construct(array $headers, array $config)
     {
         $this->handle($config);
+
+        if ($headers == []) {
+            throw new \Exception('Headers can not be empty');
+        }
+
         $this->headers = $headers;
 
         return $this;
     }
 
-    public function withPaginate(LengthAwarePaginator $paginate, callable $mapForRows = null): self
+    public function addHeader(string $key, string $label): TableMaker
+    {
+        $this->headers[$key] = $label;
+
+        return $this;
+    }
+
+    public function addHeaders(array $headers): TableMaker
+    {
+        foreach ($headers as $key => $label) {
+            $this->addHeader($key, $label);
+        }
+
+        return $this;
+    }
+
+    public function paginate(LengthAwarePaginator $paginate, callable $mapForRows = null): self
     {
         $this->paginate = $paginate;
 
         $this->rows = [];
-        if($mapForRows) {
+        if ($mapForRows) {
             $this->addRows($paginate->map($mapForRows));
         } else {
             $this->addRows($paginate);

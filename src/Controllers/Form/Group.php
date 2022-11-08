@@ -77,7 +77,13 @@ class Group
 
     private function fixCol(): string
     {
-        return "col-{$this->col} col-sm-{$this->colSm} col-md-{$this->colMd} col-lg-{$this->colLg} col-xl-{$this->colXl}";
+        $cols[] = "col-{$this->col}";
+        if ($this->colSm) $cols[] = "col-sm-{$this->colSm}";
+        if ($this->colMd) $cols[] = "col-md-{$this->colMd}";
+        if ($this->colLg) $cols[] = "col-lg-{$this->colLg}";
+        if ($this->colXl) $cols[] = "col-xl-{$this->colXl}";
+
+        return implode(' ', $cols);
     }
 
     public function get(): object
