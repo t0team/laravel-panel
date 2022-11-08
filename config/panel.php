@@ -1,5 +1,7 @@
 <?php
 
+use LazySoft\LaravelPanel\Controllers\ExampleController;
+
 return [
 
     /*
@@ -55,6 +57,11 @@ return [
     | Icon is from fontawesome6 icon.
     | activeIn is an array of route names + key that the button will be active in.
     |
+    | In badge you can set action, value, and color.
+    | Action call a method from a controller, like [ExampleController::class, 'badge']
+    | Value is a static value like 'beta', Priority is lower than action.
+    | Color is a bootstrap color, like 'primary'
+    |
     */
 
     'items' => [
@@ -62,6 +69,12 @@ return [
             'name' => 'داشبورد',
             'icon' => 'fa-light fa-home-lg-alt',
             'activeIn' => ['welcome'],
+
+            'badge' => [
+                'action' => [ExampleController::class, 'badge'],
+                // 'value' => 5,
+                'color' => 'danger',
+            ],
         ],
     ],
 ];

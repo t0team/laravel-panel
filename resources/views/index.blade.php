@@ -63,7 +63,15 @@
                 <div class="menu">
                     @foreach ($items as $route => $item)
                         <a class="nav-link {{ $item->active ? 'active' : '' }}" href="{{ $route }}">
-                            <i class="{{ $item->icon }}"></i><span>{{ $item->name }}</span>
+                            <i class="{{ $item->icon }}"></i>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>{{ $item->name }}</span>
+                                @if ($item->badge)
+                                    <span class="badge bg-{{ $item->badge->color ?? 'danger' }}">
+                                        {{ $item->badge->value }}
+                                    </span>
+                                @endif
+                            </div>
                         </a>
                     @endforeach
                 </div>

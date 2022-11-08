@@ -27,14 +27,39 @@ class Maker
 
         foreach ($items as $key => $item) {
             $url = route($key);
+
+            if (isset($item['badge'])) {
+                $badge = $this->handleBadge($item['badge']);
+            }
+
             $newItems[$url] = (object) [
                 'name' => $item['name'],
                 'icon' => $item['icon'],
                 'active' => in_array(request()->route()->getName(), [$key, ...$item['activeIn']]),
+                'badge' => $badge ?? false,
             ];
         }
 
         $this->data['items'] = $newItems;
+    }
+
+    private function handleBadge(array $badge): bool|object
+    {
+        if (method_exists($badge['action'][0] ?? '', $badge['action'][1] ?? '')) {
+            return (object) [
+                'value' => app($badge['action'][0])->{$badge['action'][1]}(),
+                'color' => $badge['color'] ?? 'danger',
+            ];
+        }
+
+        if (isset($badge['value'])) {
+            return (object) [
+                'value' => $badge['value'],
+                'color' => $badge['color'] ?? 'danger',
+            ];
+        }
+
+        return false;
     }
 
     private function fixUserInfo()
