@@ -2,6 +2,7 @@
 
 namespace LazySoft\LaravelPanel\Controllers\Makers;
 
+use Illuminate\Contracts\View\View as ViewContracts;
 use Illuminate\Support\Facades\View;
 use LazySoft\LaravelPanel\Traits\MakerTrait;
 
@@ -9,7 +10,7 @@ class Maker
 {
     use MakerTrait;
 
-    private $panel;
+    private ViewContracts $panel;
     protected array $data = [];
 
     protected function handle(array $config)

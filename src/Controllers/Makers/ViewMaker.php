@@ -16,6 +16,7 @@ class ViewMaker extends Maker
         }
 
         $this->handle($config);
+
         $this->viewName = $view;
 
         return $this;

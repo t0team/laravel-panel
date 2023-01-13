@@ -8,7 +8,7 @@ class TableMaker extends Maker
 {
     private array $headers;
     private array $rows = [];
-    private bool|array $actions = false;
+    private false|array $actions = false;
     private $paginate = false;
 
     public function __construct(array $headers, array $config)
