@@ -15,6 +15,12 @@
         @endif
         {{ $config['title'] }}
     </title>
+
+    <style>
+        :root {
+            --color: {{ $theme }};
+        }
+    </style>
 </head>
 
 <body>

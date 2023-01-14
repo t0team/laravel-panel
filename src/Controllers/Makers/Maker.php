@@ -20,6 +20,7 @@ class Maker
 
         $this->fixSidebarItems();
         $this->fixUserInfo();
+        $this->handleTheme();
     }
 
     private function fixSidebarItems()
@@ -82,5 +83,15 @@ class Maker
             $user->{$params['email']} ?? null,
             $user->{$params['image']} ?? null
         );
+    }
+
+    private function handleTheme()
+    {
+        $theme = $this->data['config']['theme'] ?? "#2962ff";
+        $theme = str_replace('#', '', $theme);
+
+        sscanf($theme, "%02x%02x%02x", $r, $g, $b);
+
+        $this->data['theme'] = "{$r} {$g} {$b}";
     }
 }

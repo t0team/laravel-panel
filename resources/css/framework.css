@@ -17,7 +17,6 @@
 }
 
 :root {
-    --color: 41, 98, 255;
     --theme-color: rgb(var(--color));
     --theme-color-hover: rgb(var(--color), 0.85);
     --theme-color-shadow: rgb(var(--color), 0.55);
@@ -101,15 +100,19 @@ p {
     --bs-btn-disabled-border-color: var(--theme-color-hover);
 }
 
-.btn-theme:hover, .btn-theme:active,
-.btn-outline-theme:hover, .btn-outline-theme:active {
+.btn-theme:hover,
+.btn-theme:active,
+.btn-outline-theme:hover,
+.btn-outline-theme:active {
     color: var(--bs-btn-hover-color);
     background-color: var(--theme-color);
     border-color: var(--theme-color);
 }
 
-.btn-theme:focus, .btn-theme:active:focus,
-.btn-outline-theme:focus, .btn-outline-theme:active:focus {
+.btn-theme:focus,
+.btn-theme:active:focus,
+.btn-outline-theme:focus,
+.btn-outline-theme:active:focus {
     color: var(--bs-btn-hover-color);
     background-color: var(--theme-color);
     border-color: var(--theme-color);
