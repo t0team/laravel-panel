@@ -39,6 +39,10 @@ Released: [2023-01-14](https://github.com/t0team/laravel-panel/releases/tag/v0.5
 
 Released: [2022-11-08](https://github.com/t0team/laravel-panel/releases/tag/v0.4.0)
 
++++ New :icon-shield-check:
+
+- [x] Add form method to create form (beta)
+
 +++ Fixed :icon-bug:
 
 - [x] Optimize & Fix some bugs
