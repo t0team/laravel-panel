@@ -11,16 +11,16 @@ links:
 
   - text: GitHub
     icon: mark-github
-    link: https://github.com/lazysoft-ir/laravel-panel
+    link: https://github.com/t0team/laravel-panel
     target: blank
 
   - text: Issues
-    link: https://github.com/lazysoft-ir/laravel-panel/issues
+    link: https://github.com/t0team/laravel-panel/issues
     icon: issue-opened
     target: blank
 
   - text: Discussions
-    link: https://github.com/lazysoft-ir/laravel-panel/discussions
+    link: https://github.com/t0team/laravel-panel/discussions
     icon: comment-discussion
     target: blank
 

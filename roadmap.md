@@ -7,7 +7,7 @@ icon: versions
 The entire release archives of Laravel Panel is available on [Packagist](https://packagist.org/packages/lazysoft/laravel-panel)
 
 !!!
-Need a new feature in Laravel Panel? Start a [discussion](https://github.com/lazysoft-ir/laravel-panel/discussions) and let's chat. :icon-comment:
+Need a new feature in Laravel Panel? Start a [discussion](https://github.com/t0team/laravel-panel/discussions) and let's chat. :icon-comment:
 !!!
 
 ---
@@ -25,9 +25,29 @@ Need a new feature in Laravel Panel? Start a [discussion](https://github.com/laz
 
 +++
 
-## v0.3.1 [!badge text="LATEST" variant="success"]
+## v0.5.0 [!badge text="LATEST" variant="success"]
 
-Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag/v0.3.1)
+Released: [2023-01-14](https://github.com/t0team/laravel-panel/releases/tag/v0.5.0)
+
++++ New :icon-shield-check:
+
+- [x] Add custom theme color in config file
+
++++
+
+## v0.4.0
+
+Released: [2022-11-08](https://github.com/t0team/laravel-panel/releases/tag/v0.4.0)
+
++++ Fixed :icon-bug:
+
+- [x] Optimize & Fix some bugs
+
++++
+
+## v0.3.1
+
+Released: [2022-09-07](https://github.com/t0team/laravel-panel/releases/tag/v0.3.1)
 
 +++ New :icon-shield-check:
 
@@ -38,7 +58,7 @@ Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag
 
 ## v0.2.0
 
-Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag/v0.2.0)
+Released: [2022-09-07](https://github.com/t0team/laravel-panel/releases/tag/v0.2.0)
 
 +++ New :icon-shield-check:
 
@@ -51,7 +71,7 @@ Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag
 
 ## v0.1.0
 
-Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag/v0.1.0)
+Released: [2022-09-07](https://github.com/t0team/laravel-panel/releases/tag/v0.1.0)
 
 +++ New :icon-shield-check:
 
@@ -62,7 +82,7 @@ Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag
 
 ## v0.0.1
 
-Released: [2022-09-07](https://github.com/lazysoft-ir/laravel-panel/releases/tag/v0.0.1)
+Released: [2022-09-07](https://github.com/t0team/laravel-panel/releases/tag/v0.0.1)
 
 +++ New :icon-shield-check:
 
