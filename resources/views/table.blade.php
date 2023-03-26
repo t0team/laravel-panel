@@ -26,7 +26,7 @@
             @foreach ($rows as $row)
                 <tr>
                     @foreach ($headers as $header => $label)
-                        <td>{{ $row[$header] ?? ($row[$label] ?? 'یافت نشد') }}</td>
+                        <td>{!! $row[$header] ?? ($row[$label] ?? 'یافت نشد') !!}</td>
                     @endforeach
                     <td>
                         @if ($actions)
