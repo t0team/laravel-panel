@@ -174,3 +174,12 @@ p {
         transform: rotate(1turn)
     }
 }
+
+.status {
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 700;
+    min-width: 16%;
+    padding: 3px 8px;
+    white-space: nowrap;
+}
