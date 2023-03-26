@@ -38,7 +38,8 @@
                                     }
                                 @endphp
                                 <a href="{{ route($action->route, $neededs, false) }}"
-                                    class="btn btn-{{ $action->color }}" {{ $action->blanck ? 'target="_blank"' : '' }}>
+                                    class="btn btn-{{ $action->color }}" {{ $action->blanck ? 'target="_blank"' : '' }}
+                                    {{ $action->disabled ? 'disabled' : '' }}>
 
                                     @if ($action->icon)
                                         <i class="text-white {{ $action->icon }}"></i>

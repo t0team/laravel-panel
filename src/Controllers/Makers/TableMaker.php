@@ -60,6 +60,7 @@ class TableMaker extends Maker
         string $title = null,
         string $icon = 'fa-regular fa-pen-to-square',
         string $color = 'primary',
+        bool $disabled = false,
         bool $openInNewTab = false
     ): self {
         $this->actions[] = (object)[
@@ -68,6 +69,7 @@ class TableMaker extends Maker
             'title' => $title,
             'icon' => $icon,
             'color' => $color,
+            'disabled' => $disabled,
             'blanck' => $openInNewTab,
         ];
 
