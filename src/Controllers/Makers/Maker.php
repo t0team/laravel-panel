@@ -25,9 +25,9 @@ class Maker
 
     private function fixSidebarItems()
     {
-        $sidebar = $this->data['config']['sidebar'];
+        $items = $this->data['config']['sidebar'];
 
-        foreach ($sidebar as $data) {
+        foreach ($items as $data) {
             $item = match ($data['type'] ?? 'item') {
                 'module' => $this->handleSidebarModule($data['module']),
                 'item' => $this->handleSidebarItem($data),
