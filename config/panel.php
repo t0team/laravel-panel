@@ -53,10 +53,10 @@ return [
     |--------------------------------------------------------------------------
     |
     | This option defines the items for panel sidebar.
-    | Key is the button address, and you can use [route name] as key.
-    | In params you can set name, icon, and activeIn,
+    | Route is the button address, and you can use [route name] as route.
+    | Also you can set name, icon, and activeIn,
     | Icon is from fontawesome6 icon.
-    | activeIn is an array of route names + key that the button will be active in.
+    | activeIn is an array of route names + route that the button will be active in.
     |
     | In badge you can set action, value, and color.
     | Action call a method from a controller, like [ExampleController::class, 'badge']
@@ -66,7 +66,8 @@ return [
     */
 
     'items' => [
-        'welcome' => [
+        [
+            'route' => 'welcome',
             'name' => 'داشبورد',
             'icon' => 'fa-light fa-home-lg-alt',
             'activeIn' => ['welcome'],

@@ -27,8 +27,8 @@ class Maker
     {
         $items = $this->data['config']['items'];
 
-        foreach ($items as $key => $item) {
-            $url = route($key);
+        foreach ($items as $item) {
+            $url = route($item['route']);
 
             if (isset($item['badge'])) {
                 $badge = $this->handleBadge($item['badge']);
@@ -37,7 +37,7 @@ class Maker
             $newItems[$url] = (object) [
                 'name' => $item['name'],
                 'icon' => $item['icon'],
-                'active' => in_array(request()->route()->getName(), [$key, ...$item['activeIn']]),
+                'active' => in_array(request()->route()->getName(), [$item['route'], ...$item['activeIn']]),
                 'badge' => $badge ?? false,
             ];
         }
