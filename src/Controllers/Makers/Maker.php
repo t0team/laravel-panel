@@ -49,7 +49,7 @@ class Maker
 
         // check module is installed
         $module = \Nwidart\Modules\Facades\Module::find($name);
-        if (!$module) return null;
+        if (!$module) throw new \Exception("Module [{$name}] not found");
 
         // check module is enabled
         if (!$module->isEnabled()) return null;
