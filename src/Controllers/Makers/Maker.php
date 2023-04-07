@@ -25,24 +25,74 @@ class Maker
 
     private function fixSidebarItems()
     {
-        $items = $this->data['config']['items'];
+        $sidebar = $this->data['config']['sidebar'];
 
-        foreach ($items as $item) {
-            $url = route($item['route']);
+        foreach ($sidebar as $data) {
+            $item = match ($data['type'] ?? 'item') {
+                'module' => $this->handleSidebarModule($data['module']),
+                'item' => $this->handleSidebarItem($data),
+                default => throw new \Exception("Invalid sidebar item type: [{$data['type']}]"),
+            };
 
-            if (isset($item['badge'])) {
-                $badge = $this->handleBadge($item['badge']);
+            if (!is_null($item)) {
+                $this->data['items'][] = $item;
             }
+        }
+    }
 
-            $newItems[$url] = (object) [
-                'name' => $item['name'],
-                'icon' => $item['icon'],
-                'active' => in_array(request()->route()->getName(), [$item['route'], ...$item['activeIn']]),
-                'badge' => $badge ?? false,
-            ];
+    private function handleSidebarModule(string $name): object|null
+    {
+        // check application use modules
+        if (!class_exists(\Nwidart\Modules\Facades\Module::class)) {
+            return null;
         }
 
-        $this->data['items'] = $newItems;
+        // check module is installed
+        $module = \Nwidart\Modules\Facades\Module::find($name);
+        if (!$module) return null;
+
+        // check module is enabled
+        if (!$module->isEnabled()) return null;
+
+        // check module has panel config
+        $data = config("{$module->getLowerName()}.panel");
+        if (is_null($data)) return null;
+
+
+        // get route url
+        $url = route($data['route']);
+
+        // check module has badge
+        if (isset($data['badge'])) {
+            $badge = $this->handleBadge($data['badge']);
+        }
+
+        return (object) [
+            'url' => $url,
+            'name' => $data['name'],
+            'icon' => $data['icon'],
+            'active' => in_array(request()->route()->getName(), [$data['route'], ...$data['activeIn'] ?? []]),
+            'badge' => $badge ?? false,
+        ];
+    }
+
+    private function handleSidebarItem(array $item): object
+    {
+        // get route url
+        $url = route($item['route']);
+
+        // check module has badge
+        if (isset($item['badge'])) {
+            $badge = $this->handleBadge($item['badge']);
+        }
+
+        return (object) [
+            'url' => $url,
+            'name' => $item['name'],
+            'icon' => $item['icon'],
+            'active' => in_array(request()->route()->getName(), [$item['route'], ...$item['activeIn'] ?? []]),
+            'badge' => $badge ?? false,
+        ];
     }
 
     private function handleBadge(array $badge): bool|object

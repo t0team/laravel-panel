@@ -67,8 +67,8 @@
                 </div>
                 <hr>
                 <div class="menu">
-                    @foreach ($items as $route => $item)
-                        <a class="nav-link {{ $item->active ? 'active' : '' }}" href="{{ $route }}">
+                    @foreach ($items as $item)
+                        <a class="nav-link {{ $item->active ? 'active' : '' }}" href="{{ $item->url }}">
                             <i class="{{ $item->icon }}"></i>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span>{{ $item->name }}</span>

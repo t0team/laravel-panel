@@ -53,8 +53,9 @@ return [
     |--------------------------------------------------------------------------
     |
     | This option defines the items for panel sidebar.
-    | Route is the button address, and you can use [route name] as route.
-    | Also you can set name, icon, and activeIn,
+    | You can use multiple types: item, module (default: item)
+    | If you use module, you can set module in params.
+    | Also you can set route, name, icon, and activeIn,
     | Icon is from fontawesome6 icon.
     | activeIn is an array of route names + route that the button will be active in.
     |
@@ -67,6 +68,7 @@ return [
 
     'items' => [
         [
+            'type' => 'item',
             'route' => 'welcome',
             'name' => 'داشبورد',
             'icon' => 'fa-light fa-home-lg-alt',
@@ -78,5 +80,10 @@ return [
                 'color' => 'danger',
             ],
         ],
+
+        // [
+        //     'type' => 'module',
+        //     'module' => 'TestModule',
+        // ]
     ],
 ];
