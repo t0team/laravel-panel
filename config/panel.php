@@ -66,7 +66,7 @@ return [
     |
     */
 
-    'items' => [
+    'sidebar' => [
         [
             'type' => 'item',
             'route' => 'welcome',
