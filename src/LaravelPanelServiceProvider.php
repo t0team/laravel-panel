@@ -2,6 +2,7 @@
 
 namespace LazySoft\LaravelPanel;
 
+use Illuminate\Pagination\Paginator;
 use LazySoft\LaravelPanel\Controllers\Panel;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -17,5 +18,10 @@ class LaravelPanelServiceProvider extends PackageServiceProvider
             ->hasAssets();
 
         $this->app->bind('panel', fn () => new Panel());
+    }
+
+    public function bootingPackage()
+    {
+        Paginator::useBootstrapFour();
     }
 }
