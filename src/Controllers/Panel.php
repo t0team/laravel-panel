@@ -1,10 +1,10 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Controllers;
+namespace T0team\LaravelPanel\Controllers;
 
-use LazySoft\LaravelPanel\Controllers\Makers\TableMaker;
-use LazySoft\LaravelPanel\Controllers\Makers\ViewMaker;
-use LazySoft\LaravelPanel\Controllers\Makers\FormMaker;
+use T0team\LaravelPanel\Controllers\Makers\TableMaker;
+use T0team\LaravelPanel\Controllers\Makers\ViewMaker;
+use T0team\LaravelPanel\Controllers\Makers\FormMaker;
 
 class Panel
 {

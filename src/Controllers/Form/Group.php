@@ -1,12 +1,12 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Controllers\Form;
+namespace T0team\LaravelPanel\Controllers\Form;
 
 class Group
 {
     private ?string $title = null;
     private array $inputs = [];
-    private ?int $col = 12;     // default 
+    private ?int $col = 12;     // default
     private ?int $colSm = null; // in mobile
     private ?int $colMd = null; // in tablet
     private ?int $colLg = null; // in laptop

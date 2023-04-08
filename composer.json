@@ -1,11 +1,10 @@
 {
-    "name": "lazysoft/laravel-panel",
+    "name": "t0team/laravel-panel",
     "description": "A AdminPanel For Laravel",
     "license": "MIT",
     "keywords": [
         "admin-panel",
-        "LazySoft",
-        "lazysoft",
+        "t0team",
         "ahr1384",
         "laravel",
         "admin",
@@ -28,21 +27,21 @@
     },
     "autoload": {
         "psr-4": {
-            "LazySoft\\LaravelPanel\\": "src/"
+            "T0team\\LaravelPanel\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LazySoft\\LaravelPanel\\Tests\\": "tests/"
+            "T0team\\LaravelPanel\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "LazySoft\\LaravelPanel\\LaravelPanelServiceProvider"
+                "T0team\\LaravelPanel\\LaravelPanelServiceProvider"
             ],
             "aliases": {
-                "Panel": "LazySoft\\LaravelPanel\\Facades\\Panel"
+                "Panel": "T0team\\LaravelPanel\\Facades\\Panel"
             }
         }
     }

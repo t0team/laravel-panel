@@ -1,8 +1,8 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Traits;
+namespace T0team\LaravelPanel\Traits;
 
-use LazySoft\LaravelPanel\Controllers\Form\Option;
+use T0team\LaravelPanel\Controllers\Form\Option;
 
 trait InputTrait
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Controllers\Form;
+namespace T0team\LaravelPanel\Controllers\Form;
 
-use LazySoft\LaravelPanel\Traits\InputTrait;
+use T0team\LaravelPanel\Traits\InputTrait;
 
 class Input
 {

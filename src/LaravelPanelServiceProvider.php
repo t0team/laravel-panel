@@ -1,9 +1,9 @@
 <?php
 
-namespace LazySoft\LaravelPanel;
+namespace T0team\LaravelPanel;
 
 use Illuminate\Pagination\Paginator;
-use LazySoft\LaravelPanel\Controllers\Panel;
+use T0team\LaravelPanel\Controllers\Panel;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

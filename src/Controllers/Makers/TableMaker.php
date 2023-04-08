@@ -1,6 +1,6 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Controllers\Makers;
+namespace T0team\LaravelPanel\Controllers\Makers;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 

@@ -1,6 +1,6 @@
 <?php
 
-use LazySoft\LaravelPanel\Controllers\ExampleController;
+use T0team\LaravelPanel\Controllers\ExampleController;
 
 return [
 

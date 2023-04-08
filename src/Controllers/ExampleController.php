@@ -1,6 +1,6 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Controllers;
+namespace T0team\LaravelPanel\Controllers;
 
 class ExampleController
 {

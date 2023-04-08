@@ -1,6 +1,6 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Traits;
+namespace T0team\LaravelPanel\Traits;
 
 trait MakerTrait
 {

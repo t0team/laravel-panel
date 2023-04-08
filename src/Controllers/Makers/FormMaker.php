@@ -1,8 +1,8 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Controllers\Makers;
+namespace T0team\LaravelPanel\Controllers\Makers;
 
-use LazySoft\LaravelPanel\Controllers\Form\Group;
+use T0team\LaravelPanel\Controllers\Form\Group;
 
 class FormMaker extends Maker
 {

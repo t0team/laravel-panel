@@ -1,10 +1,10 @@
 <?php
 
-namespace LazySoft\LaravelPanel\Controllers\Makers;
+namespace T0team\LaravelPanel\Controllers\Makers;
 
 use Illuminate\Contracts\View\View as ViewContracts;
 use Illuminate\Support\Facades\View;
-use LazySoft\LaravelPanel\Traits\MakerTrait;
+use T0team\LaravelPanel\Traits\MakerTrait;
 
 class Maker
 {
