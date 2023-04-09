@@ -2,6 +2,8 @@
 
 namespace T0team\LaravelPanel\Traits;
 
+use T0team\LaravelPanel\Controllers\Button;
+
 trait MakerTrait
 {
     public function changeUserInfo(string $name, string $userSide = null, string $email = null, string $image = null): self
@@ -25,28 +27,9 @@ trait MakerTrait
         return $this;
     }
 
-    public function button(
-        string $title,
-        string $routeNameOrUrl,
-        string $icon = null,
-        string $color = 'primary',
-        bool $outLine = false,
-        bool $openInNewTab = false
-    ): self {
-        if ($this->isUrl($routeNameOrUrl)) {
-            $url = $routeNameOrUrl;
-        } else {
-            $url = route($routeNameOrUrl);
-        }
-
-        $this->data['button'] = (object) [
-            'title' => $title,
-            'url' => $url,
-            'icon' => $icon,
-            'color' => $color,
-            'outLine' => $outLine,
-            'blanck' => $openInNewTab,
-        ];
+    public function button(Button $button): self
+    {
+        $this->data['button'] = $button->get();
 
         return $this;
     }

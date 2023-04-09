@@ -3,6 +3,7 @@
 namespace T0team\LaravelPanel\Controllers\Makers;
 
 use Illuminate\Pagination\LengthAwarePaginator;
+use T0team\LaravelPanel\Controllers\Button;
 
 class TableMaker extends Maker
 {
@@ -54,24 +55,9 @@ class TableMaker extends Maker
         return $this;
     }
 
-    public function addAction(
-        string $routeName,
-        array $routeNeeded = ['id'],
-        string $title = null,
-        string $icon = 'fa-regular fa-pen-to-square',
-        string $color = 'primary',
-        bool $disabled = false,
-        bool $openInNewTab = false
-    ): self {
-        $this->actions[] = (object)[
-            'route' => $routeName,
-            'needed' => $routeNeeded,
-            'title' => $title,
-            'icon' => $icon,
-            'color' => $color,
-            'disabled' => $disabled,
-            'blanck' => $openInNewTab,
-        ];
+    public function addAction(Button $button): self
+    {
+        $this->actions[] = $button->get();
 
         return $this;
     }

@@ -36,14 +36,7 @@
 
             @if (isset($button))
                 <div>
-                    <a href="{{ $button->url }}" {{ $button->blanck ? 'target="_blank"' : '' }}
-                        class="btn btn-{{ $button->outLine ? 'outline-' : '' }}{{ $button->color }}">
-
-                        @if ($button->icon)
-                            <i class="{{ $button->icon }}"></i>
-                        @endif
-                        {{ $button->title }}
-                    </a>
+                    @include('panel::button', ['button' => $button])
                 </div>
             @endif
         </div>
@@ -115,14 +108,7 @@
                     @endif
                     @if (isset($button))
                         <div class="mr-2">
-                            <a href="{{ $button->url }}" {{ $button->blanck ? 'target="_blank"' : '' }}
-                                class="btn btn-{{ $button->outLine ? 'outline-' : '' }}{{ $button->color }}">
-
-                                @if ($button->icon)
-                                    <i class="{{ $button->icon }}"></i>
-                                @endif
-                                {{ $button->title }}
-                            </a>
+                            @include('panel::button', ['button' => $button])
                         </div>
                     @endif
                 </div>

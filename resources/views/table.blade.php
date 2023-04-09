@@ -31,21 +31,7 @@
                     <td>
                         @if ($actions)
                             @foreach ($actions as $action)
-                                @php
-                                    $neededs = [];
-                                    foreach ($action->needed as $need) {
-                                        $neededs[] = $row[$need];
-                                    }
-                                @endphp
-                                <a href="{{ route($action->route, $neededs, false) }}"
-                                    class="btn btn-{{ $action->color }} {{ $action->disabled ? 'disabled' : '' }}"
-                                    {{ $action->blanck ? 'target="_blank"' : '' }}>
-
-                                    @if ($action->icon)
-                                        <i class="text-white {{ $action->icon }}"></i>
-                                    @endif
-                                    {{ $action->title }}
-                                </a>
+                                @include('panel::button', ['button' => $action, 'row' => $row])
                             @endforeach
                         @endif
                     </td>
