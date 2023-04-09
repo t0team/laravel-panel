@@ -4,6 +4,7 @@ namespace T0team\LaravelPanel\Controllers\Makers;
 
 use T0team\LaravelPanel\Controllers\Form\Group;
 use T0team\LaravelPanel\Enums\Color;
+use T0team\LaravelPanel\Enums\Size;
 
 class FormMaker extends Maker
 {
@@ -33,24 +34,28 @@ class FormMaker extends Maker
         return $this;
     }
 
-    public function submit(string $label, string $color = 'primary'): FormMaker
+    public function submit(string $label, string $color = 'primary', string $size = 'md'): FormMaker
     {
         $this->form['submit'] = $label;
 
         Color::is_available_color($color) || throw new \Exception("Submit Color not available In [" . Color::class . "]");
-
         $this->form['submit_color'] = $color;
+
+        Size::available_sizes($size) || throw new \Exception("Submit Size not available In [" . Size::class . "]");
+        $this->form['submit_size'] = $size;
 
         return $this;
     }
 
-    public function reset(string $label = 'شروع دوباره', string $color = 'secondary'): FormMaker
+    public function reset(string $label = 'شروع دوباره', string $color = 'secondary', string $size = 'md'): FormMaker
     {
         $this->form['reset'] = $label;
 
         Color::is_available_color($color) || throw new \Exception("Reset Color not available In [" . Color::class . "]");
-
         $this->form['reset_color'] = $color;
+
+        Size::available_sizes($size) || throw new \Exception("Reset Size not available In [" . Size::class . "]");
+        $this->form['reset_size'] = $size;
 
         return $this;
     }

@@ -25,11 +25,13 @@
         @endforeach
     </div>
 
-    <button type="submit" class="btn btn-{{ $form->submit_color ?? 'primary' }}">
+    <button type="submit" class="btn btn-{{ $form->submit_color ?? 'primary' }} btn-{{ $form->submit_size }}">
         {{ $form->submit ?? 'ثبت فرم' }}
     </button>
 
     @if (isset($form->reset))
-        <button type="reset" class="btn btn-{{ $form->reset_color }}">{{ $form->reset }}</button>
+        <button type="reset" class="btn btn-{{ $form->reset_color }} btn-{{ $form->reset_size }}">
+            {{ $form->reset }}
+        </button>
     @endif
 </form>
