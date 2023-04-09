@@ -16,7 +16,7 @@
 @endphp
 
 <a href="{{ $url }}"
-    class="btn btn-{{ $button->outLine ? 'outline-' : '' }}{{ $button->color }} {{ $button->disabled ? 'disabled' : '' }}"
+    class="btn btn-{{ $button->outLine ? 'outline-' : '' }}{{ $button->color }} btn-{{ $button->size }} {{ $button->disabled ? 'disabled' : '' }}"
     rel="{{ $button->rel }}"
     target="{{ $button->target }}"
 >

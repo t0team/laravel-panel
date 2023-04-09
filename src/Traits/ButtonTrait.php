@@ -3,6 +3,7 @@
 namespace T0team\LaravelPanel\Traits;
 
 use T0team\LaravelPanel\Enums\Color;
+use T0team\LaravelPanel\Enums\Size;
 
 trait ButtonTrait
 {
@@ -13,6 +14,7 @@ trait ButtonTrait
     private bool $disabled = false;
     private ?string $rel = null;
     private ?string $target = null;
+    private string $size = 'md';
 
     private ?string $buttonType = null;
     private ?string $url = null;
@@ -81,6 +83,15 @@ trait ButtonTrait
         return $this;
     }
 
+    public function size(string $size): self
+    {
+        Size::is_available_size($size) || throw new \Exception("Size not available In [" . Size::class . "]");
+
+        $this->size = $size;
+
+        return $this;
+    }
+
     // actions
     public function url(?string $url): self
     {
@@ -138,6 +149,7 @@ trait ButtonTrait
             'disabled' => $this->disabled,
             'rel' => $this->rel,
             'target' => $this->target,
+            'size' => $this->size,
 
             'buttonType' => $this->buttonType,
             'url' => $this->url,
