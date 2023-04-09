@@ -1,6 +1,7 @@
 <?php
 
 use T0team\LaravelPanel\Controllers\ExampleController;
+use T0team\LaravelPanel\Enums\Color;
 
 return [
 
@@ -62,7 +63,7 @@ return [
     | In badge you can set action, value, and color.
     | Action call a method from a controller, like [ExampleController::class, 'badge']
     | Value is a static value like 'beta', Priority is lower than action.
-    | Color is a bootstrap color, like 'primary'
+    | Color is From Color Enum, default is danger.
     |
     */
 
@@ -77,7 +78,7 @@ return [
             'badge' => [
                 'action' => [ExampleController::class, 'badge'],
                 // 'value' => 5,
-                'color' => 'danger',
+                'color' => Color::DANGER,
             ],
         ],
 

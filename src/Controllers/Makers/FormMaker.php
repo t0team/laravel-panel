@@ -3,6 +3,7 @@
 namespace T0team\LaravelPanel\Controllers\Makers;
 
 use T0team\LaravelPanel\Controllers\Form\Group;
+use T0team\LaravelPanel\Enums\Color;
 
 class FormMaker extends Maker
 {
@@ -35,14 +36,20 @@ class FormMaker extends Maker
     public function submit(string $label, string $color = 'primary'): FormMaker
     {
         $this->form['submit'] = $label;
+
+        Color::is_available_color($color) || throw new \Exception("Submit Color not available In [" . Color::class . "]");
+
         $this->form['submit_color'] = $color;
 
         return $this;
     }
 
-    public function reset(string $label = 'شروع دوباره', string $color = 'danger'): FormMaker
+    public function reset(string $label = 'شروع دوباره', string $color = 'secondary'): FormMaker
     {
         $this->form['reset'] = $label;
+
+        Color::is_available_color($color) || throw new \Exception("Reset Color not available In [" . Color::class . "]");
+
         $this->form['reset_color'] = $color;
 
         return $this;

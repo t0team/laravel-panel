@@ -4,6 +4,7 @@ namespace T0team\LaravelPanel\Controllers\Makers;
 
 use Illuminate\Contracts\View\View as ViewContracts;
 use Illuminate\Support\Facades\View;
+use T0team\LaravelPanel\Enums\Color;
 use T0team\LaravelPanel\Traits\MakerTrait;
 
 class Maker
@@ -97,17 +98,21 @@ class Maker
 
     private function handleBadge(array $badge): bool|object
     {
+        // check available color
+        $color = $badge['color'] ?? 'danger';
+        Color::is_available_color($color) || throw new \Exception("Badge Color not available In [" . Color::class . "]");
+
         if (method_exists($badge['action'][0] ?? '', $badge['action'][1] ?? '')) {
             return (object) [
                 'value' => app($badge['action'][0])->{$badge['action'][1]}(),
-                'color' => $badge['color'] ?? 'danger',
+                'color' => $color,
             ];
         }
 
         if (isset($badge['value'])) {
             return (object) [
                 'value' => $badge['value'],
-                'color' => $badge['color'] ?? 'danger',
+                'color' => $color,
             ];
         }
 
