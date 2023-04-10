@@ -93,7 +93,7 @@
                             @case('input')
                                 @php
                                     if (isset($row[$body['input']->tableProperty])) {
-                                        if (in_array($body['input']->tableProperty, ['0', '1'])) {
+                                        if (in_array($row[$body['input']->tableProperty], ['0', '1'])) {
                                             $body['input']->checked = $row[$body['input']->tableProperty];
                                         } else {
                                             $body['input']->value = $row[$body['input']->tableProperty];
