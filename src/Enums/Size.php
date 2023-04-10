@@ -7,6 +7,7 @@ final class Size
     public const SMALL = 'sm';
     public const MEDIUM = 'md';
     public const LARGE = 'lg';
+    public const EXTRA_LARGE = 'xl';
 
 
     /**
