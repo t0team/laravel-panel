@@ -8,7 +8,7 @@ label: Make View
 For show view in panel, You must:
 
 ```php
-use LazySoft\LaravelPanel\Facades\Panel;
+use T0team\LaravelPanel\Facades\Panel;
 
 $panel = Panel::view('users.index');
 ```

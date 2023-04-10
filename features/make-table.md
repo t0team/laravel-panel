@@ -8,7 +8,7 @@ label: Make Table
 For make a table in panel, You must:
 
 ```php
-use LazySoft\LaravelPanel\Facades\Panel;
+use T0team\LaravelPanel\Facades\Panel;
 
 $headers = [
     'id' => 'ID',

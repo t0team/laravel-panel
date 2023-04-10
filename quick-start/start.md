@@ -35,7 +35,7 @@ For show view in panel, You must:
 ```php
 // app/Http/Controllers/UsersController.php
 
-use LazySoft\LaravelPanel\Facades\Panel;
+use T0team\LaravelPanel\Facades\Panel;
 
 class UsersController extends Controller
 {

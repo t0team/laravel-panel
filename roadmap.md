@@ -4,7 +4,7 @@ icon: versions
 
 # Roadmap
 
-The entire release archives of Laravel Panel is available on [Packagist](https://packagist.org/packages/lazysoft/laravel-panel)
+The entire release archives of Laravel Panel is available on [Packagist](https://packagist.org/packages/t0team/laravel-panel)
 
 !!!
 Need a new feature in Laravel Panel? Start a [discussion](https://github.com/t0team/laravel-panel/discussions) and let's chat. :icon-comment:
@@ -91,6 +91,6 @@ Released: [2022-09-07](https://github.com/t0team/laravel-panel/releases/tag/v0.0
 +++ New :icon-shield-check:
 
 - [x] First release
-- [x] Publish to [Packagist](https://packagist.org/packages/lazysoft/laravel-panel)
+- [x] Publish to [Packagist](https://packagist.org/packages/t0team/laravel-panel)
 
 +++

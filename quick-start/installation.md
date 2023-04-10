@@ -8,7 +8,7 @@ order: 99
 
 You can install the package via composer:
 ```bash
-composer require lazysoft/laravel-panel
+composer require t0team/laravel-panel
 ```
 ---
 
