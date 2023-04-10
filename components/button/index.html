@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>Installation</title>
-    <meta name="title" content="Installation">
-    <meta name="description" content="You can install the package via composer:" />
+    <title>Button</title>
+    <meta name="title" content="Button">
+    <meta name="description" content="in this section, we explain how to use Button class to create a button in panel." />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://panel.ah-rahimi.ir/quick-start/installation/" />
+    <link rel="canonical" href="https://panel.ah-rahimi.ir/components/button/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://panel.ah-rahimi.ir/quick-start/installation/">
-    <meta property="og:title" content="Installation">
-    <meta property="og:description" content="You can install the package via composer:">
+    <meta property="og:url" content="https://panel.ah-rahimi.ir/components/button/">
+    <meta property="og:title" content="Button">
+    <meta property="og:description" content="in this section, we explain how to use Button class to create a button in panel.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://panel.ah-rahimi.ir/quick-start/installation/">
-    <meta property="twitter:title" content="Installation">
-    <meta property="twitter:description" content="You can install the package via composer:">
+    <meta property="twitter:url" content="https://panel.ah-rahimi.ir/components/button/">
+    <meta property="twitter:title" content="Button">
+    <meta property="twitter:description" content="in this section, we explain how to use Button class to create a button in panel.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -261,34 +261,187 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="installation" class="break-words">
+<doc-anchor-target id="button" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#installation">#</doc-anchor-trigger>
-        <span>Installation</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#button">#</doc-anchor-trigger>
+        <span>Button</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="install">
+<p>in this section, we explain how to use <code v-pre>Button</code> class to create a button in panel.</p>
+<doc-anchor-target id="use-button-class-from">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#install">#</doc-anchor-trigger>
-        <span>Install</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#use-button-class-from">#</doc-anchor-trigger>
+        <span>Use <code v-pre>Button</code> Class From:</span>
     </h2>
 </doc-anchor-target>
-<p>You can install the package via composer:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">composer require t0team/laravel-panel</code></pre>
+<pre class="language-php"><code v-pre class="language-php">use T0team\LaravelPanel\Controllers\Button;</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="publish-assets">
+<doc-anchor-target id="start-using-button-class">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#publish-assets">#</doc-anchor-trigger>
-        <span>Publish Assets</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#start-using-button-class">#</doc-anchor-trigger>
+        <span>Start Using <code v-pre>Button</code> Class</span>
     </h2>
 </doc-anchor-target>
-<p>You must publish the assets of the package using the following command:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">php artisan vendor:publish --tag=&quot;panel-assets&quot;</code></pre>
+<pre class="language-php"><code v-pre class="language-php">$button = Button::make();</code></pre>
+</doc-codeblock></div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
+                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+            <h5>Button Actions</h5>
+<p>If you don&#x27;t use any button action, button will not work. (see <doc-anchor-trigger to="#button-actions">Button Actions</doc-anchor-trigger>)</p>
+        </div>
+    </div>
+</div>
+<hr />
+<doc-anchor-target id="button-methods">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#button-methods">#</doc-anchor-trigger>
+        <span>Button Methods</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="set-label">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-label">#</doc-anchor-trigger>
+        <span>Set Label</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;label('button label');</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-icon">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-icon">#</doc-anchor-trigger>
+        <span>Set Icon</span>
+    </h3>
+</doc-anchor-target>
+<p>Icon name is from <a href="https://fontawesome.com/icons">Font Awesome</a> icons.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;icon('icon name');</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-color">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-color">#</doc-anchor-trigger>
+        <span>Set Color</span>
+    </h3>
+</doc-anchor-target>
+<p>You must use <code v-pre>Color</code> enum to set button color.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">use T0team\LaravelPanel\Enums\Color;
+
+$button-&gt;color(Color::PRIMARY);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-size">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-size">#</doc-anchor-trigger>
+        <span>Set Size</span>
+    </h3>
+</doc-anchor-target>
+<p>You must use <code v-pre>Size</code> enum to set button size.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">use T0team\LaravelPanel\Enums\Size;
+
+$button-&gt;size(Size::SMALL);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-outline">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-outline">#</doc-anchor-trigger>
+        <span>Set Outline</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;outLine();</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-open-in-new-tab">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-open-in-new-tab">#</doc-anchor-trigger>
+        <span>Set Open In New Tab</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;openInNewTab();</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-disabled">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-disabled">#</doc-anchor-trigger>
+        <span>Set Disabled</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;disabled();</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-hidden">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-hidden">#</doc-anchor-trigger>
+        <span>Set Hidden</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;hidden();</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-rel">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-rel">#</doc-anchor-trigger>
+        <span>Set Rel</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;rel('rel value');</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="set-custom-target">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-custom-target">#</doc-anchor-trigger>
+        <span>Set Custom Target</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;target('target value');</code></pre>
 </doc-codeblock></div>
 <hr />
-<p>See also <a href="../configuration/">Configuration</a> guide for more information.</p>
+<doc-anchor-target id="button-actions">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#button-actions">#</doc-anchor-trigger>
+        <span>Button Actions</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="open-url">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#open-url">#</doc-anchor-trigger>
+        <span>Open Url</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;url('url');</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="open-route">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#open-route">#</doc-anchor-trigger>
+        <span>Open Route</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;route('route name', ['route needed parameters']);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="open-modal">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#open-modal">#</doc-anchor-trigger>
+        <span>Open Modal</span>
+    </h3>
+</doc-anchor-target>
+<p>modal build with <code v-pre>Modal</code> class.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$button-&gt;modal(Modal::make()-&gt;...);</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -298,20 +451,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../features/make-form/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Welcome</span>
+                                                <span class="block mt-1">Make Form</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../quick-start/configuration/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../roadmap/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Configuration</span>
+                                                <span class="block mt-1">Roadmap</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -355,6 +508,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Installation", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Button", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>

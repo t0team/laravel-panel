@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734479564086">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734482190610">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,12 +30,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.734479564086" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.734482190610" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734479564086" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734482190610" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734479564086" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.734479564086" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734482190610" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.734482190610" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -296,6 +296,11 @@ $panel = Panel::table($headers);</code></pre>
     </h3>
 </doc-anchor-target>
 <p>You can add header to table by <code v-pre>addHeader</code> &amp; <code v-pre>addHeaders</code> methods:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$panel-&gt;addHeader('id', 'ID');
+# or
+$panel-&gt;addHeaders(['id' =&gt; 'ID', 'name' =&gt; 'Name'])</code></pre>
+</doc-codeblock></div>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -312,11 +317,6 @@ $panel = Panel::table($headers);</code></pre>
         </div>
     </div>
 </div>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">$panel-&gt;addHeader('id', 'ID');
-# or
-$panel-&gt;addHeaders(['id' =&gt; 'ID', 'name' =&gt; 'Name'])</code></pre>
-</doc-codeblock></div>
 <doc-anchor-target id="add-row">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#add-row">#</doc-anchor-trigger>
@@ -336,6 +336,9 @@ $panel-&gt;addRows($users);</code></pre>
     </h2>
 </doc-anchor-target>
 <p>You can use with paginate by <code v-pre>paginate</code> method:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$panel-&gt;paginate(User::paginate(10));</code></pre>
+</doc-codeblock></div>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
     <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
@@ -352,23 +355,35 @@ $panel-&gt;addRows($users);</code></pre>
         </div>
     </div>
 </div>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">$panel-&gt;paginate(User::paginate(10));</code></pre>
-</doc-codeblock></div>
 <doc-anchor-target id="add-action-button">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#add-action-button">#</doc-anchor-trigger>
         <span>Add Action Button</span>
     </h2>
 </doc-anchor-target>
-<p>You can add action button to each row by <code v-pre>addAction</code> method:
-</br>
-action button build with <code v-pre>Button</code> class.</p>
+<p>You can add action button to each row by <code v-pre>addAction</code> method:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">use T0team\LaravelPanel\Controllers\Button;
 
 $panel-&gt;addAction(Button::make()-&gt;label('buttonText')-&gt;...);</code></pre>
 </doc-codeblock></div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-300" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>See <a href="../../components/button/">Button</a> guide to know how to use <code v-pre>Button</code> class.</p>
+        </div>
+    </div>
+</div>
 <doc-anchor-target id="render-table">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#render-table">#</doc-anchor-trigger>
