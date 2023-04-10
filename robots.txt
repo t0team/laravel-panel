@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://panel.lazysoft.ir/sitemap.xml.gz
+Sitemap: https://panel.ah-rahimi.ir/sitemap.xml.gz

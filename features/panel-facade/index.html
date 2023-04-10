@@ -9,24 +9,24 @@
     <meta name="generator" content="Retype 2.4.0">
 
     <!-- Primary Meta Tags -->
-    <title>Make Table</title>
-    <meta name="title" content="Make Table">
-    <meta name="description" content="For make a table in panel, You must:" />
+    <title>Panel Facade</title>
+    <meta name="title" content="Panel Facade">
+    <meta name="description" content="in this section, we explain how to use Panel facade to create a page in panel." />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://panel.ah-rahimi.ir/features/make-table/" />
+    <link rel="canonical" href="https://panel.ah-rahimi.ir/features/panel-facade/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://panel.ah-rahimi.ir/features/make-table/">
-    <meta property="og:title" content="Make Table">
-    <meta property="og:description" content="For make a table in panel, You must:">
+    <meta property="og:url" content="https://panel.ah-rahimi.ir/features/panel-facade/">
+    <meta property="og:title" content="Panel Facade">
+    <meta property="og:description" content="in this section, we explain how to use Panel facade to create a page in panel.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://panel.ah-rahimi.ir/features/make-table/">
-    <meta property="twitter:title" content="Make Table">
-    <meta property="twitter:description" content="For make a table in panel, You must:">
+    <meta property="twitter:url" content="https://panel.ah-rahimi.ir/features/panel-facade/">
+    <meta property="twitter:title" content="Panel Facade">
+    <meta property="twitter:description" content="in this section, we explain how to use Panel facade to create a page in panel.">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -261,132 +261,89 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="make-table" class="break-words">
+<doc-anchor-target id="panel-facade" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#make-table">#</doc-anchor-trigger>
-        <span>Make Table</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#panel-facade">#</doc-anchor-trigger>
+        <span>Panel Facade</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="start-make-a-table">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#start-make-a-table">#</doc-anchor-trigger>
-        <span>Start Make a Table</span>
-    </h2>
-</doc-anchor-target>
-<p>For make a table in panel, You must:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">use T0team\LaravelPanel\Facades\Panel;
-
-$headers = [
-    'id' =&gt; 'ID',
-    'name' =&gt; 'Name',
-    'email' =&gt; 'Email',
-    'created_at' =&gt; 'Created At',
-    'updated_at' =&gt; 'Updated At',
-];
-# keys of $headers array is key name of data(rows)
-# values of $headers array is title of column in table
-
-$panel = Panel::table($headers);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="add-header">
+<p>in this section, we explain how to use <code v-pre>Panel</code> facade to create a page in panel.</p>
+<doc-anchor-target id="use-panel-facade-from">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#add-header">#</doc-anchor-trigger>
-        <span>Add Header</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#use-panel-facade-from">#</doc-anchor-trigger>
+        <span>Use <code v-pre>Panel</code> Facade From:</span>
     </h3>
 </doc-anchor-target>
-<p>You can add header to table by <code v-pre>addHeader</code> &amp; <code v-pre>addHeaders</code> methods:</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
-                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>These Items are added to the end of the table</p>
-        </div>
-    </div>
-</div>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">$panel-&gt;addHeader('id', 'ID');
-# or
-$panel-&gt;addHeaders(['id' =&gt; 'ID', 'name' =&gt; 'Name'])</code></pre>
+<pre class="language-php"><code v-pre class="language-php">use T0team\LaravelPanel\Facades\Panel;</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="add-row">
+<doc-anchor-target id="you-can-use-panel-facade-to">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#you-can-use-panel-facade-to">#</doc-anchor-trigger>
+        <span>You Can Use <code v-pre>Panel</code> Facade To:</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>make a view (see <a href="../make-view/">Make View</a>)</li>
+<li>make a table (see <a href="../make-table/">Make Table</a>)</li>
+<li>make a form (see <a href="/features/make-form">Make Form</a>)</li>
+</ul>
+<hr />
+<doc-anchor-target id="common-methods">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#add-row">#</doc-anchor-trigger>
-        <span>Add Row</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#common-methods">#</doc-anchor-trigger>
+        <span>Common Methods</span>
     </h2>
 </doc-anchor-target>
-<p>You can add rows to table by <code v-pre>addRow</code> &amp; <code v-pre>addRows</code> methods:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">$panel-&gt;addRow($user);
-# or
-$panel-&gt;addRows($users);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="use-with-paginate">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#use-with-paginate">#</doc-anchor-trigger>
-        <span>Use with paginate</span>
-    </h2>
+<doc-anchor-target id="set-page-title">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-page-title">#</doc-anchor-trigger>
+        <span>Set Page Title</span>
+    </h3>
 </doc-anchor-target>
-<p>You can use with paginate by <code v-pre>paginate</code> method:</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-yellow-500" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
-                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>This method is remove all rows and add new rows with paginate</p>
-        </div>
-    </div>
-</div>
+<p>You can set title for page by <code v-pre>title</code> method.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">$panel-&gt;paginate(User::paginate(10));</code></pre>
+<pre class="language-php"><code v-pre class="language-php">$panel-&gt;title('titleName');</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="add-action-button">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#add-action-button">#</doc-anchor-trigger>
-        <span>Add Action Button</span>
-    </h2>
+<doc-anchor-target id="set-page-button">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#set-page-button">#</doc-anchor-trigger>
+        <span>Set Page Button</span>
+    </h3>
 </doc-anchor-target>
-<p>You can add action button to each row by <code v-pre>addAction</code> method:
+<p>You can add button to header of page by <code v-pre>button</code> method:
 </br>
-action button build with <code v-pre>Button</code> class.</p>
+header button build with <code v-pre>Button</code> class.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">use T0team\LaravelPanel\Controllers\Button;
 
-$panel-&gt;addAction(Button::make()-&gt;label('buttonText')-&gt;...);</code></pre>
+$panel-&gt;button(Button::make()-&gt;label('buttonText')-&gt;...);</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="render-table">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#render-table">#</doc-anchor-trigger>
-        <span>Render Table</span>
-    </h2>
+<doc-anchor-target id="custom-user-info">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#custom-user-info">#</doc-anchor-trigger>
+        <span>Custom User Info</span>
+    </h3>
 </doc-anchor-target>
-<p>You can render table by <code v-pre>render</code> method:</p>
+<p>You can set custom user info by <code v-pre>changeUserInfo</code> method:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">$panel-&gt;changeUserInfo([
+    'name' =&gt; 'user name',
+    'side' =&gt; 'admin', // user side or username
+    'email' =&gt; 'email address',
+    'image' =&gt; 'avatar url',
+]);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="render-view">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#render-view">#</doc-anchor-trigger>
+        <span>Render View</span>
+    </h3>
+</doc-anchor-target>
+<p>You can render page by <code v-pre>render</code> method:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">return $panel-&gt;render();</code></pre>
 </doc-codeblock></div>
-<hr />
-<doc-anchor-target id="other-methods">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#other-methods">#</doc-anchor-trigger>
-        <span>Other Methods</span>
-    </h2>
-</doc-anchor-target>
-<p>Also you can use all methods of <a href="../panel-facade/">Panel Facade</a> in this section.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -396,20 +353,20 @@ $panel-&gt;addAction(Button::make()-&gt;label('buttonText')-&gt;...);</code></pr
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../features/make-view/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../quick-start/start/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Make View</span>
+                                                <span class="block mt-1">Start Using</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../roadmap/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../features/make-view/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Roadmap</span>
+                                                <span class="block mt-1">Make View</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -453,6 +410,6 @@ $panel-&gt;addAction(Button::make()-&gt;label('buttonText')-&gt;...);</code></pr
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Make Table", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Panel Facade", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
