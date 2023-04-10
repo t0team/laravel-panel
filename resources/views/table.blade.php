@@ -31,7 +31,7 @@
                     <td>
                         @if ($actions)
                             @foreach ($actions as $action)
-                                @include('panel::button', ['button' => $action, 'row' => $row])
+                                @include('panel::button.index', ['button' => $action, 'row' => $row])
                             @endforeach
                         @endif
                     </td>

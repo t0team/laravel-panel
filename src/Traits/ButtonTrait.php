@@ -9,9 +9,10 @@ trait ButtonTrait
 {
     private ?string $label = null;
     private ?string $icon = null;
-    private ?string $color = null;
+    private string $color = 'primary';
     private bool $outLine = false;
     private bool $disabled = false;
+    private bool $hidden = false;
     private ?string $rel = null;
     private ?string $target = null;
     private string $size = 'md';
@@ -54,6 +55,13 @@ trait ButtonTrait
     public function disabled(bool $disabled = true): self
     {
         $this->disabled = $disabled;
+
+        return $this;
+    }
+
+    public function hidden(bool $hidden = true): self
+    {
+        $this->hidden = $hidden;
 
         return $this;
     }
@@ -147,6 +155,7 @@ trait ButtonTrait
             'color' => $this->color,
             'outLine' => $this->outLine,
             'disabled' => $this->disabled,
+            'hidden' => $this->hidden,
             'rel' => $this->rel,
             'target' => $this->target,
             'size' => $this->size,

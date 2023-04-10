@@ -36,7 +36,7 @@
 
             @if (isset($button))
                 <div>
-                    @include('panel::button', ['button' => $button])
+                    @include('panel::button.index', ['button' => $button])
                 </div>
             @endif
         </div>
@@ -108,7 +108,7 @@
                     @endif
                     @if (isset($button))
                         <div class="mr-2">
-                            @include('panel::button', ['button' => $button])
+                            @include('panel::button.index', ['button' => $button])
                         </div>
                     @endif
                 </div>
