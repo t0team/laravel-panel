@@ -111,8 +111,9 @@ $button->route('route name', ['route needed parameters']);
 
 ### Open Modal
 
-modal build with `Modal` class.
-
 ```php
 $button->modal(Modal::make()->...);
 ```
+
+!!!info
+See [Modal](/components/modal) guide to know how to use `Modal` class.
