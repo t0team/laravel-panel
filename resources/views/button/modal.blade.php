@@ -92,11 +92,20 @@
 
                             @case('input')
                                 @php
-                                    if (isset($row[$body['input']->tableProperty])) {
-                                        if (in_array($row[$body['input']->tableProperty], ['0', '1'])) {
-                                            $body['input']->checked = $row[$body['input']->tableProperty];
+                                    if (isset($body['input']->tableProperty)) {
+                                        $value = $row;
+                                        foreach (explode('->', $body['input']->tableProperty) as $p) {
+                                            if (isset($value[$p])) {
+                                                $value = $value[$p];
+                                            } else {
+                                                $value = null;
+                                            }
+                                        }
+
+                                        if (in_array($value, ['0', '1'])) {
+                                            $body['input']->checked = $value;
                                         } else {
-                                            $body['input']->value = $row[$body['input']->tableProperty];
+                                            $body['input']->value = $value;
                                         }
                                     }
                                 @endphp
