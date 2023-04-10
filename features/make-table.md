@@ -1,6 +1,6 @@
 ---
-icon: dot
-order: 99
+icon: table
+order: 98
 label: Make Table
 ---
 
@@ -18,97 +18,62 @@ $headers = [
     'updated_at' => 'Updated At',
 ];
 # keys of $headers array is key name of data(rows)
-# values of $headers array is title of column
+# values of $headers array is title of column in table
 
 $panel = Panel::table($headers);
 ```
 
-
-## Add Rows
-You can add rows to table by `addRows` method:
+### Add Header
+You can add header to table by `addHeader` & `addHeaders` methods:
+!!!warning
+These Items are added to the end of the table
+!!!
 
 ```php
-$users = User::all();
+$panel->addHeader('id', 'ID');
+# or
+$panel->addHeaders(['id' => 'ID', 'name' => 'Name'])
+```
 
+## Add Row
+You can add rows to table by `addRow` & `addRows` methods:
+
+```php
+$panel->addRow($user);
+# or
 $panel->addRows($users);
 ```
 
-
-## Add Row
-You can add a row to table by `addRow` method:
-
-```php
-$user = User::find(1);
-
-$panel->addRow($user);
-```
-
-
 ## Use with paginate
-You can use with paginate by `withPaginate` method:
+You can use with paginate by `paginate` method:
+
+!!!warning
+This method is remove all rows and add new rows with paginate
+!!!
 
 ```php
-$users = User::paginate(10);
-
-$panel->withPaginate($users);
-# This method also adds all rows with paginate
+$panel->paginate(User::paginate(10));
 ```
-
 
 ## Add Action Button
-You can add action button to table by `actionButton` method:
+You can add action button to each row by `addAction` method:
+</br>
+action button build with `Button` class.
 
 ```php
-$panel->addAction(
-    'route name'
-    'route parameters' # get value from row
-    'button text',
-    'icon', # from fontawesome v6
-    'variant', # primary, secondary, success, danger, warning, info, light, dark
-    'open in new tab', # true or false
-);
+use T0team\LaravelPanel\Controllers\Button;
+
+$panel->addAction(Button::make()->label('buttonText')->...);
 ```
 
-
-
----
-## Set Page Title
-You can set title for page by `title` method.
-
-```php
-$panel->title('titleName');
-```
-
-
-## Set Page Button
-You can add button to page by `button` method:
-
-```php
-$panel->button(
-    'buttonText',
-    'route name or url',
-    'icon', # from fontawesome v6
-    'variant', # primary, secondary, success, danger, warning, info, light, dark
-    'outline', # true or false
-    'openInNewTab', # true or false
-);
-```
-
-## Change User Info
-You can change user info by `changeUserInfo` method:
-
-```php
-$panel->changeUserInfo(
-    'name' => 'user name',
-    'side' => 'admin', // user side or username
-    'email' => 'email address',
-    'image' => 'avatar url',
-);
-```
-
-## Render View
-You can render view by `render` method:
+## Render Table
+You can render table by `render` method:
 
 ```php
 return $panel->render();
 ```
+
+----
+## Other Methods
+
+Also you can use all methods of [Panel Facade](/features/panel-facade) in this section.
