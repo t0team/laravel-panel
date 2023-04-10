@@ -26,7 +26,7 @@ $panel = Panel::table($headers);
 ### Add Header
 You can add header to table by `addHeader` & `addHeaders` methods:
 !!!warning
-These Items are added to the end of the table
+These Items are added to the end of the previous items
 !!!
 
 ```php

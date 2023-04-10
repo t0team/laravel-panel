@@ -5,8 +5,6 @@ icon: plus-circle
 # Start Using
 before you start using the package, you must [install](/quick-start/installation) and [configure](/quick-start/configuration) it.
 
----
-
 ## Create Route
 For each page in panel you must create a route.
 For example, we want to create a page for index users. So we must create a route for it.
@@ -43,4 +41,6 @@ class UsersController extends Controller
 }
 ```
 
-See also [Make View](/features/make-view) for more information.
+----
+
+See also [Panel Facade](/features/panel-facade) for more information.

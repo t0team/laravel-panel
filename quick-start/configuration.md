@@ -13,20 +13,25 @@ You must publish the configuration of the package using the following command:
 php artisan vendor:publish --tag="panel-config"
 ```
 
----
 ## Configuration
 You can change the configuration of the package in the file `config/panel.php`.
 
 ```php
+<?php
+
+use T0team\LaravelPanel\Controllers\ExampleController;
+use T0team\LaravelPanel\Enums\Color;
+
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Panel Title
+    | Panel Title & Theme Color (hex type)
     |--------------------------------------------------------------------------
     */
 
-    'title' => "Admin Panel",
+    'title' => "پنل مدیریت",
+    'theme' => "#2962ff",
 
     /*
     |--------------------------------------------------------------------------
@@ -68,19 +73,42 @@ return [
     |--------------------------------------------------------------------------
     |
     | This option defines the items for panel sidebar.
-    | Key is the button address, and you can use [route name] as key.
-    | In params you can set name, icon, and activeIn,
+    | You can use multiple types: item, module (default: item)
+    | If you use module, you can set module in params.
+    | Also you can set route, name, icon, and activeIn,
     | Icon is from fontawesome6 icon.
-    | activeIn is an array of route names + key that the button will be active in.
+    | activeIn is an array of route names + route that the button will be active in.
+    |
+    | In badge you can set action, value, and color.
+    | Action call a method from a controller, like [ExampleController::class, 'badge']
+    | Value is a static value like 'beta', Priority is lower than action.
+    | Color is From Color Enum, default is danger.
     |
     */
 
-    'items' => [
-        'welcome' => [
-            'name' => "Dashboard",
+    'sidebar' => [
+        [
+            'type' => 'item',
+            'route' => 'welcome',
+            'name' => 'داشبورد',
             'icon' => 'fa-light fa-home-lg-alt',
             'activeIn' => ['welcome'],
+
+            'badge' => [
+                'action' => [ExampleController::class, 'badge'],
+                // 'value' => 5,
+                'color' => Color::DANGER,
+            ],
         ],
+
+        // [
+        //     'type' => 'module',
+        //     'module' => 'TestModule',
+        // ]
     ],
 ];
 ```
+
+----
+
+See Also [Start Using](/quick-start/start) for more information.
