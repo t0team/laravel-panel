@@ -8,6 +8,7 @@ trait InputTrait
 {
     private ?string $label = null;
     private ?string $value = null;
+    private ?string $tableProperty = null;
     private ?string $placeholder = null;
     private ?string $min = null;
     private ?string $max = null;
@@ -40,6 +41,13 @@ trait InputTrait
     public function value(?string $value): self
     {
         $this->value = $value;
+
+        return $this;
+    }
+
+    public function tableProperty(string $property): self
+    {
+        $this->tableProperty = $property;
 
         return $this;
     }
@@ -242,6 +250,7 @@ trait InputTrait
         return (object) array_merge($this->customGet(), [
             'label' => $this->label,
             'value' => $this->value,
+            'tableProperty' => $this->tableProperty,
             'placeholder' => $this->placeholder,
             'required' => $this->required,
             'disabled' => $this->disabled,
