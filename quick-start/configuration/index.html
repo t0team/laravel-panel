@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734477509500">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734478436326">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,12 +30,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.734477509500" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.734478436326" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734477509500" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734478436326" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734477509500" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.734477509500" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734478436326" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.734478436326" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -277,7 +277,6 @@
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-bash"><code v-pre class="language-bash">php artisan vendor:publish --tag=&quot;panel-config&quot;</code></pre>
 </doc-codeblock></div>
-<hr />
 <doc-anchor-target id="configuration-1">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#configuration-1">#</doc-anchor-trigger>
@@ -286,15 +285,21 @@
 </doc-anchor-target>
 <p>You can change the configuration of the package in the file <code v-pre>config/panel.php</code>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">return [
+<pre class="language-php"><code v-pre class="language-php">&lt;?php
+
+use T0team\LaravelPanel\Controllers\ExampleController;
+use T0team\LaravelPanel\Enums\Color;
+
+return [
 
     /*
     |--------------------------------------------------------------------------
-    | Panel Title
+    | Panel Title &amp; Theme Color (hex type)
     |--------------------------------------------------------------------------
     */
 
-    'title' =&gt; &quot;Admin Panel&quot;,
+    'title' =&gt; &quot;پنل مدیریت&quot;,
+    'theme' =&gt; &quot;#2962ff&quot;,
 
     /*
     |--------------------------------------------------------------------------
@@ -336,22 +341,43 @@
     |--------------------------------------------------------------------------
     |
     | This option defines the items for panel sidebar.
-    | Key is the button address, and you can use [route name] as key.
-    | In params you can set name, icon, and activeIn,
+    | You can use multiple types: item, module (default: item)
+    | If you use module, you can set module in params.
+    | Also you can set route, name, icon, and activeIn,
     | Icon is from fontawesome6 icon.
-    | activeIn is an array of route names + key that the button will be active in.
+    | activeIn is an array of route names + route that the button will be active in.
+    |
+    | In badge you can set action, value, and color.
+    | Action call a method from a controller, like [ExampleController::class, 'badge']
+    | Value is a static value like 'beta', Priority is lower than action.
+    | Color is From Color Enum, default is danger.
     |
     */
 
-    'items' =&gt; [
-        'welcome' =&gt; [
-            'name' =&gt; &quot;Dashboard&quot;,
+    'sidebar' =&gt; [
+        [
+            'type' =&gt; 'item',
+            'route' =&gt; 'welcome',
+            'name' =&gt; 'داشبورد',
             'icon' =&gt; 'fa-light fa-home-lg-alt',
             'activeIn' =&gt; ['welcome'],
+
+            'badge' =&gt; [
+                'action' =&gt; [ExampleController::class, 'badge'],
+                // 'value' =&gt; 5,
+                'color' =&gt; Color::DANGER,
+            ],
         ],
+
+        // [
+        //     'type' =&gt; 'module',
+        //     'module' =&gt; 'TestModule',
+        // ]
     ],
 ];</code></pre>
 </doc-codeblock></div>
+<hr />
+<p>See Also <a href="../start/">Start Using</a> for more information.</p>
 
                                 
                                 <!-- Required only on API pages -->
