@@ -2,6 +2,7 @@
 
 namespace T0team\LaravelPanel\Traits;
 
+use T0team\LaravelPanel\Controllers\Modal;
 use T0team\LaravelPanel\Enums\Color;
 use T0team\LaravelPanel\Enums\Size;
 
@@ -20,6 +21,7 @@ trait ButtonTrait
     private ?string $buttonType = null;
     private ?string $url = null;
     private ?array $route = null;
+    private ?object $modal = null;
 
 
     public function label(?string $label): self
@@ -137,6 +139,14 @@ trait ButtonTrait
         return $this;
     }
 
+    public function modal(Modal $modal): self
+    {
+        $this->buttonType = 'modal';
+        $this->modal = $modal->get();
+
+        return $this;
+    }
+
 
     public function when(bool $condition, callable $callback): self
     {
@@ -163,6 +173,7 @@ trait ButtonTrait
             'buttonType' => $this->buttonType,
             'url' => $this->url,
             'route' => $this->route,
+            'modal' => $this->modal,
         ]);
     }
 
