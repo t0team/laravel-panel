@@ -35,6 +35,10 @@ $panel->addGroup(
 );
 ```
 
+!!!info
+See [Group](/components/group) and [Input](/components/input) guide to know how to use `Group` and `Input` class.
+!!!
+
 ## Custom Submit Button
 You can customize submit button by `submit` method:
 

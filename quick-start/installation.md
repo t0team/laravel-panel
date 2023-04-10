@@ -5,7 +5,6 @@ order: 99
 ---
 
 ## Install
-
 You can install the package via composer:
 ```bash
 composer require t0team/laravel-panel
