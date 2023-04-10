@@ -17,35 +17,28 @@ For example, we want to create a page for index users. So we must create a route
 Route::get('users', "UsersController@index");
 ```
 
-## Create View
-For each route you must create a view.
-For example, we want to create a page for index users. So we must create a view for it.
-
-```php
-// resources/views/users/index.blade.php
-
-@foreach($users as $user)
-    {{ $user->name }}
-@endforeach
-```
-
-## Show View in Panel
-For show view in panel, You must:
+## Use Panel Facade in Controller
+Now we must use `Panel` facade in controller to create a page.
 
 ```php
 // app/Http/Controllers/UsersController.php
 
 use T0team\LaravelPanel\Facades\Panel;
+use App\Models\User;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $panel = Panel::table([
+            'id' => 'ID',
+            'name' => 'Name',
+            'email' => 'Email',
+        ]);
 
-        return Panel::view('users.index')
-            ->with('users', $users)
-            ->render();
+        $panel->paginate(User::paginate(10));
+
+        return $panel->render();
     }
 }
 ```
