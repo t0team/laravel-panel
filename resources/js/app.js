@@ -1,3 +1,6 @@
+// bootstrap
+import * as bootstrap from 'bootstrap';
+
 // toggle sidebar
 import "./sidebar";
 
