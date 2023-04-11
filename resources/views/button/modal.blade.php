@@ -102,7 +102,7 @@
                                             }
                                         }
 
-                                        $boolean = in_array($value, ['0', '1', 0, 1, true, false]);
+                                        $boolean = in_array($value, ['0', '1', 'true', 'false']);
                                     }
                                 @endphp
                                 <div class="mb-3">
