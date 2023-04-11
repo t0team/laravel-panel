@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734483227294">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.4.0.734569479568">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.4.0">
@@ -30,12 +30,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.4.0.734483227294" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.4.0.734569479568" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734483227294" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.4.0.734569479568" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.4.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734483227294" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.734483227294" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.4.0.734569479568" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.4.0.734569479568" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -295,11 +295,11 @@ $panel = Panel::table($headers);</code></pre>
         <span>Add Header</span>
     </h3>
 </doc-anchor-target>
-<p>You can add header to table by <code v-pre>addHeader</code> &amp; <code v-pre>addHeaders</code> methods:</p>
+<p>You can add header to table by <code v-pre>header</code> &amp; <code v-pre>headers</code> methods:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">$panel-&gt;addHeader('id', 'ID');
+<pre class="language-php"><code v-pre class="language-php">$panel-&gt;header('id', 'ID');
 # or
-$panel-&gt;addHeaders(['id' =&gt; 'ID', 'name' =&gt; 'Name'])</code></pre>
+$panel-&gt;headers(['id' =&gt; 'ID', 'name' =&gt; 'Name'])</code></pre>
 </doc-codeblock></div>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-yellow-500"></div>
@@ -323,11 +323,11 @@ $panel-&gt;addHeaders(['id' =&gt; 'ID', 'name' =&gt; 'Name'])</code></pre>
         <span>Add Row</span>
     </h2>
 </doc-anchor-target>
-<p>You can add rows to table by <code v-pre>addRow</code> &amp; <code v-pre>addRows</code> methods:</p>
+<p>You can add rows to table by <code v-pre>row</code> &amp; <code v-pre>rows</code> methods:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-php"><code v-pre class="language-php">$panel-&gt;addRow($user);
+<pre class="language-php"><code v-pre class="language-php">$panel-&gt;row($user);
 # or
-$panel-&gt;addRows($users);</code></pre>
+$panel-&gt;rows($users);</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="use-with-paginate">
     <h2>
@@ -361,11 +361,11 @@ $panel-&gt;addRows($users);</code></pre>
         <span>Add Action Button</span>
     </h2>
 </doc-anchor-target>
-<p>You can add action button to each row by <code v-pre>addAction</code> method:</p>
+<p>You can add action button to each row by <code v-pre>action</code> method:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-php"><code v-pre class="language-php">use T0team\LaravelPanel\Controllers\Button;
 
-$panel-&gt;addAction(Button::make()-&gt;label('buttonText')-&gt;...);</code></pre>
+$panel-&gt;action(Button::make()-&gt;label('buttonText')-&gt;...);</code></pre>
 </doc-codeblock></div>
 <div class="flex mb-6">
     <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-300"></div>
