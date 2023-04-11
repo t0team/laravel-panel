@@ -1,15 +1,15 @@
 @php
     if (isset($modal->customKey)) {
-        if (isset($row['id'])) {
-            $uniqueId = "{$modal->customKey}_{$row['id']}";
+        if (isset($row[$primaryKey])) {
+            $uniqueId = "{$modal->customKey}_{$row[$primaryKey]}";
         } elseif (isset($loop?->index)) {
             $uniqueId = "{$modal->customKey}_{$loop->index}";
         } else {
             $uniqueId = $modal->customKey;
         }
     } else {
-        if (isset($row['id'])) {
-            $uniqueId = "{$modal->id}_{$row['id']}";
+        if (isset($row[$primaryKey])) {
+            $uniqueId = "{$modal->id}_{$row[$primaryKey]}";
         } elseif (isset($loop?->index)) {
             $uniqueId = "{$modal->id}_{$loop->index}";
         } else {

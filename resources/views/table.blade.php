@@ -31,7 +31,11 @@
                     @if ($actions)
                         <td>
                             @foreach ($actions as $action)
-                                @include('panel::button.index', ['button' => $action, 'row' => $row])
+                                @include('panel::button.index', [
+                                    'button' => $action,
+                                    'row' => $row,
+                                    'primaryKey' => $primaryKey,
+                                ])
                             @endforeach
                         </td>
                     @endif

@@ -8,6 +8,7 @@ use T0team\LaravelPanel\Controllers\Button;
 class TableMaker extends Maker
 {
     private array $headers;
+    private string $primaryKey = 'id';
     private array $rows = [];
     private false|array $actions = false;
     private $paginate = false;
@@ -86,10 +87,21 @@ class TableMaker extends Maker
         return $this;
     }
 
+    /**
+     * Define the primary key of the table. Default is 'id'.
+     */
+    public function setPrimaryKey(string $key): self
+    {
+        $this->primaryKey = $key;
+
+        return $this;
+    }
+
     protected function beforeRender()
     {
         $this->data['view'] = view('panel::table', [
             'headers' => $this->headers,
+            'primaryKey' => $this->primaryKey,
             'rows' => $this->rows,
             'actions' => $this->actions,
             'paginate' => $this->paginate ?? false,

@@ -12,6 +12,7 @@
             'button' => $button,
             'modal' => $button->modal,
             'row' => $row ?? [],
+            'primaryKey' => $primaryKey ?? null,
             'loop' => $loop ?? null,
         ])
     @break
