@@ -1,7 +1,7 @@
 @php
     if (isset($modal->customKey)) {
         if (isset($row[$primaryKey])) {
-            $uniqueId = "{$modal->customKey}_{$row[$primaryKey]}";
+            $uniqueId = "{$modal->customKey}_" . preg_replace('/[^a-zA-Z0-9_-]/', '_', $row[$primaryKey]);
         } elseif (isset($loop?->index)) {
             $uniqueId = "{$modal->customKey}_{$loop->index}";
         } else {
@@ -9,7 +9,7 @@
         }
     } else {
         if (isset($row[$primaryKey])) {
-            $uniqueId = "{$modal->id}_{$row[$primaryKey]}";
+            $uniqueId = "{$modal->id}_" . preg_replace('/[^a-zA-Z0-9_-]/', '_', $row[$primaryKey]);
         } elseif (isset($loop?->index)) {
             $uniqueId = "{$modal->id}_{$loop->index}";
         } else {
