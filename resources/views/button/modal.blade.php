@@ -121,7 +121,7 @@
                                     @if ($body['htmlTag'])
                                         <{{ $body['htmlTag'] }}>
                                     @endif
-                                    {{ $row[$body['property']] }}
+                                    {!! $row[$body['property']] !!}
                                     @if ($body['htmlTag'])
                                         </{{ $body['htmlTag'] }}>
                                     @endif
