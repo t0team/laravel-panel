@@ -28,13 +28,13 @@
                     @foreach ($headers as $header => $label)
                         <td>{!! $row[$header] ?? ($row[$label] ?? 'یافت نشد') !!}</td>
                     @endforeach
-                    <td>
-                        @if ($actions)
+                    @if ($actions)
+                        <td>
                             @foreach ($actions as $action)
                                 @include('panel::button.index', ['button' => $action, 'row' => $row])
                             @endforeach
-                        @endif
-                    </td>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
         </tbody>
