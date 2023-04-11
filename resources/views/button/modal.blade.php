@@ -102,16 +102,15 @@
                                             }
                                         }
 
-                                        if (in_array($value, ['0', '1'])) {
-                                            $body['input']->checked = $value;
-                                        } else {
-                                            $body['input']->value = $value;
-                                        }
+                                        $boolean = in_array($value, ['0', '1', 0, 1, true, false]);
                                     }
                                 @endphp
                                 <div class="mb-3">
                                     @include("panel::form.components.{$body['input']->file}", [
-                                        'input' => $body['input'],
+                                        'input' => (object) array_merge((array) $body['input'], [
+                                            'checked' => $boolean ? $value : false,
+                                            'value' => $boolean ? null : $value,
+                                        ]),
                                     ])
                                 </div>
                             @break
