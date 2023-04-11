@@ -7,6 +7,10 @@ order: 100
 Laravel Panel is a package for Laravel, which provides a simple and easy way to create a admin panel for your application.
 ![](/static/banner.png)
 
+!!!danger Stable version is not released yet.
+Maybe it has some bugs. Please report if you find any bug. :icon-bug:
+!!!
+
 ---
 ## Support
 

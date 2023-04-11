@@ -24,12 +24,12 @@ $panel = Panel::table($headers);
 ```
 
 ### Add Header
-You can add header to table by `addHeader` & `addHeaders` methods:
+You can add header to table by `header` & `headers` methods:
 
 ```php
-$panel->addHeader('id', 'ID');
+$panel->header('id', 'ID');
 # or
-$panel->addHeaders(['id' => 'ID', 'name' => 'Name'])
+$panel->headers(['id' => 'ID', 'name' => 'Name'])
 ```
 
 !!!warning
@@ -37,12 +37,12 @@ These Items are added to the end of the previous items
 !!!
 
 ## Add Row
-You can add rows to table by `addRow` & `addRows` methods:
+You can add rows to table by `row` & `rows` methods:
 
 ```php
-$panel->addRow($user);
+$panel->row($user);
 # or
-$panel->addRows($users);
+$panel->rows($users);
 ```
 
 ## Use with paginate
@@ -57,12 +57,12 @@ This method is remove all rows and add new rows with paginate
 !!!
 
 ## Add Action Button
-You can add action button to each row by `addAction` method:
+You can add action button to each row by `action` method:
 
 ```php
 use T0team\LaravelPanel\Controllers\Button;
 
-$panel->addAction(Button::make()->label('buttonText')->...);
+$panel->action(Button::make()->label('buttonText')->...);
 ```
 
 !!!info

@@ -19,14 +19,14 @@ $panel = Panel::form(
 ```
 
 ## Add Form Group
-First you must add a form group to form by `addGroup` method,
+First you must add a form group to form by `group` method,
 </br>
-Then you can add inputs to group by `addInput` method:
+Then you can add inputs to group by `input` method:
 
 ```php
-$panel->addGroup(
+$panel->group(
     Group::make('title')
-        ->addInput(
+        ->input(
             Input::text('name')
                 ->label('label')
                 ->...

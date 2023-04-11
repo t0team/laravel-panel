@@ -24,9 +24,9 @@ $group = Group::make('group name');
 ### Add Input
 
 ```php
-$group->addInput(Input::make('input name')->...);
+$group->input(Input::make('input name')->...);
 #or
-$group->addInputs($inputs);
+$group->inputs($inputs);
 ```
 
 !!!info
