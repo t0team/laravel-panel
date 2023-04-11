@@ -26,17 +26,17 @@ class TableMaker extends Maker
         return $this;
     }
 
-    public function addHeader(string $key, string $label): TableMaker
+    public function header(string $key, string $label): TableMaker
     {
         $this->headers[$key] = $label;
 
         return $this;
     }
 
-    public function addHeaders(array $headers): TableMaker
+    public function headers(array $headers): TableMaker
     {
         foreach ($headers as $key => $label) {
-            $this->addHeader($key, $label);
+            $this->header($key, $label);
         }
 
         return $this;
@@ -48,38 +48,38 @@ class TableMaker extends Maker
 
         $this->rows = [];
         if ($mapForRows) {
-            $this->addRows($paginate->map($mapForRows));
+            $this->rows($paginate->map($mapForRows));
         } else {
-            $this->addRows($paginate);
+            $this->rows($paginate);
         }
 
         return $this;
     }
 
-    public function addAction(Button $button): self
+    public function action(Button $button): self
     {
         $this->actions[] = $button->get();
 
         return $this;
     }
 
-    public function addRows($rows): self
+    public function rows($rows): self
     {
         foreach ($rows as $row) {
-            $this->addRow($row);
+            $this->row($row);
         }
 
         return $this;
     }
 
-    public function addRow($row): self
+    public function row($row): self
     {
         if (!is_array($row)) {
             $row = $row->toArray();
         }
 
         if (isset($row[0]) && (is_array($row[0]) || is_object($row[0]))) {
-            $this->addRows($row);
+            $this->rows($row);
         } else {
             $this->rows[] = $row;
         }

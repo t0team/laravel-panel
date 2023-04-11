@@ -197,24 +197,17 @@ trait InputTrait
         return $this;
     }
 
-    public function addOption($option): self
+    public function option(Option $option): self
     {
-        if ($option instanceof Option) {
-            $this->options[] = $option->get();
-        } elseif (is_array($option)) {
-            $this->options[] = Option::make($option['label'])
-                ->value($option['value'])
-                ->selected($option['selected'] ?? false)
-                ->get();
-        }
+        $this->options[] = $option->get();
 
         return $this;
     }
 
-    public function addOptions(array $options): self
+    public function options(array $options): self
     {
         foreach ($options as $option) {
-            $this->addOption($option);
+            $this->option($option);
         }
 
         return $this;

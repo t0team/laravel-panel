@@ -27,7 +27,7 @@ class FormMaker extends Maker
         return $this;
     }
 
-    public function addGroup(Group $group): FormMaker
+    public function group(Group $group): FormMaker
     {
         $this->groups[] = $group->get();
 

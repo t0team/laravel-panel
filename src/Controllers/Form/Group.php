@@ -22,19 +22,17 @@ class Group
         return new self($title);
     }
 
-    public function addInput($input): Group
+    public function input(Input $input): Group
     {
-        if ($input instanceof Input) {
-            $this->inputs[] = $input->get();
-        }
+        $this->inputs[] = $input->get();
 
         return $this;
     }
 
-    public function addInputs(array $inputs): Group
+    public function inputs(array $inputs): Group
     {
         foreach ($inputs as $input) {
-            $this->addInput($input);
+            $this->input($input);
         }
 
         return $this;
