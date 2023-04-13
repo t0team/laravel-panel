@@ -92,6 +92,7 @@
 
                             @case('input')
                                 @php
+                                    $value = null;
                                     if (isset($body['input']->tableProperty)) {
                                         $value = $row;
                                         foreach (explode('->', $body['input']->tableProperty) as $p) {
@@ -106,8 +107,8 @@
                                 <div class="mb-3">
                                     @include("panel::form.components.{$body['input']->file}", [
                                         'input' => (object) array_merge((array) $body['input'], [
-                                            'checked' => $value == '1' || $value == 'on' || $value == 'true' || $value == 'checked',
-                                            'value' => $value
+                                            'checked' => $value == '1' || $value == 'on' || $value == 'true',
+                                            'value' => $value,
                                         ]),
                                     ])
                                 </div>
