@@ -49,6 +49,31 @@ return [
     ],
 
     /*
+    |--------------------------------------------------------------------------
+    | Panel Top Badge
+    |--------------------------------------------------------------------------
+    |
+    | This option defines the badge for panel top.
+    | You can set name, value, after, and color.
+    | After is a string after value, like 'تومان'.
+    | colors is From Color Enum.
+    |
+    */
+
+    'badge' => [
+        'active' => true,
+        'title' => 'موجودی:',
+        'value' => [ExampleController::class, 'count'],
+        'after' => 'تومان',
+
+        'color' => [
+            'background' => Color::SUCCESS,
+            'text' => Color::LIGHT,
+            'value' => Color::DARK,
+        ],
+    ],
+
+    /*
     |------------------------------- -------------------------------------------
     | Panel Items
     |--------------------------------------------------------------------------

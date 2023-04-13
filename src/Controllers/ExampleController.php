@@ -8,4 +8,9 @@ class ExampleController
     {
         return 'beta';
     }
+
+    public function count()
+    {
+        return '10,000';
+    }
 }

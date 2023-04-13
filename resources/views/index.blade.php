@@ -97,22 +97,39 @@
         </div>
 
         <div class="content">
-            @if (isset($title) || isset($button))
-                <div class="header-row mb-4 gap-3">
-                    @if (isset($title))
-                        <h2 class="d-flex gap-2 flex-row align-items-center">
-                            <span style="padding:0;">{{ $config['title'] }}</span>
-                            <i style="font-size: 18px;" class="fas fa-chevron-left"></i>
-                            <b>{{ $title }}</b>
-                        </h2>
-                    @endif
-                    @if (isset($button))
-                        <div class="mr-2">
-                            @include('panel::button.index', ['button' => $button])
-                        </div>
-                    @endif
-                </div>
-            @endif
+            <div class="d-flex mb-4 justify-content-between">
+                @if (isset($title) || isset($button))
+                    <div class="header-row gap-3">
+                        @if (isset($title))
+                            <h2 class="d-flex gap-2 flex-row align-items-center">
+                                <span style="padding:0;">{{ $config['title'] }}</span>
+                                <i style="font-size: 18px;" class="fas fa-chevron-left"></i>
+                                <b>{{ $title }}</b>
+                            </h2>
+                        @endif
+                        @if (isset($button))
+                            <div class="mr-2">
+                                @include('panel::button.index', ['button' => $button])
+                            </div>
+                        @endif
+                    </div>
+                @endif
+                @if ($badge['active'] ?? false)
+                    <div
+                        class="bg-{{ $badge['color']['background'] }} balance-bg d-flex flex-direction-row align-items-center gap-2 px-3 py-2 rounded-2 justify-content-center">
+                        <b class="text-{{ $badge['color']['text'] }}">
+                            {{ $badge['title'] ?? '' }}
+                        </b>
+                        <span class="badge fs-6 bg-{{ $badge['color']['text'] }} text-{{ $badge['color']['value'] }}">
+                            {{ app($badge['value'][0])->{$badge['value'][1]}() ?? '' }}
+                        </span>
+
+                        <p class="text-{{ $badge['color']['text'] }}">
+                            {{ $badge['after'] ?? '' }}
+                        </p>
+                    </div>
+                @endif
+            </div>
             {!! $view !!}
         </div>
     </div>

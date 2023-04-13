@@ -163,6 +163,10 @@
         display: none;
     }
 
+    .balance-bg {
+        width: 100% !important;
+    }
+
     .user-info {
         align-items: flex-end;
     }

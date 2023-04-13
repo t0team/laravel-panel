@@ -20,6 +20,7 @@ class Maker
         $this->data['config'] = $config;
 
         $this->fixSidebarItems();
+        $this->handleTopBadge();
         $this->fixUserInfo();
         $this->handleTheme();
     }
@@ -94,6 +95,11 @@ class Maker
             'active' => in_array(request()->route()->getName(), [$item['route'], ...$item['activeIn'] ?? []]),
             'badge' => $badge ?? false,
         ];
+    }
+
+    private function handleTopBadge()
+    {
+        $this->data['badge'] = $this->data['config']['badge'];
     }
 
     private function handleBadge(array $badge): bool|object
