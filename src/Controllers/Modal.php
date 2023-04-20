@@ -14,7 +14,7 @@ class Modal
         $this->open = $open;
 
         // replace all characters except letters, numbers , _ and - to _
-        $this->customKey = preg_replace('/[^a-zA-Z0-9_-]/', '_', $customKey);
+        $this->customKey = $customKey ? preg_replace('/[^a-zA-Z0-9_-]/', '_', $customKey) : null;
     }
 
     public static function make(?string $customKey = null): Modal
