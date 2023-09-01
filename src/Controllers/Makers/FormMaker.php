@@ -11,7 +11,7 @@ class FormMaker extends Maker
     private array $form = [];
     private array $groups = [];
 
-    public function __construct(string $routeNameOrUrl, array $routeNeeded, string $formMethod, string $laravelMethod, array $config)
+    public function __construct(string $routeNameOrUrl, array $routeNeeded, string $method, array $config)
     {
         $this->handle($config);
 
@@ -21,8 +21,13 @@ class FormMaker extends Maker
             $this->form['url'] = route($routeNameOrUrl, $routeNeeded);
         }
 
-        $this->form['form_method'] = $formMethod;
-        $this->form['laravel_method'] = $laravelMethod;
+        if($method == 'GET'){
+            $this->form['form_method'] = 'GET';
+            $this->form['laravel_method'] = 'GET';
+        } else {
+            $this->form['form_method'] = 'POST';
+            $this->form['laravel_method'] = $method;
+        }
 
         return $this;
     }

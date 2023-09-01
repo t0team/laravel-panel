@@ -25,8 +25,8 @@ class Panel
         return new TableMaker($headers, $this->config);
     }
 
-    public function form(string $routeNameOrUrl, array $routeNeeded = [], string $formMethod = 'POST', string $laravelMethod = 'POST'): FormMaker
+    public function form(string $routeNameOrUrl, array $routeNeeded = [], string $method = 'POST'): FormMaker
     {
-        return new FormMaker($routeNameOrUrl, $routeNeeded, $formMethod, $laravelMethod, $this->config);
+        return new FormMaker($routeNameOrUrl, $routeNeeded, $method, $this->config);
     }
 }

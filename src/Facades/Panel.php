@@ -10,7 +10,7 @@ use T0team\LaravelPanel\Controllers\Makers\FormMaker;
 /**
  * @method static ViewMaker view(string $view)
  * @method static TableMaker table(array $headers)
- * @method static FormMaker form(string $routeNameOrUrl, array $routeNeeded = [], string $formMethod = 'POST', string $laravelMethod = 'POST')
+ * @method static FormMaker form(string $routeNameOrUrl, array $routeNeeded = [], string $method = 'POST')
  *
  * @see \T0team\LaravelPanel\Controllers\Panel
  */

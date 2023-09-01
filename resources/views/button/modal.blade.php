@@ -54,12 +54,20 @@
                                     }
                                 }
                                 $formAddress = route($modal->form->address, $formNeededs ?? [], false);
+
+                                if($modal->form->method == 'GET'){
+                                    $formMethod = 'GET';
+                                    $laravelMethod = 'GET';
+                                } else {
+                                    $formMethod = 'POST';
+                                    $laravelMethod = $modal->form->method;
+                                }
                             }
                         @endphp
-                        <form action="{{ $formAddress }}" method="{{ $modal->form->method ?? 'POST' }}"
+                        <form action="{{ $formAddress }}" method="{{ $formMethod }}"
                             enctype="multipart/form-data" id="form_{{ $uniqueId }}">
                             @csrf
-                            @method($modal->form->laravelMethod)
+                            @method($laravelMethod)
                     @endif
 
                     @foreach ($modal->body as $body)

@@ -71,13 +71,12 @@ trait ModalTrait
         return $this;
     }
 
-    public function formOption(string $routeNameOrUrl, array $routeNeeded = [], string $formMethod = 'POST', string $laravelMethod = 'POST'): self
+    public function formOption(string $routeNameOrUrl, array $routeNeeded = [], string $method = 'POST'): self
     {
         $this->form = (object)[
             'address' => $routeNameOrUrl,
             'needed' => $routeNeeded,
-            'method' => $formMethod,
-            'laravelMethod' => $laravelMethod,
+            'method' => $method,
         ];
 
         return $this;
