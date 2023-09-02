@@ -14,11 +14,13 @@ return [
     | You can set title, direction and theme.
     | direction can be 'ltr' (left to right) or 'rtl' (right to left)
     | theme can be hex color code.
+    | font can be 'nunito' or 'dana'
     */
 
     'title' => "Panel",
     'direction' => 'ltr',
     'theme' => "#2962ff",
+    'font' => "nunito",
 
     /*
     |--------------------------------------------------------------------------

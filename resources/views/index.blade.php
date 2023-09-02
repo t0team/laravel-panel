@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="/vendor/panel/css/app.css">
+    <link rel="stylesheet" href="/vendor/panel/css/typographies/{{$config['font']??''}}.css">
     <link rel="stylesheet" href="/vendor/panel/css/{{$direction}}.css">
 
     <title>
