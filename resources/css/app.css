@@ -130,14 +130,11 @@
 }
 
 .user-info a {
-    display: flex;
-    flex-direction: row;
     height: 48px;
 }
 
 .user-info a img {
     border-radius: 50%;
-    margin-left: 8px;
     width: 44px;
 }
 

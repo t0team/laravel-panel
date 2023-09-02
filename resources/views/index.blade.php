@@ -47,10 +47,9 @@
             <button class="btn-close-menu" onclick="toggleSidebar()"><i class="fa-light fa-times"></i></button>
             <div class="top-sidebar">
                 <div class="user-info">
-                    <a class="text-black">
+                    <a class="text-black d-flex flex-direction-row gap-2">
                         <div>
-                            <img src="{{ $user->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user->email ?? ''))) . '?s=280&d=mm&r=g' }}"
-                                alt="Profile Image">
+                            <img src="{{ $user->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user->email ?? ''))) . '?s=280&d=mm&r=g' }}" alt="Profile Image">
                         </div>
                         <div>
                             <p>{{ $user->name ?? 'Anonymous User' }}</p>
