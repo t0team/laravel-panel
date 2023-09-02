@@ -8,10 +8,6 @@ th {
     padding: 16px 12px;
 }
 
-td {
-    height: 46px;
-}
-
 tr th:first-child {
     width: 3%;
 }

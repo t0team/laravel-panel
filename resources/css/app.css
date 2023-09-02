@@ -74,7 +74,6 @@
 
 .header-row>h2 {
     margin-bottom: 0;
-    
 }
 
 .header-row a {
@@ -94,7 +93,7 @@
 }
 
 .btn-close-menu {
-    display: none;
+    display: none !important;
     position: absolute;
     top: 9.5px;
 }

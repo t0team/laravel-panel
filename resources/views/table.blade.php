@@ -29,7 +29,7 @@
                         <td>{!! $row[$header] ?? ($row[$label] ?? '-') !!}</td>
                     @endforeach
                     @if ($actions)
-                        <td>
+                        <td class="d-flex gap-2">
                             @foreach ($actions as $action)
                                 @include('panel::button.index', [
                                     'button' => $action,
