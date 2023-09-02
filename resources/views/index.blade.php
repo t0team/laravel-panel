@@ -78,17 +78,18 @@
                 <div class="bottom-sidebar">
                     <hr>
                     @if (strtolower($config['logout']['method']) == 'post')
-                        <a class="nav-link" onclick="document.getElementById('logout-form').submit();">
-                            <i class="fa-light fa-sign-out-alt"></i><span>خروج</span>
+                        <a class="nav-link d-flex justify-content-between align-items-center gap-2" onclick="document.getElementById('logout-form').submit();">
+                            <i class="fa-light fa-sign-out-alt"></i>
+                            <span>خروج</span>
                         </a>
 
-                        <form id="logout-form" action="{{ route($config['logout']['route']) }}" method="POST"
-                            class="d-none">
+                        <form id="logout-form" action="{{ route($config['logout']['route']) }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     @else
-                        <a class="nav-link" href="{{ route($config['logout']['route']) }}">
-                            <i class="fa-light fa-sign-out-alt"></i><span>خروج</span>
+                        <a class="nav-link d-flex justify-content-between align-items-center gap-2" href="{{ route($config['logout']['route']) }}">
+                            <i class="fa-light fa-sign-out-alt"></i>
+                            <span>خروج</span>
                         </a>
                     @endif
                 </div>
