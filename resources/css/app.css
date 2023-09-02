@@ -7,10 +7,6 @@
 
 /*----------sidebar CSS----------*/
 
-.btn-close {
-    float: left;
-}
-
 .modal-header .btn-close {
     margin: 0;
 }
@@ -30,9 +26,8 @@
 .sidebar {
     width: 280px;
     position: fixed;
-    right: 0;
     top: 0;
-    z-index: 999;
+    z-index: 1060;
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -45,12 +40,6 @@
     box-shadow: 0 2px 13px 0 rgb(50 50 93 / 6%);
 }
 
-@media (min-width:1201px) {
-    .sidebar {
-        right: 0 !important;
-    }
-}
-
 .sidebar::-webkit-scrollbar {
     width: 7px;
 }
@@ -60,7 +49,6 @@
 }
 
 .content {
-    margin-right: 280px;
     padding: 24px;
     display: flex;
     flex-direction: column;
@@ -104,8 +92,7 @@
 .btn-close-menu {
     display: none;
     position: absolute;
-    top: 6px;
-    left: 22.5px;
+    top: 9.5px;
 }
 
 .menu {
