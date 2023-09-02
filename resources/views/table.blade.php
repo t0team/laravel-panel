@@ -18,7 +18,7 @@
                     <th>{{ $label }}</th>
                 @endforeach
                 @if ($actions)
-                    <th>عملیات</th>
+                    <th></th>
                 @endif
             </tr>
         </thead>
@@ -26,7 +26,7 @@
             @foreach ($rows as $row)
                 <tr>
                     @foreach ($headers as $header => $label)
-                        <td>{!! $row[$header] ?? ($row[$label] ?? 'یافت نشد') !!}</td>
+                        <td>{!! $row[$header] ?? ($row[$label] ?? '-') !!}</td>
                     @endforeach
                     @if ($actions)
                         <td>
@@ -48,7 +48,7 @@
                     <th>{{ $label }}</th>
                 @endforeach
                 @if ($actions)
-                    <th>عملیات</th>
+                    <th></th>
                 @endif
             </tr>
         </tfoot>
