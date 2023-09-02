@@ -7,11 +7,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Panel Title & Theme Color (hex type)
+    | Panel Config
     |--------------------------------------------------------------------------
+    |
+    | This option defines the panel config.
+    | You can set title, direction and theme.
+    | direction can be 'ltr' (left to right) or 'rtl' (right to left)
+    | theme can be hex color code.
     */
 
-    'title' => "پنل مدیریت",
+    'title' => "Panel",
+    'direction' => 'ltr',
     'theme' => "#2962ff",
 
     /*
@@ -55,16 +61,16 @@ return [
     |
     | This option defines the badge for panel top.
     | You can set name, value, after, and color.
-    | After is a string after value, like 'تومان'.
+    | After is a string after value, like '$'.
     | colors is From Color Enum.
     |
     */
 
     'badge' => [
         'active' => true,
-        'title' => 'موجودی:',
+        'title' => 'Wallet:',
         'value' => [ExampleController::class, 'count'],
-        'after' => 'تومان',
+        'after' => '$',
 
         'color' => [
             'background' => Color::SUCCESS,
@@ -96,7 +102,7 @@ return [
         [
             'type' => 'item',
             'route' => 'welcome',
-            'name' => 'داشبورد',
+            'name' => 'Dashboard',
             'icon' => 'fa-light fa-home-lg-alt',
             'activeIn' => ['welcome'],
 
