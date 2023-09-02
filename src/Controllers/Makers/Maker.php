@@ -18,6 +18,7 @@ class Maker
     {
         $this->panel = View::make("panel::index");
         $this->data['config'] = $config;
+        $this->data['direction'] = $config['direction'] ?? 'ltr';
 
         $this->fixSidebarItems();
         $this->handleTopBadge();

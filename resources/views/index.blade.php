@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="fa">
+<html dir="{{ $direction }}">
 
 <head>
     <meta charset="UTF-8">
@@ -103,7 +103,7 @@
                         @if (isset($title))
                             <h2 class="d-flex gap-2 flex-row align-items-center">
                                 <span style="padding:0;">{{ $config['title'] }}</span>
-                                <i style="font-size: 18px;" class="fas fa-chevron-left"></i>
+                                <i style="font-size: 18px;" class="fas fa-chevron-{{ $direction == 'rtl' ? 'left' : 'right'}}"></i>
                                 <b>{{ $title }}</b>
                             </h2>
                         @endif
