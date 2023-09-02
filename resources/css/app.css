@@ -69,7 +69,12 @@
 .header-row {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
+}
+
+.header-row>h2 {
+    margin-bottom: 0;
+    
 }
 
 .header-row a {
