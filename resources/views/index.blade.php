@@ -60,16 +60,16 @@
                 <hr>
                 <div class="menu">
                     @foreach ($items as $item)
-                        <a class="nav-link {{ $item->active ? 'active' : '' }}" href="{{ $item->url }}">
-                            <i class="{{ $item->icon }}"></i>
-                            <div class="d-flex justify-content-between align-items-center">
+                        <a class="nav-link d-flex justify-content-between align-items-center {{ $item->active ? 'active' : '' }}" href="{{ $item->url }}">
+                            <div class="d-flex gap-2">
+                                <i class="{{ $item->icon }}"></i>
                                 <span>{{ $item->name }}</span>
-                                @if ($item->badge)
-                                    <span class="badge bg-{{ $item->badge->color ?? 'danger' }}">
-                                        {{ $item->badge->value }}
-                                    </span>
-                                @endif
                             </div>
+                            @if ($item->badge)
+                                <span class="badge bg-{{ $item->badge->color ?? 'danger' }}">
+                                    {{ $item->badge->value }}
+                                </span>
+                            @endif
                         </a>
                     @endforeach
                 </div>
