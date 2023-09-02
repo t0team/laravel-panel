@@ -143,13 +143,13 @@
 
                 <div class="modal-footer">
                     <button class="btn btn-secondary btn-{{ $modal->close->size ?? 'md' }}" data-bs-dismiss="modal">
-                        {{ $modal->close->label ?? 'بستن' }}
+                        {{ $modal->close->label ?? 'Close' }}
                     </button>
 
                     @if ($modal->form)
                         <button type="submit" form="form_{{ $uniqueId }}"
                             class="btn btn-{{ $modal->form->submit->color ?? 'primary' }} btn-{{ $modal->form->submit->size ?? 'md' }}">
-                            {{ $modal->form->submit->label ?? 'ثبت' }}
+                            {{ $modal->form->submit->label ?? 'Submit' }}
                         </button>
                     @endif
                 </div>

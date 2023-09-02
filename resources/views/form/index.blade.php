@@ -26,7 +26,7 @@
     </div>
 
     <button type="submit" class="btn btn-{{ $form->submit_color ?? 'primary' }} btn-{{ $form->submit_size }}">
-        {{ $form->submit ?? 'ثبت فرم' }}
+        {{ $form->submit ?? 'Submit' }}
     </button>
 
     @if (isset($form->reset))

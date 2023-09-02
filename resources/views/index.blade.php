@@ -63,7 +63,7 @@
                 <div class="menu">
                     @foreach ($items as $item)
                         <a class="nav-link d-flex justify-content-between align-items-center {{ $item->active ? 'active' : '' }}" href="{{ $item->url }}">
-                            <div class="d-flex gap-2">
+                            <div class="d-flex gap-2 align-items-center">
                                 <i class="{{ $item->icon }}"></i>
                                 <span>{{ $item->name }}</span>
                             </div>
@@ -80,18 +80,18 @@
                 <div class="bottom-sidebar">
                     <hr>
                     @if (strtolower($config['logout']['method']) == 'post')
-                        <a class="nav-link d-flex justify-content-between align-items-center gap-2" onclick="document.getElementById('logout-form').submit();">
+                        <a class="nav-link d-flex align-items-center gap-2" onclick="document.getElementById('logout-form').submit();">
                             <i class="fa-light fa-sign-out-alt"></i>
-                            <span>خروج</span>
+                            <span>Logout</span>
                         </a>
 
                         <form id="logout-form" action="{{ route($config['logout']['route']) }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     @else
-                        <a class="nav-link d-flex justify-content-between align-items-center gap-2" href="{{ route($config['logout']['route']) }}">
+                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route($config['logout']['route']) }}">
                             <i class="fa-light fa-sign-out-alt"></i>
-                            <span>خروج</span>
+                            <span>Logout</span>
                         </a>
                     @endif
                 </div>
