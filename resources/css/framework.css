@@ -137,6 +137,11 @@ a:has(i), button:has(i) {
     text-align: left !important;
 }
 
+.alert {
+    display: flex;
+    justify-content: space-between;
+}
+
 /*---- LOADING ----*/
 
 #loading {
