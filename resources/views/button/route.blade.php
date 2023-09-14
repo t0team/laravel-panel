@@ -1,8 +1,12 @@
 @php
-    foreach ($button->route['needed'] as $need) {
-        if (isset($row[$need])) {
-            $neededs[] = $row[$need];
+    if(isset($row) && !empty($row)) {
+        foreach ($button->route['needed'] as $need) {
+            if (isset($row[$need])) {
+                $neededs[] = $row[$need];
+            }
         }
+    } else {
+        $neededs = $button->route['needed'];
     }
 @endphp
 
