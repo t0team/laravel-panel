@@ -6,7 +6,7 @@ use T0team\LaravelPanel\Controllers\Button;
 
 trait MakerTrait
 {
-    public function changeUserInfo(string $name, string $userSide = null, string $email = null, string $image = null): self
+    public function changeUserInfo(string $name, string $userSide = null, string $email = null, string $image = null): static
     {
         $this->data['user'] = (object) [
             'name' => $name,
@@ -18,7 +18,7 @@ trait MakerTrait
         return $this;
     }
 
-    public function title(string $title): self
+    public function title(string $title): static
     {
         if ($title != null && $title != '') {
             $this->data['title'] = $title;
@@ -27,7 +27,7 @@ trait MakerTrait
         return $this;
     }
 
-    public function button(Button $button): self
+    public function button(Button $button): static
     {
         $this->data['button'] = $button->get();
 
