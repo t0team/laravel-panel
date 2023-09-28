@@ -1,4 +1,4 @@
-<div class="form-check form-switch {{ $direction == 'rtl' ? 'form-check-reverse' : '' }}">
+<div class="form-check form-switch {{ config('panel.direction', 'ltr') == 'rtl' ? 'form-check-reverse' : '' }}">
     <input type="checkbox" role="swich"
         id="{{ $input->id }}"
         name="{{ $input->name }}"
