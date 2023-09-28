@@ -1,4 +1,4 @@
-<div class="form-check form-check-reverse form-switch">
+<div class="form-check form-switch {{ $direction == 'rtl' ? 'form-check-reverse' : '' }}">
     <input type="checkbox" role="swich"
         id="{{ $input->id }}"
         name="{{ $input->name }}"
