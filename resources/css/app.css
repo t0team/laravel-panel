@@ -141,7 +141,8 @@
     padding-left: 8px;
 }
 
-.nav-group .items>.nav-link {
+.nav-group .items>.nav-link,
+.items>.nav-group>.nav-link {
     padding: 4px 12px;
 }
 
