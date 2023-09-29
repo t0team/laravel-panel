@@ -138,7 +138,7 @@
     flex-direction: column;
     gap: 6px;
     margin-top: 6px;
-    padding-left: 10px;
+    padding-left: 8px;
 }
 
 .nav-group .items>.nav-link {
@@ -148,7 +148,7 @@
 .nav-group .items::before {
     content: '';
     height: 100%;
-    width: 5px;
+    width: 4px;
     border-radius: 10px;
     background: var(--theme-color);
     display: block;
