@@ -118,6 +118,25 @@ return [
         // [
         //     'type' => 'module',
         //     'module' => 'TestModule',
+        // ],
+
+        // [
+        //     'type' => 'group',
+        //     'name' => 'Test Group',
+        //     'icon' => 'fa-light fa-home-lg-alt',
+        //     'items' => [
+        //         [
+        //             'type' => 'item',
+        //             'route' => 'welcome',
+        //             'name' => 'Dashboard',
+        //             'icon' => 'fa-light fa-home-lg-alt',
+        //             'activeIn' => ['welcome'],
+        //         ],
+        //         [
+        //             'type' => 'module',
+        //             'module' => 'TestModule',
+        //         ],
+        //     ],
         // ]
     ],
 ];

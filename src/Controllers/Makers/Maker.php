@@ -17,30 +17,89 @@ class Maker
     protected function handle(array $config)
     {
         $this->panel = View::make("panel::index");
-        $this->data['config'] = $config;
-        $this->data['direction'] = $config['direction'] ?? 'ltr';
 
-        $this->fixSidebarItems();
-        $this->handleTopBadge();
-        $this->fixUserInfo();
-        $this->handleTheme();
+        $this->data = [
+            'config' => $config,
+            'direction' => $config['direction'] ?? 'ltr',
+            'badge' => $config['badge'] ?? null,
+            'theme' => $this->getTheme($config),
+            'user' => $this->getUserInfo($config),
+            'items' => $this->getSidebarItems($config['sidebar']),
+        ];
     }
 
-    private function fixSidebarItems()
+    private function getTheme(array $config): string
     {
-        $items = $this->data['config']['sidebar'];
+        $theme = $config['theme'] ?? "#2962ff";
+        $theme = str_replace('#', '', $theme);
 
-        foreach ($items as $data) {
-            $item = match ($data['type'] ?? 'item') {
-                'module' => $this->handleSidebarModule($data['module']),
-                'item' => $this->handleSidebarItem($data),
-                default => throw new \Exception("Invalid sidebar item type: [{$data['type']}]"),
-            };
+        sscanf($theme, "%02x%02x%02x", $r, $g, $b);
 
-            if (!is_null($item)) {
-                $this->data['items'][] = $item;
-            }
+        return "{$r} {$g} {$b}";
+    }
+
+    private function getUserInfo(array $config): object|null
+    {
+        if (!auth()->check()) return null;
+
+        $user = auth()->user();
+        $params = $config['user'];
+
+        // get all params
+        foreach (explode(',', $params['name']) as $item) {
+            $names[] = $user->$item;
         }
+
+        return (object) [
+            'name' => implode(' ', $names) ?? null,
+            'side' => $user->{$params['side']} ?? null,
+            'email' => $user->{$params['email']} ?? null,
+            'image' => $user->{$params['image']} ?? null
+        ];
+    }
+
+    private function getSidebarItems(array $items): array
+    {
+        return collect($items)
+            ->map(function ($item) {
+                return match ($item['type'] ?? 'item') {
+                    'group' => $this->handleSidebarGroup($item),
+                    'item' => $this->handleSidebarItem($item),
+                    'module' => $this->handleSidebarModule($item['module']),
+                    default => throw new \Exception("Invalid sidebar item type: [{$item['type']}]"),
+                };
+            })
+            ->filter()
+            ->toArray();
+    }
+
+    private function handleSidebarGroup(array $data): object|null
+    {
+        return (object) [
+            'type' => 'group',
+            'name' => $data['name'],
+            'icon' => $data['icon'],
+            'items' => $this->getSidebarItems($data['items']),
+        ];
+    }
+
+    private function handleSidebarItem(array $item): object
+    {
+        // get route url
+        $url = route($item['route']);
+
+        // check module has badge
+        if (isset($item['badge'])) {
+            $badge = $this->handleBadge($item['badge']);
+        }
+
+        return (object) [
+            'url' => $url,
+            'name' => $item['name'],
+            'icon' => $item['icon'],
+            'active' => in_array(request()->route()->getName(), [$item['route'], ...$item['activeIn'] ?? []]),
+            'badge' => $badge ?? false,
+        ];
     }
 
     private function handleSidebarModule(string $name): object|null
@@ -79,30 +138,6 @@ class Maker
         ];
     }
 
-    private function handleSidebarItem(array $item): object
-    {
-        // get route url
-        $url = route($item['route']);
-
-        // check module has badge
-        if (isset($item['badge'])) {
-            $badge = $this->handleBadge($item['badge']);
-        }
-
-        return (object) [
-            'url' => $url,
-            'name' => $item['name'],
-            'icon' => $item['icon'],
-            'active' => in_array(request()->route()->getName(), [$item['route'], ...$item['activeIn'] ?? []]),
-            'badge' => $badge ?? false,
-        ];
-    }
-
-    private function handleTopBadge()
-    {
-        $this->data['badge'] = $this->data['config']['badge'];
-    }
-
     private function handleBadge(array $badge): bool|object
     {
         // check available color
@@ -124,36 +159,5 @@ class Maker
         }
 
         return false;
-    }
-
-    private function fixUserInfo()
-    {
-        if (!auth()->check()) {
-            return;
-        }
-        $user = auth()->user();
-        $params = $this->data['config']['user'];
-
-        // get all params
-        foreach (explode(',', $params['name']) as $item) {
-            $names[] = $user->$item;
-        }
-
-        $this->changeUserInfo(
-            implode(' ', $names) ?? null,
-            $user->{$params['side']} ?? null,
-            $user->{$params['email']} ?? null,
-            $user->{$params['image']} ?? null
-        );
-    }
-
-    private function handleTheme()
-    {
-        $theme = $this->data['config']['theme'] ?? "#2962ff";
-        $theme = str_replace('#', '', $theme);
-
-        sscanf($theme, "%02x%02x%02x", $r, $g, $b);
-
-        $this->data['theme'] = "{$r} {$g} {$b}";
     }
 }
