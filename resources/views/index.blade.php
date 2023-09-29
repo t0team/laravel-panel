@@ -63,20 +63,13 @@
                     </a>
                 </div>
                 <hr>
-                <div class="menu">
+                <div class="d-flex flex-column gap-2 overflow-hidden">
                     @foreach ($items as $item)
-                        <a class="nav-link d-flex justify-content-between align-items-center {{ $item->active ? 'active' : '' }}"
-                            href="{{ $item->url }}">
-                            <div class="d-flex gap-2 align-items-center">
-                                <i class="{{ $item->icon }}"></i>
-                                <span>{{ $item->name }}</span>
-                            </div>
-                            @if ($item->badge)
-                                <span class="badge bg-{{ $item->badge->color ?? 'danger' }}">
-                                    {{ $item->badge->value }}
-                                </span>
-                            @endif
-                        </a>
+                        @if (($item->type ?? 'item') == 'group')
+                            <x-panel::sidebar.group :item="$item" :index="$loop->index" />
+                        @else
+                            <x-panel::sidebar.item :item="$item" />
+                        @endif
                     @endforeach
                 </div>
             </div>
