@@ -8,8 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="/vendor/panel/css/app.css">
-    <link rel="stylesheet" href="/vendor/panel/css/typographies/{{$config['font']??''}}.css">
-    <link rel="stylesheet" href="/vendor/panel/css/{{$direction}}.css">
+    <link rel="stylesheet" href="/vendor/panel/css/typographies/{{ $config['font'] ?? '' }}.css">
+    <link rel="stylesheet" href="/vendor/panel/css/{{ $direction }}.css">
 
     <title>
         @if (isset($title))
@@ -30,7 +30,7 @@
     <div class="container">
         <div class="top-menu justify-content-between">
             <div class="d-flex align-items-center gap-3">
-                <button onclick="toggleSidebar('{{$direction}}')"><i class="fas fa-bars"></i></button>
+                <button onclick="toggleSidebar('{{ $direction }}')"><i class="fas fa-bars"></i></button>
                 @if (isset($title))
                     <h2 class="fs-4 gap-2 mb-0">{{ $title }}</h2>
                 @endif
@@ -43,15 +43,18 @@
             @endif
         </div>
 
-        <div class="sb-shadow" id="sb-shadow" style="display: none;" onclick="toggleSidebar('{{$direction}}')"></div>
+        <div class="sb-shadow" id="sb-shadow" style="display: none;" onclick="toggleSidebar('{{ $direction }}')">
+        </div>
 
-        <div class="sidebar" style="{{$direction=='rtl'?'right':'left'}}:-280px;" id="sidebar">
-            <button class="btn-close-menu" onclick="toggleSidebar('{{$direction}}')"><i class="fa-light fa-times"></i></button>
+        <div class="sidebar" style="{{ $direction == 'rtl' ? 'right' : 'left' }}:-280px;" id="sidebar">
+            <button class="btn-close-menu" onclick="toggleSidebar('{{ $direction }}')"><i
+                    class="fa-light fa-times"></i></button>
             <div class="top-sidebar">
                 <div class="user-info">
                     <a class="text-black d-flex flex-direction-row gap-2">
                         <div>
-                            <img src="{{ $user->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user->email ?? ''))) . '?s=280&d=mm&r=g' }}" alt="Profile Image">
+                            <img src="{{ $user->image ?? 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($user->email ?? ''))) . '?s=280&d=mm&r=g' }}"
+                                alt="Profile Image">
                         </div>
                         <div>
                             <p>{{ $user->name ?? 'Anonymous User' }}</p>
@@ -62,7 +65,8 @@
                 <hr>
                 <div class="menu">
                     @foreach ($items as $item)
-                        <a class="nav-link d-flex justify-content-between align-items-center {{ $item->active ? 'active' : '' }}" href="{{ $item->url }}">
+                        <a class="nav-link d-flex justify-content-between align-items-center {{ $item->active ? 'active' : '' }}"
+                            href="{{ $item->url }}">
                             <div class="d-flex gap-2 align-items-center">
                                 <i class="{{ $item->icon }}"></i>
                                 <span>{{ $item->name }}</span>
@@ -80,16 +84,19 @@
                 <div class="bottom-sidebar">
                     <hr>
                     @if (strtolower($config['logout']['method']) == 'post')
-                        <a class="nav-link d-flex align-items-center gap-2" onclick="document.getElementById('logout-form').submit();">
+                        <a class="nav-link d-flex align-items-center gap-2"
+                            onclick="document.getElementById('logout-form').submit();">
                             <i class="fa-light fa-sign-out-alt"></i>
                             <span>Logout</span>
                         </a>
 
-                        <form id="logout-form" action="{{ route($config['logout']['route']) }}" method="POST" class="d-none">
+                        <form id="logout-form" action="{{ route($config['logout']['route']) }}" method="POST"
+                            class="d-none">
                             @csrf
                         </form>
                     @else
-                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route($config['logout']['route']) }}">
+                        <a class="nav-link d-flex align-items-center gap-2"
+                            href="{{ route($config['logout']['route']) }}">
                             <i class="fa-light fa-sign-out-alt"></i>
                             <span>Logout</span>
                         </a>
@@ -105,7 +112,8 @@
                         @if (isset($title))
                             <h2 class="d-flex gap-2 flex-row align-items-center">
                                 <span style="padding:0;">{{ $config['title'] }}</span>
-                                <i style="font-size: 18px;" class="fas fa-chevron-{{ $direction == 'rtl' ? 'left' : 'right'}}"></i>
+                                <i style="font-size: 18px;"
+                                    class="fas fa-chevron-{{ $direction == 'rtl' ? 'left' : 'right' }}"></i>
                                 <b>{{ $title }}</b>
                             </h2>
                         @endif
