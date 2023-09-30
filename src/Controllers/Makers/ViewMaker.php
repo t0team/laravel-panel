@@ -18,6 +18,7 @@ class ViewMaker extends Maker
         }
 
         $this->view = $view;
+        $this->with = collect();
 
         return $this;
     }
