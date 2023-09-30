@@ -70,7 +70,7 @@ trait InputTrait
     {
         $this->required = $required;
 
-        if ($this->label && $required) {
+        if ($required && $this->label) {
             $this->label .= ' *';
         } elseif (!$required) {
             $this->label = str_replace(' *', '', $this->label);
