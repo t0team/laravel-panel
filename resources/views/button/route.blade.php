@@ -1,16 +1,6 @@
-@php
-    if(isset($row) && !empty($row)) {
-        foreach ($button->route['needed'] as $need) {
-            if (isset($row[$need])) {
-                $neededs[] = $row[$need];
-            }
-        }
-    } else {
-        $neededs = $button->route['needed'];
-    }
-@endphp
+@props($neededs = T0team\LaravelPanel\Helper::needed($row ?? [], $button->route['needed']))
 
-<a href="{!! route($button->route['name'], $neededs ?? [], false) !!}"
+<a href="{!! route($button->route['name'], $neededs, false) !!}"
     class="btn btn-{{ $button->outLine ? 'outline-' : '' }}{{ $button->color }} btn-{{ $button->size }} {{ $button->disabled ? 'disabled' : '' }}"
     rel="{{ $button->rel }}"
     target="{{ $button->target }}"
