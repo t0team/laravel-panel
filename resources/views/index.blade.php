@@ -34,10 +34,10 @@
                     $button->modal->customKey = 'panel-menu-button';
                     $hiddenButton = clone $button;
                     $hiddenButton->hidden = true;
-                    $button->modal->open = true;
                 @endphp
 
                 @include('panel::button.index', ['button' => $hiddenButton])
+                @php($button->modal->open = true)
             </div>
         @endif
 
