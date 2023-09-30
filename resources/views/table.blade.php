@@ -26,7 +26,7 @@
             @foreach ($rows as $row)
                 <tr>
                     @foreach ($headers as $header => $label)
-                        <td>{!! $row[$header] ?? ($row[$label] ?? '-') !!}</td>
+                        <td>{!! T0team\LaravelPanel\Helper::value($row, $header) ?? '-' !!}</td>
                     @endforeach
                     @if ($actions)
                         <td class="d-flex gap-2">
