@@ -19,6 +19,7 @@ trait InputTrait
     private ?int $maxLength = null;
     private ?int $rows = null;
     private ?int $cols = null;
+    private bool $withOldValue = true;
     private bool $required = false;
     private bool $disabled = false;
     private bool $readonly = false;
@@ -52,9 +53,9 @@ trait InputTrait
         return $this;
     }
 
-    public function withOldValue(): self
+    public function withOldValue(bool $withOldValue = true): self
     {
-        $this->value = old($this->name, $this->value);
+        $this->withOldValue = $withOldValue;
 
         return $this;
     }
@@ -245,6 +246,7 @@ trait InputTrait
             'value' => $this->value,
             'tableProperty' => $this->tableProperty,
             'placeholder' => $this->placeholder,
+            'withOldValue' => $this->withOldValue,
             'required' => $this->required,
             'disabled' => $this->disabled,
             'readonly' => $this->readonly,
