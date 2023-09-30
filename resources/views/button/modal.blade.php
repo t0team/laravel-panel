@@ -31,7 +31,6 @@
 </button>
 
 @if (!$modal->open)
-    <!-- Modal -->
     <div class="modal fade" id="modal_{{ $uniqueId }}" tabindex="-1" aria-hidden="true"
         @if ($modal->staticBackdrop) data-bs-backdrop="static" data-bs-keyboard="false" @endif>
         <div
