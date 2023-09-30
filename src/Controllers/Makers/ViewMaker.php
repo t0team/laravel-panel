@@ -2,12 +2,14 @@
 
 namespace T0team\LaravelPanel\Controllers\Makers;
 
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 
 class ViewMaker extends Maker
 {
     private string $viewName;
-    private array $with = [];
+    private Collection $with;
 
     public function __construct(string $view, array $config)
     {
@@ -22,13 +24,13 @@ class ViewMaker extends Maker
         return $this;
     }
 
-    public function with(array|string $key, $value = null): self
+    public function with(Arrayable|array|string $key, $value = null): self
     {
-        $key = is_array($key) ? $key : [$key => $value];
-
-        foreach ($key as $k => $v) {
-            $this->with[$k] = $v;
+        if (is_string($key)) {
+            $key = [$key => $value];
         }
+
+        $this->with = $this->with->merge($key);
 
         return $this;
     }
