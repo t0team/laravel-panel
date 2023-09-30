@@ -13,7 +13,7 @@ class TableMaker extends Maker
     private Collection $rows;
     private ?Collection $actions = null;
     private string $primaryKey = 'id';
-    private $paginate = false;
+    private $paginate = null;
 
     public function make(array $headers): static
     {
@@ -36,16 +36,19 @@ class TableMaker extends Maker
         return $this;
     }
 
-    public function row(AbstractPaginator|Arrayable|array $row): TableMaker
+    public function row(AbstractPaginator|Arrayable|array $row, ?callable $map = null): TableMaker
     {
         if ($row instanceof AbstractPaginator) {
             $this->paginate = $row;
-            $this->rows = collect($row->items());
-
-            return $this;
+            $this->rows = collect();
+            $row = $row->items();
         }
 
-        $this->rows->push(...collect($row)->flatten());
+        $row = collect($row)->flatten()->when(!is_null($map), function (Collection $row) use ($map) {
+            return $row->map($map);
+        });
+
+        $this->rows->push(...$row);
 
         return $this;
     }

@@ -14,7 +14,7 @@
     <table>
         <thead>
             <tr>
-                @foreach ($headers as $h => $label)
+                @foreach ($headers as $label)
                     <th>{{ $label }}</th>
                 @endforeach
                 @if ($actions)
@@ -44,7 +44,7 @@
         </tbody>
         <tfoot>
             <tr>
-                @foreach ($headers as $h => $label)
+                @foreach ($headers as $label)
                     <th>{{ $label }}</th>
                 @endforeach
                 @if ($actions)
