@@ -28,6 +28,19 @@
 <body>
     <div id="loading"><span></span></div>
     <div class="container">
+        @if (isset($button) && $button->buttonType == 'modal')
+            <div>
+                @php
+                    $button->modal->customKey = 'panel-menu-button';
+                    $hiddenButton = clone $button;
+                    $hiddenButton->hidden = true;
+                    $button->modal->open = true;
+                @endphp
+
+                @include('panel::button.index', ['button' => $hiddenButton])
+            </div>
+        @endif
+
         <div class="top-menu justify-content-between">
             <div class="d-flex align-items-center gap-3">
                 <button onclick="toggleSidebar('{{ $dir }}')"><i class="fas fa-bars"></i></button>
