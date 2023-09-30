@@ -74,8 +74,8 @@ class TableMaker extends Maker
     {
         $this->data->put('view', view('panel::table', [
             'headers' => $this->headers->toArray(),
-            'rows' => $this->rows->toArray(),
             'actions' => $this->actions?->toArray(),
+            'rows' => $this->rows,
             'primaryKey' => $this->primaryKey,
             'paginate' => $this->paginate,
         ]));
