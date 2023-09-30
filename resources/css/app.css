@@ -124,7 +124,6 @@
 
 .nav-group>.nav-link>i {
     transition: 0.15s;
-    margin-right: 2px;
 }
 
 .nav-group>.nav-link:not(.collapsed)>i {
@@ -138,7 +137,6 @@
     flex-direction: column;
     gap: 4px;
     margin-top: 6px;
-    padding-left: 8px;
 }
 
 .nav-group .items>.nav-link,
@@ -154,7 +152,6 @@
     background: var(--theme-color);
     display: block;
     position: absolute;
-    left: 0;
 }
 
 .bottom-sidebar a {

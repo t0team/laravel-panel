@@ -17,3 +17,16 @@
 .btn-close-menu {
     left: 16px;
 }
+
+.nav-group>.nav-link>i {
+    transform: rotate(180deg);
+    margin-left: 2px;
+}
+
+.nav-group .items {
+    padding-right: 8px;
+}
+
+.nav-group .items::before {
+    right: 0;
+}

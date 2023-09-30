@@ -17,3 +17,15 @@
 .btn-close-menu {
     right: 16px;
 }
+
+.nav-group>.nav-link>i {
+    margin-right: 2px;
+}
+
+.nav-group .items {
+    padding-left: 8px;
+}
+
+.nav-group .items::before {
+    left: 0;
+}
