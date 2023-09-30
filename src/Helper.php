@@ -29,4 +29,15 @@ class Helper
             return $carry?->{$item->value()};
         }, $data);
     }
+
+    public static function needed(mixed $data, array $needed): array
+    {
+        if (empty($data)) return $needed;
+
+        return collect($needed)
+            ->map(fn ($need) => self::value($data, $need))
+            ->filter()
+            ->values()
+            ->toArray();
+    }
 }
