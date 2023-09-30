@@ -2,91 +2,65 @@
 
 namespace T0team\LaravelPanel\Controllers\Makers;
 
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Pagination\AbstractPaginator;
+use Illuminate\Support\Collection;
 use T0team\LaravelPanel\Controllers\Button;
 
 class TableMaker extends Maker
 {
-    private array $headers;
+    private Collection $headers;
+    private Collection $rows;
+    private ?Collection $actions = null;
     private string $primaryKey = 'id';
-    private array $rows = [];
-    private false|array $actions = false;
     private $paginate = false;
 
     public function make(array $headers): static
     {
         if (empty($headers)) throw new \Exception('Headers can not be empty');
 
-        $this->headers = $headers;
+        $this->headers = collect($headers);
+        $this->rows = collect();
 
         return $this;
     }
 
-    public function header(string $key, string $label): TableMaker
+    public function header(Arrayable|array|string $key, ?string $value = null): TableMaker
     {
-        $this->headers[$key] = $label;
-
-        return $this;
-    }
-
-    public function headers(array $headers): TableMaker
-    {
-        foreach ($headers as $key => $label) {
-            $this->header($key, $label);
+        if (is_string($key)) {
+            $key = [$key => $value];
         }
 
+        $this->headers = $this->headers->merge($key);
+
         return $this;
     }
 
-    public function paginate(LengthAwarePaginator $paginate, callable $mapForRows = null): self
+    public function row(AbstractPaginator|Arrayable|array $row): TableMaker
     {
-        $this->paginate = $paginate;
+        if ($row instanceof AbstractPaginator) {
+            $this->paginate = $row;
+            $this->rows = collect($row->items());
 
-        $this->rows = [];
-        if ($mapForRows) {
-            $this->rows($paginate->map($mapForRows));
-        } else {
-            $this->rows($paginate);
+            return $this;
         }
 
+        $this->rows->push(...collect($row)->flatten());
+
         return $this;
     }
 
-    public function action(Button $button): self
+    public function action(Button $button): TableMaker
     {
-        $this->actions[] = $button->get();
+        if (is_null($this->actions)) $this->actions = collect();
+
+        $this->actions->push($button->get());
 
         return $this;
     }
 
-    public function rows($rows): self
-    {
-        foreach ($rows as $row) {
-            $this->row($row);
-        }
-
-        return $this;
-    }
-
-    public function row($row): self
-    {
-        if (!is_array($row)) {
-            $row = $row->toArray();
-        }
-
-        if (isset($row[0]) && (is_array($row[0]) || is_object($row[0]))) {
-            $this->rows($row);
-        } else {
-            $this->rows[] = $row;
-        }
-
-        return $this;
-    }
-
-    /**
-     * Define the primary key of the table. Default is 'id'.
-     */
-    public function setPrimaryKey(string $key): self
+    /** Define the primary key of the table. Default is 'id'. */
+    public function setPrimaryKey(string $key): TableMaker
     {
         $this->primaryKey = $key;
 
@@ -95,12 +69,12 @@ class TableMaker extends Maker
 
     protected function beforeRender()
     {
-        $this->data['view'] = view('panel::table', [
-            'headers' => $this->headers,
+        $this->data->put('view', view('panel::table', [
+            'headers' => $this->headers->toArray(),
+            'rows' => $this->rows->toArray(),
+            'actions' => $this->actions?->toArray(),
             'primaryKey' => $this->primaryKey,
-            'rows' => $this->rows,
-            'actions' => $this->actions,
-            'paginate' => $this->paginate ?? false,
-        ]);
+            'paginate' => $this->paginate,
+        ]));
     }
 }

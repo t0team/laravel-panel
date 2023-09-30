@@ -15,20 +15,6 @@ class Panel
         $this->config = config('panel');
     }
 
-    public function ltr(): Panel
-    {
-        $this->config['direction'] = 'ltr';
-
-        return $this;
-    }
-
-    public function rtl(): Panel
-    {
-        $this->config['direction'] = 'rtl';
-
-        return $this;
-    }
-
     public function view(string $view): ViewMaker
     {
         return ViewMaker::as($this->config)->make($view);
@@ -42,5 +28,19 @@ class Panel
     public function form(string $routeNameOrUrl, array $routeNeeded = [], string $method = 'POST'): FormMaker
     {
         return FormMaker::as($this->config)->make($routeNameOrUrl, $routeNeeded, $method);
+    }
+
+    public function ltr(): Panel
+    {
+        $this->config['direction'] = 'ltr';
+
+        return $this;
+    }
+
+    public function rtl(): Panel
+    {
+        $this->config['direction'] = 'rtl';
+
+        return $this;
     }
 }
