@@ -8,7 +8,7 @@
     id="{{ $input->id }}"
     name="{{ $input->name }}"
     class="form-control @error($input->name) is-invalid @enderror {{ implode(' ', $input->classes) }}"
-    value="{{ $input->value ?? '' }}"
+    value="{{ $input->withOldValue ? old($input->name, $input->value ?? '') : $input->value ?? '' }}"
     placeholder="{{ $input->placeholder ?? '' }}"
     size="{{ $input->size ?? '' }}"
     minlength="{{ $input->minlength ?? '' }}"

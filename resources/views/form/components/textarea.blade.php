@@ -16,7 +16,9 @@
     {{ $input->disabled ? 'disabled' : '' }} 
     {{ $input->readonly ? 'readonly' : '' }}
     {{ $input->autofocus ? 'autofocus' : '' }} 
-    >{{ $input->value ?? '' }}</textarea>
+>
+{{ $input->withOldValue ? old($input->name, $input->value ?? '') : $input->value ?? '' }}
+</textarea>
 
 @error($input->name)
     <span class="invalid-feedback">
