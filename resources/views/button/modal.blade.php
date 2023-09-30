@@ -27,7 +27,6 @@
     @endif
 
     {{ $button->label }}
-
 </button>
 
 @if (!$modal->open)
