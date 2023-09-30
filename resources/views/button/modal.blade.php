@@ -48,14 +48,11 @@
                             if (strpos($modal->form->address, 'http') === 0) {
                                 $formAddress = $modal->form->address;
                             } else {
-                                foreach ($modal->form->needed as $need) {
-                                    if (isset($row[$need])) {
-                                        $formNeededs[] = $row[$need];
-                                    }
-                                }
+                                $formNeededs = T0team\LaravelPanel\Helper::needed($row ?? [], $modal->form->needed);
+                            
                                 $formAddress = route($modal->form->address, $formNeededs ?? [], false);
-
-                                if($modal->form->method == 'GET'){
+                            
+                                if ($modal->form->method == 'GET') {
                                     $formMethod = 'GET';
                                     $laravelMethod = 'GET';
                                 } else {
@@ -64,8 +61,8 @@
                                 }
                             }
                         @endphp
-                        <form action="{{ $formAddress }}" method="{{ $formMethod }}"
-                            enctype="multipart/form-data" id="form_{{ $uniqueId }}">
+                        <form action="{{ $formAddress }}" method="{{ $formMethod }}" enctype="multipart/form-data"
+                            id="form_{{ $uniqueId }}">
                             @csrf
                             @method($laravelMethod)
                     @endif
