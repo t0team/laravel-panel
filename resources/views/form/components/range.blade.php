@@ -8,7 +8,7 @@
     id="{{ $input->id }}"
     name="{{ $input->name }}"
     class="form-range @error($input->name) is-invalid @enderror"
-    value="{{ $input->value ?? '' }}"
+    value="{{ $input->withOldValue ? old($input->name, $input->value ?? '') : $input->value ?? '' }}"
     min="{{ $input->min ?? '' }}"
     max="{{ $input->max ?? '' }}"
     step="{{ $input->step ?? '' }}"
