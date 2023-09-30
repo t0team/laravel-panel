@@ -97,17 +97,7 @@
 
                             @case('input')
                                 @php
-                                    $value = null;
-                                    if (isset($body['input']->tableProperty)) {
-                                        $value = $row;
-                                        foreach (explode('->', $body['input']->tableProperty) as $p) {
-                                            if (isset($value[$p])) {
-                                                $value = $value[$p];
-                                            } else {
-                                                $value = null;
-                                            }
-                                        }
-                                    }
+                                    $value = T0team\LaravelPanel\Helper::value($row, $body['input']?->tableProperty);
                                 @endphp
                                 <div class="mb-3">
                                     @include("panel::form.components.{$body['input']->file}", [
@@ -120,15 +110,18 @@
                             @break
 
                             @case('tableProperty')
-                                @isset($row[$body['property']])
+                                @php
+                                    $property = T0team\LaravelPanel\Helper::value($row, $body['property']);
+                                @endphp
+                                @if (!is_null($property))
                                     @if ($body['htmlTag'])
                                         <{{ $body['htmlTag'] }}>
                                     @endif
-                                    {!! $row[$body['property']] !!}
+                                    {!! $property !!}
                                     @if ($body['htmlTag'])
                                         </{{ $body['htmlTag'] }}>
                                     @endif
-                                @endisset
+                                @endif
                             @break
                         @endswitch
                     @endforeach
