@@ -90,21 +90,25 @@
                 <div class="bottom-sidebar">
                     <hr>
                     @if (strtolower($config['logout']['method']) == 'post')
-                        <a class="nav-link d-flex align-items-center gap-2"
-                            onclick="document.getElementById('logout-form').submit();">
-                            <i class="fa-light fa-sign-out-alt"></i>
-                            <span>Logout</span>
-                        </a>
+                        <button onclick="document.getElementById('logout-form').submit();"
+                            class="nav-link d-flex align-items-center gap-2">
+                            <div class="nav-button">
+                                <i class="fa-light fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </div>
+                        </button>
 
                         <form id="logout-form" action="{{ route($config['logout']['route']) }}" method="POST"
                             class="d-none">
                             @csrf
                         </form>
                     @else
-                        <a class="nav-link d-flex align-items-center gap-2"
-                            href="{{ route($config['logout']['route']) }}">
-                            <i class="fa-light fa-sign-out-alt"></i>
-                            <span>Logout</span>
+                        <a href="{{ route($config['logout']['route']) }}"
+                            class="nav-link d-flex align-items-center gap-2">
+                            <div class="nav-button">
+                                <i class="fa-light fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </div>
                         </a>
                     @endif
                 </div>
