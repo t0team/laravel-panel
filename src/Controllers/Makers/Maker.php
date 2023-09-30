@@ -3,6 +3,7 @@
 namespace T0team\LaravelPanel\Controllers\Makers;
 
 use Illuminate\Contracts\View\View as ViewContracts;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 use T0team\LaravelPanel\Enums\Color;
 use T0team\LaravelPanel\Traits\MakerTrait;
@@ -12,25 +13,30 @@ class Maker
     use MakerTrait;
 
     private ViewContracts $panel;
-    protected array $data = [];
+    protected Collection $data;
 
-    protected function handle(array $config)
+    public static function as(array $config): static
+    {
+        return new static(collect($config));
+    }
+
+    private function __construct(Collection $config)
     {
         $this->panel = View::make("panel::index");
 
-        $this->data = [
+        $this->data = collect([
             'config' => $config,
-            'direction' => $config['direction'] ?? 'ltr',
-            'badge' => $config['badge'] ?? null,
-            'theme' => $this->getTheme($config),
-            'user' => $this->getUserInfo($config),
-            'items' => $this->getSidebarItems($config['sidebar']),
-        ];
+            'dir' => $config->get('direction', 'ltr'),
+            'badge' => $config->get('badge'),
+            'theme' => $this->getTheme($config->get('theme')),
+            'user' => $this->getUserInfo($config->get('user')),
+            'items' => $this->getSidebarItems($config->get('sidebar')),
+        ]);
     }
 
-    private function getTheme(array $config): string
+    private function getTheme(?string $theme): string
     {
-        $theme = $config['theme'] ?? "#2962ff";
+        $theme = $theme ?? "#2962ff";
         $theme = str_replace('#', '', $theme);
 
         sscanf($theme, "%02x%02x%02x", $r, $g, $b);
@@ -38,48 +44,45 @@ class Maker
         return "{$r} {$g} {$b}";
     }
 
-    private function getUserInfo(array $config): object|null
+    private function getUserInfo(?array $params): ?object
     {
         if (!auth()->check()) return null;
 
         $user = auth()->user();
-        $params = $config['user'];
-
-        // get all params
-        foreach (explode(',', $params['name']) as $item) {
-            $names[] = $user->$item;
-        }
 
         return (object) [
-            'name' => implode(' ', $names) ?? null,
-            'side' => $user->{$params['side']} ?? null,
-            'email' => $user->{$params['email']} ?? null,
-            'image' => $user->{$params['image']} ?? null
+            'name' => collect(explode(',', $params['name']))->map(fn ($i) => $user->{$i})->implode(' '),
+            'side' => $user?->{$params['side']},
+            'email' => $user?->{$params['email']},
+            'image' => $user?->{$params['image']},
         ];
     }
 
-    private function getSidebarItems(array $items): array
+    private function getSidebarItems(?array $items): array
     {
         return collect($items)
             ->map(function ($item) {
-                return match ($item['type'] ?? 'item') {
-                    'group' => $this->handleSidebarGroup($item),
-                    'item' => $this->handleSidebarItem($item),
-                    'module' => $this->handleSidebarModule($item['module']),
-                    default => throw new \Exception("Invalid sidebar item type: [{$item['type']}]"),
+                return match (true) {
+                    isset($item['group']) => $this->handleSidebarGroup($item),
+                    isset($item['item']) => $this->handleSidebarItem($item),
+                    isset($item['module']) => $this->handleSidebarModule($item['module']),
+
+                    default => throw new \Exception("Sidebar should include [group, item, module] key."),
                 };
             })
             ->filter()
             ->toArray();
     }
 
-    private function handleSidebarGroup(array $data): object|null
+    private function handleSidebarGroup(array $data): ?object
     {
+        $items = $this->getSidebarItems($data['items']);
         return (object) [
-            'type' => 'group',
-            'name' => $data['name'],
+            'group' => true,
+            'name' => $data['group'],
             'icon' => $data['icon'],
-            'items' => $this->getSidebarItems($data['items']),
+            'active' => collect($items)->pluck('active')->contains(true),
+            'items' => $items,
         ];
     }
 
@@ -95,14 +98,14 @@ class Maker
 
         return (object) [
             'url' => $url,
-            'name' => $item['name'],
+            'name' => $item['item'],
             'icon' => $item['icon'],
             'active' => in_array(request()->route()->getName(), [$item['route'], ...$item['activeIn'] ?? []]),
             'badge' => $badge ?? false,
         ];
     }
 
-    private function handleSidebarModule(string $name): object|null
+    private function handleSidebarModule(string $name): ?object
     {
         // check application use modules
         if (!class_exists(\Nwidart\Modules\Facades\Module::class)) {

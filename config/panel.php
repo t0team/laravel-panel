@@ -87,7 +87,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This option defines the items for panel sidebar.
-    | You can use multiple types: item, module (default: item)
+    | You can use multiple key type: group, item, module
     | If you use module, you can set module in params.
     | Also you can set route, name, icon, and activeIn,
     | Icon is from fontawesome6 icon.
@@ -102,9 +102,8 @@ return [
 
     'sidebar' => [
         [
-            'type' => 'item',
+            'item' => 'Dashboard',
             'route' => 'welcome',
-            'name' => 'Dashboard',
             'icon' => 'fa-light fa-home-lg-alt',
             'activeIn' => ['welcome'],
 
@@ -116,25 +115,18 @@ return [
         ],
 
         // [
-        //     'type' => 'module',
         //     'module' => 'TestModule',
         // ],
 
         // [
-        //     'type' => 'group',
-        //     'name' => 'Test Group',
+        //     'group' => 'Test Group',
         //     'icon' => 'fa-light fa-home-lg-alt',
         //     'items' => [
         //         [
-        //             'type' => 'item',
+        //             'item' => 'Dashboard',
         //             'route' => 'welcome',
-        //             'name' => 'Dashboard',
         //             'icon' => 'fa-light fa-home-lg-alt',
         //             'activeIn' => ['welcome'],
-        //         ],
-        //         [
-        //             'type' => 'module',
-        //             'module' => 'TestModule',
         //         ],
         //     ],
         // ]

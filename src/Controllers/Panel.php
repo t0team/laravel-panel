@@ -18,27 +18,29 @@ class Panel
     public function ltr(): Panel
     {
         $this->config['direction'] = 'ltr';
+
         return $this;
     }
 
     public function rtl(): Panel
     {
         $this->config['direction'] = 'rtl';
+
         return $this;
     }
 
     public function view(string $view): ViewMaker
     {
-        return new ViewMaker($view, $this->config);
+        return ViewMaker::as($this->config)->make($view);
     }
 
     public function table(array $headers): TableMaker
     {
-        return new TableMaker($headers, $this->config);
+        return TableMaker::as($this->config)->make($headers);
     }
 
     public function form(string $routeNameOrUrl, array $routeNeeded = [], string $method = 'POST'): FormMaker
     {
-        return new FormMaker($routeNameOrUrl, $routeNeeded, $method, $this->config);
+        return FormMaker::as($this->config)->make($routeNameOrUrl, $routeNeeded, $method);
     }
 }

@@ -9,7 +9,7 @@ trait MakerTrait
     public function title(string $title): static
     {
         if ($title != null && $title != '') {
-            $this->data['title'] = $title;
+            $this->data->put('title', $title);
         }
 
         return $this;
@@ -17,7 +17,7 @@ trait MakerTrait
 
     public function button(Button $button): static
     {
-        $this->data['button'] = $button->get();
+        $this->data->put('button', $button->get());
 
         return $this;
     }
@@ -35,7 +35,7 @@ trait MakerTrait
     {
         $this->beforeRender();
 
-        $this->panel->with($this->data);
+        $this->panel->with($this->data->toArray());
 
         return $this->panel->render();
     }

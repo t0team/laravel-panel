@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="{{ $direction }}">
+<html dir="{{ $dir }}">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="/vendor/panel/css/app.css">
     <link rel="stylesheet" href="/vendor/panel/css/typographies/{{ $config['font'] ?? '' }}.css">
-    <link rel="stylesheet" href="/vendor/panel/css/{{ $direction }}.css">
+    <link rel="stylesheet" href="/vendor/panel/css/{{ $dir }}.css">
 
     <title>
         @if (isset($title))
@@ -30,7 +30,7 @@
     <div class="container">
         <div class="top-menu justify-content-between">
             <div class="d-flex align-items-center gap-3">
-                <button onclick="toggleSidebar('{{ $direction }}')"><i class="fas fa-bars"></i></button>
+                <button onclick="toggleSidebar('{{ $dir }}')"><i class="fas fa-bars"></i></button>
                 @if (isset($title))
                     <h2 class="fs-4 gap-2 mb-0">{{ $title }}</h2>
                 @endif
@@ -43,11 +43,11 @@
             @endif
         </div>
 
-        <div class="sb-shadow" id="sb-shadow" style="display: none;" onclick="toggleSidebar('{{ $direction }}')">
+        <div class="sb-shadow" id="sb-shadow" style="display: none;" onclick="toggleSidebar('{{ $dir }}')">
         </div>
 
-        <div class="sidebar" style="{{ $direction == 'rtl' ? 'right' : 'left' }}:-280px;" id="sidebar">
-            <button class="btn-close-menu" onclick="toggleSidebar('{{ $direction }}')"><i
+        <div class="sidebar" style="{{ $dir == 'rtl' ? 'right' : 'left' }}:-280px;" id="sidebar">
+            <button class="btn-close-menu" onclick="toggleSidebar('{{ $dir }}')"><i
                     class="fa-light fa-times"></i></button>
             <div class="top-sidebar">
                 <div class="user-info">
@@ -65,7 +65,7 @@
                 <hr>
                 <div class="d-flex flex-column gap-2 overflow-hidden">
                     @foreach ($items as $item)
-                        @if (($item->type ?? 'item') == 'group')
+                        @if ($item->group ?? false)
                             <x-panel::sidebar.group :item="$item" :index="$loop->index" />
                         @else
                             <x-panel::sidebar.item :item="$item" />
@@ -106,7 +106,7 @@
                             <h2 class="d-flex gap-2 flex-row align-items-center">
                                 <span style="padding:0;">{{ $config['title'] }}</span>
                                 <i style="font-size: 18px;"
-                                    class="fas fa-chevron-{{ $direction == 'rtl' ? 'left' : 'right' }}"></i>
+                                    class="fas fa-chevron-{{ $dir == 'rtl' ? 'left' : 'right' }}"></i>
                                 <b>{{ $title }}</b>
                             </h2>
                         @endif

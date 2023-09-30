@@ -104,7 +104,7 @@
     align-items: center;
     width: 100%;
     border-radius: 5px;
-    padding: 8px 12px;
+    padding: 8px 10px;
 }
 
 .nav-button {
@@ -136,14 +136,14 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     margin-top: 6px;
     padding-left: 8px;
 }
 
 .nav-group .items>.nav-link,
 .items>.nav-group>.nav-link {
-    padding: 4px 12px;
+    padding: 5px 8px;
 }
 
 .nav-group .items::before {

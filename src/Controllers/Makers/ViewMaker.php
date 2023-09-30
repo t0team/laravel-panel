@@ -8,18 +8,16 @@ use Illuminate\Support\Facades\View;
 
 class ViewMaker extends Maker
 {
-    private string $viewName;
+    private string $view;
     private Collection $with;
 
-    public function __construct(string $view, array $config)
+    public function make(string $view): static
     {
         if (!View::exists($view)) {
             throw new \Exception("View [{$view}] does not exist");
         }
 
-        $this->handle($config);
-
-        $this->viewName = $view;
+        $this->view = $view;
 
         return $this;
     }
@@ -37,6 +35,6 @@ class ViewMaker extends Maker
 
     protected function beforeRender()
     {
-        $this->data['view'] = view($this->viewName, $this->with);
+        $this->data->put('view', view($this->view, $this->with));
     }
 }

@@ -13,13 +13,9 @@ class TableMaker extends Maker
     private false|array $actions = false;
     private $paginate = false;
 
-    public function __construct(array $headers, array $config)
+    public function make(array $headers): static
     {
-        $this->handle($config);
-
-        if ($headers == []) {
-            throw new \Exception('Headers can not be empty');
-        }
+        if (empty($headers)) throw new \Exception('Headers can not be empty');
 
         $this->headers = $headers;
 
