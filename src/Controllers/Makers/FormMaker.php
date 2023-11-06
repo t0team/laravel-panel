@@ -64,11 +64,17 @@ class FormMaker extends Maker
         return $this;
     }
 
-    protected function beforeRender()
+    /** return the view of the form */
+    public function toView()
     {
-        $this->data['view'] = view('panel::form.index', [
+        return view('panel::form.index', [
             'form' => (object)$this->form,
             'groups' => $this->groups,
         ]);
+    }
+
+    protected function beforeRender()
+    {
+        $this->data['view'] = $this->toView();
     }
 }

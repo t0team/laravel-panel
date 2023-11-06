@@ -70,14 +70,20 @@ class TableMaker extends Maker
         return $this;
     }
 
-    protected function beforeRender()
+    /** return the view of the table */
+    public function toView()
     {
-        $this->data->put('view', view('panel::table', [
+        return view('panel::table', [
             'headers' => $this->headers->toArray(),
             'actions' => $this->actions?->toArray(),
             'rows' => $this->rows,
             'primaryKey' => $this->primaryKey,
             'paginate' => $this->paginate,
-        ]));
+        ]);
+    }
+
+    protected function beforeRender()
+    {
+        $this->data->put('view', $this->toView());
     }
 }
