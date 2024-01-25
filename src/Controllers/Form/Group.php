@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Collection;
 namespace T0team\LaravelPanel\Controllers\Form;
 
 class Group
@@ -29,7 +30,7 @@ class Group
         return $this;
     }
 
-    public function inputs(array $inputs): Group
+    public function inputs(Collection|array $inputs): Group
     {
         foreach ($inputs as $input) {
             $this->input($input);

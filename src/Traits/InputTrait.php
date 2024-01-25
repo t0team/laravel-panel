@@ -2,6 +2,7 @@
 
 namespace T0team\LaravelPanel\Traits;
 
+use Illuminate\Support\Collection;
 use T0team\LaravelPanel\Controllers\Form\Option;
 
 trait InputTrait
@@ -205,7 +206,7 @@ trait InputTrait
         return $this;
     }
 
-    public function options(array $options): self
+    public function options(Collection|array $options): self
     {
         foreach ($options as $option) {
             $this->option($option);
@@ -214,7 +215,7 @@ trait InputTrait
         return $this;
     }
 
-    protected function addClass(string $class): self
+    public function addClass(string $class): self
     {
         $this->classes[] = $class;
 
