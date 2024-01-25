@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Collection;
 namespace T0team\LaravelPanel\Controllers\Form;
+
+use Illuminate\Support\Collection;
 
 class Group
 {
