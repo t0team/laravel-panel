@@ -7,7 +7,7 @@
 <select
     id="{{ $input->id }}"
     name="{{ $input->name }}"
-    class="form-select @error($input->name) is-invalid @enderror"
+    class="form-select {{ implode(' ', $input->classes) }} @error($input->name) is-invalid @enderror"
     {{ $input->required ? 'required' : '' }}
     {{ $input->disabled ? 'disabled' : '' }}
     {{ $input->readonly ? 'readonly' : '' }}

@@ -2,7 +2,7 @@
     <input type="checkbox"
         id="{{ $input->id }}"
         name="{{ $input->name }}"
-        class="form-check-input @error($input->name) is-invalid @enderror"
+        class="form-check-input {{ implode(' ', $input->classes) }} @error($input->name) is-invalid @enderror"
         value="{{ $input->value ?? 'on' }}"
         {{ $input->required ? 'required' : '' }}
         {{ $input->disabled ? 'disabled' : '' }}

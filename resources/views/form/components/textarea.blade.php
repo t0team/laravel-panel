@@ -7,7 +7,7 @@
 <textarea
     id="{{ $input->id }}"
     name="{{ $input->name }}" 
-    class="form-control @error($input->name) is-invalid @enderror" 
+    class="form-control {{ implode(' ', $input->classes) }} @error($input->name) is-invalid @enderror" 
     rows="{{ $input->rows ?? '' }}"
     cols="{{ $input->cols ?? '' }}"
     placeholder="{{ $input->placeholder ?? '' }}"

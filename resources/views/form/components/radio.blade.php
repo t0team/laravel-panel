@@ -3,7 +3,7 @@
         <input type="radio"
             id="{{ $input->id . '_' . $loop->index }}"
             name="{{ $input->name }}"
-            class="form-check-input @error($input->name) is-invalid @enderror"
+            class="form-check-input {{ implode(' ', $input->classes) }} @error($input->name) is-invalid @enderror"
             value="{{ $option->value }}"
             {{ $option->required ? 'required' : '' }}
             {{ $option->disabled ? 'disabled' : '' }} 

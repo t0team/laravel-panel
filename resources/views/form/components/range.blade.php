@@ -7,7 +7,7 @@
 <input type="range"
     id="{{ $input->id }}"
     name="{{ $input->name }}"
-    class="form-range @error($input->name) is-invalid @enderror"
+    class="form-range {{ implode(' ', $input->classes) }} @error($input->name) is-invalid @enderror"
     value="{{ $input->withOldValue ? old($input->name, $input->value ?? '') : $input->value ?? '' }}"
     min="{{ $input->min ?? '' }}"
     max="{{ $input->max ?? '' }}"
