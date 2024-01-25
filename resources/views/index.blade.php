@@ -155,6 +155,18 @@
     </div>
 
     <script src="/vendor/panel/js/app.js"></script>
+
+    @isset($scripts)
+        <!-- start custom scripts -->
+        @foreach ($scripts as $script)
+            @if ($script['isUrl'])
+                <script src="{{ $script['content'] }}"></script>
+            @else
+                <script>{!! $script['content'] !!}</script>
+            @endif
+        @endforeach
+        <!-- end custom scripts -->
+    @endisset
 </body>
 
 </html>

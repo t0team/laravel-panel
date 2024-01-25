@@ -22,6 +22,20 @@ trait MakerTrait
         return $this;
     }
 
+    public function script(string $script): static
+    {
+        $scripts = $this->data->get('scripts', []);
+
+        $scripts[] = [
+            'isUrl' => $this->isUrl($script),
+            'content' => $script,
+        ];
+
+        $this->data->put('scripts', $scripts);
+
+        return $this;
+    }
+
     protected function isUrl(string $url): bool
     {
         return strpos($url, 'http') !== false;
