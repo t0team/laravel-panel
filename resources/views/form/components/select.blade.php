@@ -17,7 +17,7 @@
     @foreach ($input->options as $option)
         <option
             value="{{ $option->value ?? '' }}"
-            {{ $option->selected ? 'selected' : '' }}
+            {{ ($option->selected || $input?->value == $option?->value) ? 'selected' : '' }}
             {{ $option->disabled ? 'disabled' : '' }}
         >
             {{ $option->label }}
