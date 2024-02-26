@@ -1,4 +1,4 @@
-<a class="nav-link {{ $item->active ? 'active' : '' }}" href="{{ $item->url }}">
+<a class="nav-link {{ $item->active ? 'active' : '' }}" href="{{ $item->url }}" {{ $item->newTab ? 'target="_blank"' : '' }}>
     <div class="nav-button">
         <i class="{{ $item->icon }}"></i>
         <span>{{ $item->name }}</span>

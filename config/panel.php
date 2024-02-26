@@ -124,7 +124,9 @@ return [
         //     'items' => [
         //         [
         //             'item' => 'Dashboard',
+        //             'url' => 'http://localhost',
         //             'route' => 'welcome',
+        //             'newTab' => false,
         //             'icon' => 'fa-light fa-home-lg-alt',
         //             'activeIn' => ['welcome'],
         //         ],

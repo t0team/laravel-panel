@@ -4,6 +4,7 @@ namespace T0team\LaravelPanel\Controllers\Makers;
 
 use Illuminate\Contracts\View\View as ViewContracts;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use T0team\LaravelPanel\Enums\Color;
 use T0team\LaravelPanel\Traits\MakerTrait;
@@ -86,12 +87,13 @@ class Maker
         ];
     }
 
-    private function handleSidebarItem(array $item): object
+    private function handleSidebarItem(array $item): ?object
     {
         // get route url
-        $url = route($item['route']);
+        $url = $this->getItemUrl($item);
+        if (is_null($url)) return null;
 
-        // check module has badge
+        // check item has badge
         if (isset($item['badge'])) {
             $badge = $this->handleBadge($item['badge']);
         }
@@ -100,9 +102,25 @@ class Maker
             'url' => $url,
             'name' => $item['item'],
             'icon' => $item['icon'],
-            'active' => in_array(request()->route()->getName(), [$item['route'], ...$item['activeIn'] ?? []]),
+            'active' => in_array(request()->route()->getName(), [$item['route'] ?? [], ...$item['activeIn'] ?? []]),
             'badge' => $badge ?? false,
+            'newTab' => $item['newTab'] ?? false,
         ];
+    }
+
+    private function getItemUrl(array $item): ?string
+    {
+        // check route exists
+        if (isset($item['route']) && Route::has($item['route'])) {
+            return route($item['route']);
+        }
+
+        // check url exists
+        if (isset($item['url'])) {
+            return $item['url'];
+        }
+
+        return null;
     }
 
     private function handleSidebarModule(string $name): ?object
