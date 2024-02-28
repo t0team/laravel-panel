@@ -95,7 +95,7 @@
 
                             @case('input')
                                 @php
-                                    $value = T0team\LaravelPanel\Helper::value($row, $body['input']?->tableProperty);
+                                    $value = T0team\LaravelPanel\Helper::value($row, $body['input']?->tableProperty) ?? $body['input']?->value;
                                 @endphp
                                 <div class="mb-3">
                                     @include("panel::form.components.{$body['input']->file}", [
