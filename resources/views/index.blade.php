@@ -150,6 +150,18 @@
                     </div>
                 @endif
             </div>
+            @if (session('success'))
+                <div class="alert alert-success mb-3">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger mb-3">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             {!! $view !!}
         </div>
     </div>
