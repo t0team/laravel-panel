@@ -2,13 +2,18 @@
 
 namespace T0team\LaravelPanel;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Helper
 {
-    public static function value(mixed $data, ?string $key): mixed
+    public static function value(mixed $data, mixed $key): mixed
     {
         if (is_null($key)) return null;
+
+        if ($key instanceof Model) {
+            return $key?->getKey();
+        }
 
         return collect(explode('->', $key))->reduce(function ($carry, string $item) {
             $item = Str::of($item)->trim();
