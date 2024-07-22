@@ -82,6 +82,23 @@ return [
     ],
 
     /*
+    |--------------------------------------------------------------------------
+    | Show Maintenance Mode
+    |--------------------------------------------------------------------------
+    |
+    | This option defines the maintenance mode for panel.
+    | You can set show, message, and color.
+    | colors is From Color Enum.
+    |
+    */
+
+    'maintenance' => [
+        'show' => false,
+        'message' => 'Maintenance Mode is active!',
+        'color' => Color::DANGER,
+    ],
+
+    /*
     |------------------------------- -------------------------------------------
     | Panel Items
     |--------------------------------------------------------------------------

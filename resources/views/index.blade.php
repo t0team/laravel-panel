@@ -86,9 +86,15 @@
                     @endforeach
                 </div>
             </div>
-            @if (auth()->check())
-                <div class="bottom-sidebar">
-                    <hr>
+            <div class="bottom-sidebar mt-3">
+                @if ($config['maintenance']['show'] && app()->maintenanceMode()->active())
+                    <div class="badge text-bg-{{ $config['maintenance']['color'] ?? 'danger' }} py-2 w-100 mb-2"
+                        style="white-space: normal;">
+                        {{ $config['maintenance']['message'] ?? 'Maintenance Mode is active!' }}
+                    </div>
+                @endif
+                @if (auth()->check())
+                    <hr class="mt-0">
                     @if (strtolower($config['logout']['method']) == 'post')
                         <button onclick="document.getElementById('logout-form').submit();"
                             class="nav-link d-flex align-items-center gap-2">
@@ -111,8 +117,8 @@
                             </div>
                         </a>
                     @endif
-                </div>
-            @endif
+                @endif
+            </div>
         </div>
 
         <div class="content">
