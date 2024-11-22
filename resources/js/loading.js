@@ -11,5 +11,5 @@ setTimeout(function loadfun() {
             fadeTarget.style.opacity = '';
             fadeTarget.style.display = 'none';
         }
-    }, 2);
-}, 200);
+    }, 1);
+}, 50);
